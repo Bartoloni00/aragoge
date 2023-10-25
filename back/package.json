@@ -1,0 +1,26 @@
+{
+  "name": "aragoge",
+  "version": "1.0.0",
+  "description": "Marketplace que conecta a Atletas con especialistas del deporte ya sean nutricionistas, entrenadores o terapeutas.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "node --watch index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "www.github.com/Bartoloni00/aragoge"
+  },
+  "keywords": [
+    "[nodejs",
+    "marketplace",
+    "mysql",
+    "sports]"
+  ],
+  "author": "Jonathan Abraham Bartoloni, Ezequiel Thomas Arevalo",
+  "license": "ISC",
+  "dependencies": {
+    "express": "4.18.2",
+    "mysql2": "3.6.2"
+  }
+}
