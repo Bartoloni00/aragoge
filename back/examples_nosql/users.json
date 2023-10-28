@@ -1,0 +1,38 @@
+[
+    {
+        "name":"Abraham",
+        "lastname":"Bartoloni",
+        "email": "bartoloniabraham@gmail.com",
+        "password":"1234",
+        "image":"https://picsum.photos/400/225",
+        "alt":"descripcion de la imagen",
+        "rol":"admin"
+    },
+    {
+        "name":"Ezequiel",
+        "lastname":"Arevalo",
+        "email": "arevaloezequiel@gmail.com",
+        "password":"1234",
+        "image":"https://picsum.photos/400/225",
+        "alt":"descripcion de la imagen",
+        "rol":"admin"
+    },
+    {
+        "name":"Juan",
+        "lastname":"gomez",
+        "email": "gomezjuan@gmail.com",
+        "password":"1234",
+        "image":"https://picsum.photos/400/225",
+        "alt":"descripcion de la imagen",
+        "rol":"atleta"
+    },
+    {
+        "name":"Hany",
+        "lastname":"Rambod",
+        "email": "rambodhany@gmail.com",
+        "password":"1234",
+        "image":"https://picsum.photos/400/225",
+        "alt":"descripcion de la imagen",
+        "rol":"profesional"
+    }
+]

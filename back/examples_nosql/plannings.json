@@ -1,0 +1,16 @@
+[
+    {
+        "title": "Programa de Powerlifting Intensivo",
+        "description": "¡Potencia tu rendimiento en powerlifting con mi programa intensivo! Diseñado para atletas de todos los niveles, este plan te llevará a través de técnicas avanzadas, entrenamiento de fuerza y estrategias de competencia. Te guiaré paso a paso para que alcances tus metas de levantamiento y superes tus límites. Únete a este desafío y descubre tu verdadero potencial en el powerlifting.",
+        "subscribers": 4,
+        "price": 12334,
+        "image":"https://picsum.photos/400/225",
+        "alt":"descripcion de la imagen",
+        "category": "powerlifting", 
+        "profesional": {
+            "id": "653ab688b767888b31dfea42",
+            "name": "Hany",
+            "lastname": "Rambod"
+        }
+    }
+]
