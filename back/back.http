@@ -1,7 +1,0 @@
-### Recuperar todos los profesionales
-GET http://localhost:3333/profesional/
-
-// TODO: FILTRAR POR especialidad
-
-### Recuperar por el id del profesional
-GET http://localhost:3333/profesional/653ab94db767888b31dfea49
