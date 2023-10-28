@@ -1,0 +1,36 @@
+### Recuperar todos los usuarios
+GET http://localhost:3333/users/
+
+### Recuperar por el id del usuario
+GET http://localhost:3333/users/653d7747a72c3c247e1956b1
+
+### Crear un usuario
+POST http://localhost:3333/users/
+Content-Type: application/json
+
+{
+    "name":"Julian",
+    "lastname":"Alvares",
+    "email": "alvares@gmail.com",
+    "password":"1234",
+    "image":"https://picsum.photos/400/225",
+    "alt":"descripcion de la imagen",
+    "rol":"profesional"
+}
+
+### Eliminar un usuario
+DELETE http://localhost:3333/users/653ab688b767888b31dfea41
+
+### Actualizar datos de un usuario
+PATCH http://localhost:3333/users/653d7747a72c3c247e1956b1
+Content-Type: application/json
+
+{
+    "name":"edit",
+    "lastname":"ado",
+    "email": "editado@gmail.com",
+    "password":"1234",
+    "image":"https://picsum.photos/400/225",
+    "alt":"descripcion de la imagen",
+    "rol":"atleta"
+}

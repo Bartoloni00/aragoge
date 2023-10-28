@@ -1,6 +1,7 @@
 import { profesionalModel } from "../models/profesionalModel.js"
 
-export class profesionalController {
+export class profesionalController 
+{
     /**
      * Obtiene todas las cervezas o las cervezas de un tipo específico.
      * @param {object} req - Objeto de solicitud HTTP.
@@ -60,6 +61,13 @@ export class profesionalController {
                 res.status(500).json({"message": `Ocurrio un error al eliminar al profesional: ${err}`})
             })
     }
+
+    /**
+     * Obtiene todas las cervezas o las cervezas de un tipo específico.
+     * @param {object} req - Objeto de solicitud HTTP.
+     * @param {object} res - Objeto de respuesta HTTP.
+     * @returns {Promise<void>} - No devuelve un valor directamente, pero envía una respuesta JSON al cliente.
+     */
     static async update(req, res)
     {
         const id = req.params.id

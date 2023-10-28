@@ -44,10 +44,10 @@ export class profesionalModel
     {
         try {
             await db.collection('professionals').deleteOne({ _id: new ObjectId(id) })
+            return {'message': `El profesional con el id: ${id} fue eliminado exitosamente`}
         } catch (error) {
             return {'message': `El profesional con el id: ${id} no pudo ser eliminado`, error}
         }
-        return {'message': `El profesional con el id: ${id} fue eliminado exitosamente`}
     }
 
     static async update({id, datos})
