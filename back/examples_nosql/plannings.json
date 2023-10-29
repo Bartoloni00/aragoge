@@ -10,7 +10,8 @@
         "profesional": {
             "id": "653ab688b767888b31dfea42",
             "name": "Hany",
-            "lastname": "Rambod"
+            "lastname": "Rambod",
+            "especialiti": "entrenador"
         }
     }
 ]

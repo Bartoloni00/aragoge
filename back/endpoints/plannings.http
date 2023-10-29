@@ -1,0 +1,48 @@
+### Recuperar todos los usuarios
+GET http://localhost:3333/planning/
+
+### Recuperar por el id del usuario
+GET http://localhost:3333/planning/653ace2db767888b31dfea59
+
+### Crear un usuario
+POST http://localhost:3333/planning/
+Content-Type: application/json
+
+{
+    "title": "creado",
+    "description": "creado",
+    "subscribers": 9,
+    "price": 40309,
+    "image":"https://picsum.photos/400/225",
+    "alt":"descripcion de la imagen",
+    "category": "powerlifting", 
+    "profesional": {
+        "id": "653ab688b767888b31dfea42",
+        "name": "Hany",
+        "lastname": "Rambod",
+        "especialiti": "entrenador"
+    }
+}
+
+### Eliminar un usuario
+DELETE http://localhost:3333/planning/653eeb68df16b7c1baac9a1e
+
+### Actualizar datos de un usuario
+PATCH http://localhost:3333/planning/653eeb68df16b7c1baac9a1e
+Content-Type: application/json
+
+{
+    "title": "editado",
+    "description": "editado",
+    "subscribers": 4,
+    "price": 9999,
+    "image":"https://picsum.photos/400/225",
+    "alt":"descripcion de la imagen",
+    "category": "powerlifting", 
+    "profesional": {
+        "id": "653ab688b767888b31dfea42",
+        "name": "Hany",
+        "lastname": "Rambod",
+        "especialiti": "entrenador"
+    }
+}
