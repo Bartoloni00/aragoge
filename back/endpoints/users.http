@@ -9,9 +9,9 @@ POST http://localhost:3333/users/
 Content-Type: application/json
 
 {
-    "name":"Julian",
-    "lastname":"Alvares",
-    "email": "alvares@gmail.com",
+    "name":"Lionel",
+    "lastname":"Messi",
+    "email": "messi@gmail.com",
     "password":"1234",
     "image":"https://picsum.photos/400/225",
     "alt":"descripcion de la imagen",
@@ -22,7 +22,7 @@ Content-Type: application/json
 DELETE http://localhost:3333/users/653ab688b767888b31dfea41
 
 ### Actualizar datos de un usuario
-PATCH http://localhost:3333/users/653d7747a72c3c247e1956b1
+PATCH http://localhost:3333/users/6542ec6a36aadc36e1b94d1c
 Content-Type: application/json
 
 {

@@ -29,7 +29,7 @@ export class profesionalModel
             "alt": profesional.alt ?? "Banner de entrenador",
             "subscribers": profesional.subscribers ?? 0,
             "user": "653ab688b767888b31dfea42", // esto tendra que ser una conexion de 1 a 1 por lo que no lo tocare hasta tener los usuarios
-            "especialiti": "entrenador" // esto tambien tiene una relacion con la coleccion specialities
+            "especialiti": profesional.especialiti // esto tambien tiene una relacion con la coleccion specialities
         } 
         try {
             const profesional = await db.collection('professionals').insertOne(newProfesional)
@@ -52,18 +52,17 @@ export class profesionalModel
 
     static async update({id, datos})
     {
+        const updateProfesional = {
+            "description": datos.description,
+            "synopsis": datos.synopsis,
+            "banner": datos.banner ?? "https://picsum.photos/400/225",
+            "alt": datos.alt ?? "Banner de entrenador",
+            "subscribers": datos.subscribers ?? 0,
+            "especialiti": datos.especialiti // esto tambien tiene una relacion con la coleccion specialities
+        } 
         try {
-            const updateProfesional = {
-                "description": datos.description,
-                "synopsis": datos.synopsis,
-                "banner": datos.banner ?? "https://picsum.photos/400/225",
-                "alt": datos.alt ?? "Banner de entrenador",
-                "subscribers": datos.subscribers ?? 0,
-                "especialiti": datos.especialidad // esto tambien tiene una relacion con la coleccion specialities
-            } 
-    
-            const result = await db.collection('professionals').updateOne({ _id: new ObjectId(id) }, { $set: updateProfesional });
-            return result;
+            await db.collection('professionals').updateOne({ _id: new ObjectId(id) }, { $set: updateProfesional });
+            return updateProfesional;
         } catch (error) {
             return {'error': `ocurrio un error al editar al profesional: ${error}`}
         }

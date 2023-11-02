@@ -36,12 +36,13 @@ export class PlanningModel
                 "especialiti": datos.profesional.especialiti
             }
         }
+    
         try {
             const planning = await db.collection('plannings').insertOne(newPlanning)
             newPlanning._id = planning.insertedId
             return newPlanning
         } catch (error) {
-            return {"message": `La planificacion no pudo ser creada: ${error}`}
+            throw Error(`La planificacion no pudo ser creada: ${error}`)
         }
     }
 

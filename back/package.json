@@ -3,10 +3,11 @@
   "version": "1.0.0",
   "description": "Marketplace que conecta a Atletas con especialistas del deporte ya sean nutricionistas, entrenadores o terapeutas.",
   "main": "index.js",
-  "type":"module",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "node --watch index.js"
+    "dev": "node --watch index.js",
+    "dev1": "node index.js"
   },
   "repository": {
     "type": "git",
@@ -22,6 +23,7 @@
   "license": "ISC",
   "dependencies": {
     "express": "4.18.2",
-    "mongodb": "6.2.0"
+    "mongodb": "6.2.0",
+    "zod": "3.22.4"
   }
 }

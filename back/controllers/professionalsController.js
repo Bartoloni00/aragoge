@@ -1,4 +1,5 @@
 import { profesionalModel } from "../models/profesionalModel.js"
+import { validateProfesional, validatePartialProfesional } from "../schemas/profesional.js"
 
 export class profesionalController 
 {
@@ -35,7 +36,11 @@ export class profesionalController
      */
     static async create(req, res)
     {
-        profesionalModel.create({profesional: req.body})
+        const newProfesional = validateProfesional(req.body)
+        if (newProfesional.error) {
+            return res.status(422).json({error: JSON.parse(result.error).message})
+        }
+        profesionalModel.create({profesional: newProfesional.data})
         .then(createdProfessional => {
             res.status(201).send(createdProfessional)
         })
@@ -71,7 +76,11 @@ export class profesionalController
     static async update(req, res)
     {
         const id = req.params.id
-        profesionalModel.update({id: id, datos: req.body})
+        const editProfesional = validatePartialProfesional(req.body)
+        if (editProfesional.error) {
+            return res.status(422).json({error: JSON.parse(result.error).message})
+        }
+        profesionalModel.update({id: id, datos: editProfesional.data})
             .then(updateProfesional => {
                 res.status(200).json({"message": `Profesional editado exitosamente: ${id}`, updateProfesional})
             })

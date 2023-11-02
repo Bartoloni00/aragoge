@@ -1,10 +1,10 @@
-### Recuperar todos los usuarios
+### Recuperar todas las planificaciones
 GET http://localhost:3333/planning/
 
-### Recuperar por el id del usuario
+### Recuperar por el id de la planificacion
 GET http://localhost:3333/planning/653ace2db767888b31dfea59
 
-### Crear un usuario
+### Crear una publicacion
 POST http://localhost:3333/planning/
 Content-Type: application/json
 
@@ -24,11 +24,11 @@ Content-Type: application/json
     }
 }
 
-### Eliminar un usuario
-DELETE http://localhost:3333/planning/653eeb68df16b7c1baac9a1e
+### Eliminar una publicacion
+DELETE http://localhost:3333/planning/6542e691e3077efb6c537672
 
-### Actualizar datos de un usuario
-PATCH http://localhost:3333/planning/653eeb68df16b7c1baac9a1e
+### Actualizar datos de una publicacion
+PATCH http://localhost:3333/planning/6542e6cb7f09f34a82a60c4b
 Content-Type: application/json
 
 {
