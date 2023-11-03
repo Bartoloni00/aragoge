@@ -7,7 +7,7 @@ export class PlanningController
     {
         const planificacion = await PlanningModel.getAll()
         if(planificacion) return res.json(planificacion)
-        res.status(404).json({message: 'Planning not found'})
+        res.status(404).json({'Error': 'Planning not found'})
     }
 
     static async getByID(req, res)
@@ -18,7 +18,9 @@ export class PlanningController
             .then(data => {
                 res.send(data)
             })
-            .catch(err=>res.status(500).json({"message": `Ocurrio un erro al obtener la planificacion: ${err}`}))
+            .catch(err=>{
+                res.status(404).json({"Error": err.message})
+            })
     }
 
     static async create(req, res)
@@ -32,7 +34,7 @@ export class PlanningController
                 res.status(201).send(createdPlanning)
             })
             .catch(err => {
-                res.status(500).json({'message': 'Error al intentar crear la planificacion', err})
+                res.status(400).json({'Error': err.message})
             })
     }
 
@@ -47,7 +49,7 @@ export class PlanningController
             res.json(data)
         })
         .catch(err => {
-            res.status(500).json({'message': `Error al intentar editar la planificacion, ${err}`})
+            res.status(400).json({'Error': err.message})
         })
     }
 
@@ -58,7 +60,7 @@ export class PlanningController
             res.json(data)
         })
         .catch(err=>{
-            res.status(500).json({'message': `Error al intentar eliminar la planificacion: ${req.params.id}`, err})
+            res.status(400).json({'Error': err.message})
         })
     }
 }

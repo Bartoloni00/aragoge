@@ -15,7 +15,7 @@ export class PlanningModel
         try {
             return db.collection('plannings').findOne({_id: new ObjectId(id)})
         } catch (error) {
-            return {"message": 'Ocurrio un error al intentar obtener el documento','error': error}
+            throw new Error(`La planificacion con el id: ${id} no pudo ser encontrada`)
         }
     }
 
@@ -67,7 +67,7 @@ export class PlanningModel
             await db.collection('plannings').updateOne({_id: new ObjectId(id)}, {$set: editPlanning})
             return editPlanning
         } catch (error) {
-            return {'error': `ocurrio un error al editar los datos de la planificacion: ${error}`}
+            throw new Error(`ocurrio un error al editar los datos de la planificacion: ${error}`)
         }
     }
 
@@ -77,7 +77,7 @@ export class PlanningModel
             await db.collection('plannings').deleteOne({ _id: new ObjectId(id) })
             return {'message': `La planificacion con el id: ${id} fue eliminada exitosamente`}
         } catch (error) {
-            return {'message': `La planificacion con el id: ${id} no pudo ser eliminada`, error}
+            throw new Error(`La planificacion con el id: ${id} no pudo ser eliminada`)
         }
     }
 }

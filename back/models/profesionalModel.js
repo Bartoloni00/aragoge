@@ -16,7 +16,7 @@ export class profesionalModel
         try {
             return db.collection('professionals').findOne({_id: new ObjectId(id)})
         } catch (error) {
-            return {"message": 'Ocurrio un error al intentar obtener el documento','error': error}
+            throw new Error(`El profesional con el id: ${id} no pudo ser encontrado`)
         }
     }
 
@@ -36,7 +36,7 @@ export class profesionalModel
             newProfesional._id = profesional.insertedId 
             return newProfesional
         } catch (error) {
-            return {"message": `No se ha podido agregar al profesional en la base de datos ${error}`}
+            throw new Error(`No se ha podido agregar al profesional en la base de datos ${error}`)
         }
     }
 
@@ -46,7 +46,7 @@ export class profesionalModel
             await db.collection('professionals').deleteOne({ _id: new ObjectId(id) })
             return {'message': `El profesional con el id: ${id} fue eliminado exitosamente`}
         } catch (error) {
-            return {'message': `El profesional con el id: ${id} no pudo ser eliminado`, error}
+            throw new Error(`El profesional con el id: ${id} no pudo ser eliminado`)
         }
     }
 
@@ -64,7 +64,7 @@ export class profesionalModel
             await db.collection('professionals').updateOne({ _id: new ObjectId(id) }, { $set: updateProfesional });
             return updateProfesional;
         } catch (error) {
-            return {'error': `ocurrio un error al editar al profesional: ${error}`}
+            throw new Error(`ocurrio un error al editar al profesional: ${error}`)
         }
     }
 }
