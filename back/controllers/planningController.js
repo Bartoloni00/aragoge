@@ -5,9 +5,13 @@ export class PlanningController
 {
     static async listAll(req, res)
     {
-        const planificacion = await PlanningModel.getAll()
-        if(planificacion) return res.json(planificacion)
-        res.status(404).json({'Error': 'Planning not found'})
+        let filtros = req.query
+        const planificacion = await PlanningModel.getAll({filtros: filtros})
+        if (planificacion && planificacion.length >= 1) {
+            return res.json(planificacion);
+        } else {
+            return res.status(404).json({ 'Error': 'Planning not found' });
+        }
     }
 
     static async getByID(req, res)

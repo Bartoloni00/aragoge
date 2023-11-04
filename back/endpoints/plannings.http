@@ -1,6 +1,24 @@
 ### Recuperar todas las planificaciones
 GET http://localhost:3333/planning/
 
+### Filtrar por title
+GET http://localhost:3333/planning?title=Programa
+
+### Filtrar por price:
+GET http://localhost:3333/planning?pricemin=7000&pricemax=13000
+
+### Filtrar por Category
+GET http://localhost:3333/planning?category=running
+
+### Filtrar por subscribers:
+GET http://localhost:3333/planning?subscribersmin=5&subscribersmax=9
+
+### Filtrar por categoria del profesional
+GET http://localhost:3333/planning?especialiti=entrenador
+
+### Todos los filtros
+http://localhost:3333/planning?title=Programa&pricemin=10000&pricemax=15000&category=powerlifting&subscribersmin=1&subscribersmax=5&especialiti=entrenador
+
 ### Recuperar por el id de la planificacion
 GET http://localhost:3333/planning/653ace2db767888b31dfea59
 
@@ -15,7 +33,7 @@ Content-Type: application/json
     "price": 40309,
     "image":"https://picsum.photos/400/225",
     "alt":"descripcion de la imagen",
-    "category": "powerlifting", 
+    "category": "running", 
     "profesional": {
         "id": "653ab688b767888b31dfea42",
         "name": "Hany",

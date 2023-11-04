@@ -5,9 +5,49 @@ const db = client.db('aragoge')
 
 export class PlanningModel
 {
-    static async getAll()
+    static async getAll({filtros})
     {
-        return db.collection('plannings').find().toArray()
+        let filtrosArmados = {}
+
+        // Filtro por titulo
+        if( filtros.title ){
+            filtrosArmados.$text = { $search: filtros.title }
+          }
+
+        // Filtro por categoria
+        if(filtros.category){
+            filtrosArmados.category = filtros.category
+        }
+
+        //Filtro por price
+        if (filtros.pricemin && filtros.pricemax) {
+            filtrosArmados.price = {$gte: parseInt(filtros.pricemin),$lte: parseInt(filtros.pricemax)}
+        }
+        else if (filtros.pricemin) {
+            filtrosArmados.price = {$gte: parseInt(filtros.pricemin)}
+        }
+        else if (filtros.pricemax) {
+            filtrosArmados.price = {$lte: parseInt(filtros.pricemax)}
+        }
+
+        // Filtro por subscribers
+        if (filtros.subscribersmin && filtros.subscribersmax) {
+            filtrosArmados.subscribers = {$gte: parseInt(filtros.subscribersmin),$lte: parseInt(filtros.subscribersmax)}
+        }
+        else if (filtros.subscribersmin) {
+            filtrosArmados.subscribers = {$gte: parseInt(filtros.subscribersmin)}
+        }
+        else if (filtros.subscribersmax) {
+            filtrosArmados.subscribers = {$lte: parseInt(filtros.subscribersmax)}
+        }
+
+        // Filtro por especialidad del entrenador
+        if (filtros && filtros.especialiti) {
+            filtrosArmados["profesional.especialiti"] = filtros.especialiti;
+        }
+        // filtrosArmados.profesional.especitiy devolvia esto: { profesional: { especialiti: 'entrenador' } }
+        // por eso tuve que armar un array para generar esto: { "profesional.especialiti": 'entrenador' }
+        return db.collection('plannings').find(filtrosArmados).toArray()
     }
 
     static async getByID({id})
