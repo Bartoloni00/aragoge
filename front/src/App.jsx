@@ -1,14 +1,10 @@
-import { Header } from "./components/header";
-import { Main } from "./components/Main";
-import { Footer } from "./components/footer";
-
+import Layout from "./components/Layout.jsx";
+import { Outlet } from "react-router-dom";
 function App() {
   return (
-    <>
-      <Header />
-      <Main vista="index.html"/>
-      <Footer />
-    </>
+    <Layout>
+      <Outlet />
+    </Layout>
   )
 }
 

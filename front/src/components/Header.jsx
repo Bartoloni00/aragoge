@@ -1,8 +1,10 @@
-import { Navbar } from "./Navbar"
-export const Header = () => {
+import Navbar from "./Navbar.jsx"
+const Header = () => {
   return (
-    <header className="flex place-content-between items-center mb-14">
+    <header className="flex place-content-between items-center w-full">
         <Navbar />
     </header>
   )
 }
+
+export default Header

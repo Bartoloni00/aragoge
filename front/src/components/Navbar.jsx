@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
-export const Navbar = () => {
+const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -16,24 +17,31 @@ export const Navbar = () => {
           </div>
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-4">
-              <a
-                href="#"
+              <Link to="/home"
                 className="text-neutral-600 dark:text-neutral-200 px-3 py-2 rounded-md"
               >
-                Inicio
-              </a>
-              <a
-                href="#"
+                Home
+              </Link>
+              <Link to="/contact"
                 className="text-neutral-600 dark:text-neutral-200 px-3 py-2 rounded-md"
               >
-                Perfil
-              </a>
-              <a
-                href="#"
+                Contact
+              </Link>
+              <Link to="/marketplace"
                 className="text-neutral-600 dark:text-neutral-200 px-3 py-2 rounded-md"
               >
-                Configuración
-              </a>
+                Marketplace
+              </Link>
+              <Link to="/login"
+                className="text-neutral-600 dark:text-neutral-200 px-3 py-2 rounded-md"
+              >
+                Login
+              </Link>
+              <Link to="/register"
+                className="text-neutral-600 dark:text-neutral-200 px-3 py-2 rounded-md"
+              >
+                Register
+              </Link>
             </div>
           </div>
           <div className="md:hidden">
@@ -66,24 +74,31 @@ export const Navbar = () => {
         {isMenuOpen ? (
           <div className="md:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-              <a
-                href="#"
-                className="text-neutral-600 dark:text-neutral-200 block px-3 py-2 rounded-md"
+              <Link to="/home"
+                className="text-neutral-600 dark:text-neutral-200 px-3 py-2 rounded-md"
               >
-                Inicio
-              </a>
-              <a
-                href="#"
-                className="text-neutral-600 dark:text-neutral-200 block px-3 py-2 rounded-md"
+                Home
+              </Link>
+              <Link to="/contact"
+                className="text-neutral-600 dark:text-neutral-200 px-3 py-2 rounded-md"
               >
-                Perfil
-              </a>
-              <a
-                href="#"
-                className="text-neutral-600 dark:text-neutral-200 block px-3 py-2 rounded-md"
+                Contact
+              </Link>
+              <Link to="/marketplace"
+                className="text-neutral-600 dark:text-neutral-200 px-3 py-2 rounded-md"
               >
-                Configuración
-              </a>
+                Marketplace
+              </Link>
+              <Link to="/login"
+                className="text-neutral-600 dark:text-neutral-200 px-3 py-2 rounded-md"
+              >
+                Login
+              </Link>
+              <Link to="/register"
+                className="text-neutral-600 dark:text-neutral-200 px-3 py-2 rounded-md"
+              >
+                Register
+              </Link>
             </div>
           </div>
         ) : null}
@@ -91,3 +106,5 @@ export const Navbar = () => {
     </nav>
   );
 };
+
+export default Navbar
