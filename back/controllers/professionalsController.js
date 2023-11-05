@@ -13,7 +13,7 @@ export class profesionalController
     {
         const profesional = await profesionalModel.getAll()
         if(profesional) return res.json(profesional)
-        res.status(404).json({message: 'Profesional not found'})
+        res.status(404).json({'Error': 'Profesional not found'})
     }
 
     /**
@@ -25,7 +25,13 @@ export class profesionalController
     static async getByID(req, res)
     {
         const id = req.params.id
-        res.send(await profesionalModel.getByID({id: id}))
+        profesionalModel.getByID({id: id})
+            .then(data => {
+                res.send(data)
+            })
+            .catch(err => {
+                res.status(404).json({'Error': err.message})
+            })
     }
 
     /**
@@ -45,7 +51,7 @@ export class profesionalController
             res.status(201).send(createdProfessional)
         })
         .catch(err => {
-            res.status(500).json({"message": "Error al intentar agregar al profesional", err})
+            res.status(400).json({"Error": err.message})
         })
     }
 
@@ -63,7 +69,7 @@ export class profesionalController
                 res.status(200).json({"message": json})
             })
             .catch(err => {
-                res.status(500).json({"message": `Ocurrio un error al eliminar al profesional: ${err}`})
+                res.status(400).json({"Error": err.message})
             })
     }
 
@@ -85,7 +91,7 @@ export class profesionalController
                 res.status(200).json({"message": `Profesional editado exitosamente: ${id}`, updateProfesional})
             })
             .catch(err => {
-                res.status(500).json({"message": `ocurrio un error al editar al profesional`, err})
+                res.status(400).json({"Error": err.message})
             })
     }
 }

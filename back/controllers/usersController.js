@@ -6,7 +6,7 @@ export class UserController {
     {
         const user = await UserModel.getAll()
         if(user) return res.json(user)
-        res.status(404).json({message: 'User not found'})
+        res.status(404).json({'Error': 'User not found'})
     }
     static async getByID(req, res)
     {
@@ -16,7 +16,7 @@ export class UserController {
                 res.status(200).send(user)
             })
             .catch(err => {
-                res.status(500).json({'Error': `Ocurrio un error al buscar al usuario: ${id}`, err})
+                res.status(404).json({'Error': err.message})
             })
     }
     static async create(req, res)
@@ -30,7 +30,7 @@ export class UserController {
                 res.status(200).send(user)
             })
             .catch(err => {
-                res.status(500).json({"message": "Error al intentar agregar al usuario", err})
+                res.status(400).json({"Error": err.message})
             })
     }
     
@@ -42,11 +42,10 @@ export class UserController {
         }
         UserModel.update({id: req.params.id, datos: editUser.data})
             .then(data => {
-                console.log('controller');
                 res.json(data)
             })
             .catch(err => {
-                res.status(500).json({'message': `Error al intentar editar al usuario`, err})
+                res.status(400).json({'Error': err.message})
             })
     }
     static async delete(req, res)
@@ -56,7 +55,7 @@ export class UserController {
                 res.json(data)
             })
             .catch(err=>{
-                res.status(500).json({'message': `Error al intentar eliminar al usuario`, err})
+                res.status(400).json({'Error': err.message})
             })
     }
 }

@@ -12,7 +12,11 @@ export class UserModel
 
     static async getByID({id})
     {
-        return db.collection('users').findOne({_id: new ObjectId(id)})
+       try {
+            return db.collection('users').findOne({_id: new ObjectId(id)})
+       } catch (error) {
+            throw new Error(`El usuario con el id: ${id} no pudo ser encontrado`)
+       }
     }
 
     static async create ({datos})
@@ -31,7 +35,7 @@ export class UserModel
             newUser._id = user.insertedId 
             return newUser
         } catch (error) {
-            return {"message": `El usuario no pudo ser creado: ${error}`}
+            throw new Error(`El usuario no pudo ser creado: ${error}`)
         }
     }
 
@@ -51,7 +55,7 @@ export class UserModel
             await db.collection('users').updateOne({_id: new ObjectId(id)}, {$set: editUser})
             return editUser
         } catch (error) {
-            return {'error': `ocurrio un error al editar los datos del usuarios: ${error}`}
+            throw new Error(`ocurrio un error al editar los datos del usuarios: ${error}`)
         }
     }
 
@@ -61,7 +65,7 @@ export class UserModel
             await db.collection('users').deleteOne({_id: new ObjectId(id)})
             return {'message':  `El usuario con el id: ${id} fue eliminado exitosamente`}
         } catch (error) {
-            return {'message': `El usuario con el id: ${id} no pudo ser eliminado`, error}
+            throw new Error(`El usuario con el id: ${id} no pudo ser eliminado`)
         }
        
     }
