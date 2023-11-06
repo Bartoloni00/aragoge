@@ -27,11 +27,6 @@ const Navbar = () => {
               >
                 Contact
               </Link>
-              <Link to="/marketplace"
-                className="text-neutral-600 dark:text-neutral-200 px-3 py-2 rounded-md"
-              >
-                Marketplace
-              </Link>
               <Link to="/login"
                 className="text-neutral-600 dark:text-neutral-200 px-3 py-2 rounded-md"
               >
@@ -74,7 +69,7 @@ const Navbar = () => {
         {isMenuOpen ? (
           <div className="md:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-              <Link to="/home"
+            <Link to="/home"
                 className="text-neutral-600 dark:text-neutral-200 px-3 py-2 rounded-md"
               >
                 Home
@@ -83,11 +78,6 @@ const Navbar = () => {
                 className="text-neutral-600 dark:text-neutral-200 px-3 py-2 rounded-md"
               >
                 Contact
-              </Link>
-              <Link to="/marketplace"
-                className="text-neutral-600 dark:text-neutral-200 px-3 py-2 rounded-md"
-              >
-                Marketplace
               </Link>
               <Link to="/login"
                 className="text-neutral-600 dark:text-neutral-200 px-3 py-2 rounded-md"

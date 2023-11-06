@@ -22,8 +22,9 @@ export class UserController {
     static async create(req, res)
     {
         const createUser = validateUser(req.body)
+        console.log(req.body);
         if (createUser.error) {
-            return res.status(422).json({error: JSON.parse(result.error).message})
+            return res.status(422).json({error: JSON.parse(createUser.error).message})
         }
         UserModel.create({datos: createUser.data})
             .then(user => {
@@ -38,7 +39,7 @@ export class UserController {
     {
         const editUser = validatePartialUser(req.body)
         if (editUser.error) {
-            return res.status(422).json({error: JSON.parse(result.error).message})
+            return res.status(422).json({error: JSON.parse(editUser.error).message})
         }
         UserModel.update({id: req.params.id, datos: editUser.data})
             .then(data => {
