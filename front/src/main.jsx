@@ -13,6 +13,7 @@ const routes = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+    errorElement: <Error404 />,
     children: [
       {
         path: "/home",
@@ -35,10 +36,6 @@ const routes = createBrowserRouter([
         element: <Contact />
       },
     ]
-  },
-  {
-    path: "*",
-    element: <Error404 />
   }
 ])
 

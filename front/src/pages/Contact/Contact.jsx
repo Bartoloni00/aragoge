@@ -11,7 +11,7 @@ export const Contact = () => {
           </p>
         </div>
         <div className="lg:w-1/2 md:w-2/3 mx-auto">
-          <form action="gracias.php" method="POST" enctype="multipart/form-data">
+          <form action="gracias.php" method="POST" encType="multipart/form-data">
             <div className="flex flex-wrap -m-2">
               <div className="p-2 w-1/2">
                 <div className="relative">
@@ -56,15 +56,12 @@ export const Contact = () => {
             </div>
           </form>
           <div className="p-2 w-full pt-8 mt-8 border-t border-gray-200 text-center">
-            <a className="text-indigo-500" href="mailto:ezearevalodev@gmail.com">ezearevalodev@gmail.com</a>
-            <p className="leading-normal my-5">49 Smith St. Saint Cloud, MN 56301</p>
+            <a className="text-indigo-500" href="mailto:contacto@aragoge.org">contacto@aragoge.org</a>
+            <p className="leading-normal my-5">Av. Corrientes 2037/49 </p>
             <span className="inline-flex">
               <a className="text-gray-500">
                 <svg
                   fill="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
                   className="w-5 h-5"
                   viewBox="0 0 24 24"
                 >
@@ -74,9 +71,6 @@ export const Contact = () => {
               <a className="ml-4 text-gray-500">
                 <svg
                   fill="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
                   className="w-5 h-5"
                   viewBox="0 0 24 24"
                 >
@@ -87,9 +81,6 @@ export const Contact = () => {
                 <svg
                   fill="none"
                   stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
                   className="w-5 h-5"
                   viewBox="0 0 24 24"
                 >
@@ -100,9 +91,6 @@ export const Contact = () => {
               <a className="ml-4 text-gray-500">
                 <svg
                   fill="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
                   className="w-5 h-5"
                   viewBox="0 0 24 24"
                 >
