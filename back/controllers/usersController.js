@@ -28,7 +28,7 @@ export class UserController {
         }
         UserModel.create({datos: createUser.data})
             .then(user => {
-                res.status(200).send(user)
+                res.status(201).send(user)
             })
             .catch(err => {
                 res.status(400).json({"Error": err.message})

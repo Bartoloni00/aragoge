@@ -1,11 +1,11 @@
 ### Recuperar todos los usuarios
-GET http://localhost:3333/users/
+GET http://localhost:3333/api/users/
 
 ### Recuperar por el id del usuario
-GET http://localhost:3333/users/653d7747a72c3c247e1956b1
+GET http://localhost:3333/api/users/653d7747a72c3c247e1956b1
 
 ### Crear un usuario
-POST http://localhost:3333/users/create
+POST http://localhost:3333/api/users/
 Content-Type: application/json
 
 {
@@ -19,10 +19,10 @@ Content-Type: application/json
 }
 
 ### Eliminar un usuario
-POST http://localhost:3333/users/delete/654fe950219c7e15c965145d
+DELETE http://localhost:3333/api/users/653ab688b767888b31dfea41
 
 ### Actualizar datos de un usuario
-POST http://localhost:3333/users/update/654fe950219c7e15c965145d
+PATCH http://localhost:3333/api/users/6542ec6a36aadc36e1b94d1c
 Content-Type: application/json
 
 {

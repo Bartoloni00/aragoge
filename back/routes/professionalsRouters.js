@@ -7,10 +7,10 @@ ProfesionalRoutes.get('/profesional/', profesionalController.listAll)
 
 ProfesionalRoutes.get('/profesional/:id', profesionalController.getByID)
 
-ProfesionalRoutes.post('/profesional/', profesionalController.create)
+ProfesionalRoutes.post('/profesional/create/', profesionalController.create)
 
-ProfesionalRoutes.delete('/profesional/:id', profesionalController.delete)
+ProfesionalRoutes.post('/profesional/delete/:id', profesionalController.delete)
 
-ProfesionalRoutes.patch('/profesional/:id', profesionalController.update)
+ProfesionalRoutes.post('/profesional/update/:id', profesionalController.update)
 
 export default ProfesionalRoutes

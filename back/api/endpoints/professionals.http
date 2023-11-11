@@ -1,13 +1,13 @@
 ### Recuperar todos los profesionales
-GET http://localhost:3333/profesional/
+GET http://localhost:3333/api/profesional/
 
 // TODO: FILTRAR POR especialidad
 
 ### Recuperar por el id del profesional
-GET http://localhost:3333/profesional/653d38c5ac3041a74fec03cf
+GET http://localhost:3333/api/profesional/653d38c5ac3041a74fec03cf
 
 ### Crear un profesional
-POST http://localhost:3333/profesional/create
+POST http://localhost:3333/api/profesional/
 Content-Type: application/json
 
 {
@@ -21,10 +21,10 @@ Content-Type: application/json
 }
 
 ### Eliminar un profesional
-POST http://localhost:3333/profesional/delete/654fe9a9219c7e15c965145e
+DELETE http://localhost:3333/api/profesional/6542e9dd4cf6d6fbe2bfc2cb
 
 ### Actualizar datos de un profesional
-POST http://localhost:3333/profesional/update/654fe9a9219c7e15c965145e
+PATCH http://localhost:3333/api/profesional/6542ea0d75eb5a4df432f78d
 Content-Type: application/json
 
 {

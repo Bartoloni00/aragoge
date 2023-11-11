@@ -1,0 +1,8 @@
+### Recupera todas las categorias de las planificaciones
+GET http://localhost:3333/api/categories/
+
+### Recupera todos los roles de los usuarios
+GET http://localhost:3333/api/roles/
+
+### Recupera todas las especialidades de los entrenadores
+GET http://localhost:3333/api/specialities/

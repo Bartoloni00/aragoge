@@ -10,11 +10,11 @@ userRoutes.get('/users/', UserController.listAll)
 
 userRoutes.get('/users/:id', UserController.getByID)
 
-userRoutes.post('/users/', UserController.create)
+userRoutes.post('/users/create', UserController.create)
 
-userRoutes.delete('/users/:id', UserController.delete)
+userRoutes.post('/users/delete/:id', UserController.delete)
 
-userRoutes.patch('/users/:id', UserController.update)
+userRoutes.post('/users/update/:id', UserController.update)
 
 userRoutes.use(ProfesionalRoutes)
 userRoutes.use(PlanningRoutes)

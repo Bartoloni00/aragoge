@@ -7,10 +7,10 @@ PlanningRoutes.get('/planning/', PlanningController.listAll)
 
 PlanningRoutes.get('/planning/:id', PlanningController.getByID)
 
-PlanningRoutes.post('/planning/', PlanningController.create)
+PlanningRoutes.post('/planning/create', PlanningController.create)
 
-PlanningRoutes.delete('/planning/:id', PlanningController.delete)
+PlanningRoutes.post('/planning/delete/:id', PlanningController.delete)
 
-PlanningRoutes.patch('/planning/:id', PlanningController.update)
+PlanningRoutes.post('/planning/update/:id', PlanningController.update)
 
 export default PlanningRoutes
