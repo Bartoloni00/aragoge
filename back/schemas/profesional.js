@@ -24,7 +24,7 @@ const ProfesionalSchema = z.object({
   })
 
 export function validateProfesional(object) {
-    return ProfesionalSchema.safeParse(object)
+    return ProfesionalSchema.required().safeParse(object)
 }
 
 export function validatePartialProfesional(object) {

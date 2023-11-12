@@ -1,0 +1,8 @@
+### Loguear usuario
+POST http://localhost:3333/auth/login
+Content-Type: application/json
+
+{
+    "email": "bartoloniabraham@gmail.com",
+    "password":"1234"
+}

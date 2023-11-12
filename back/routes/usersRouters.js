@@ -4,6 +4,7 @@ import ProfesionalRoutes from './professionalsRouters.js'
 import PlanningRoutes from './planningsRouters.js'
 import TipesRoutes from './TipesRouters.js'
 import UserMiddleware from '../middlewares/UserMiddleware.js'
+import AuthRouter from './AuthRoutes.js'
 
 const userRoutes = express.Router()
 
@@ -20,5 +21,6 @@ userRoutes.post('/users/update/:id',[UserMiddleware.partialValidate], UserContro
 userRoutes.use(ProfesionalRoutes)
 userRoutes.use(PlanningRoutes)
 userRoutes.use(TipesRoutes)
+userRoutes.use(AuthRouter)
 
 export default userRoutes

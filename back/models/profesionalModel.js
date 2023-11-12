@@ -23,10 +23,25 @@ export class profesionalModel
     static async create({profesional})
     {
         const newProfesional = profesional
+        const userExist = await db.collection('users').findOne({_id: new ObjectId(newProfesional.user)})
+        if (!userExist) {
+            throw new Error(`El usuario que quiere ser asignado a este profesional no existe`)
+        }
+
+        if (!(userExist.rol == 'profesional')){
+            throw new Error(`El usuario: ${userExist.name} ${userExist.lastname} no posee el rol de profesional`)
+        }
+
+        const existe = await db.collection('professionals').findOne({user: newProfesional.user})
+        
+        if (existe) {
+            throw new Error(`El usuario: ${userExist.name} ${userExist.lastname} ya tiene creado su perfil de profesional.`)
+        }
+
         try {
             const profesional = await db.collection('professionals').insertOne(newProfesional)
             newProfesional._id = profesional.insertedId 
-            return newProfesional
+            return {userExist,newProfesional}
         } catch (error) {
             throw new Error(`No se ha podido agregar al profesional en la base de datos ${error}`)
         }

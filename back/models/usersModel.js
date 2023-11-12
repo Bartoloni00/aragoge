@@ -1,4 +1,5 @@
 import { MongoClient, ObjectId } from "mongodb"
+import bcrypt, { hash } from "bcrypt"
 
 const client = new MongoClient('mongodb+srv://bartoloni:bartoloni@cluster0.hrfhf4t.mongodb.net/')
 const db = client.db('aragoge')
@@ -21,10 +22,22 @@ export class UserModel
 
     static async create ({datos})
     {
+        const newUser = {...datos}
+        const existe = await db.collection('users').findOne({email : newUser.email})
+
+        if (existe) {
+            throw new Error(`El email: ${newUser.email} ya esta asignado a un usuario.`)
+        }
+        
         try {
-            const user = await db.collection('users').insertOne(datos)
-            datos._id = user.insertedId 
-            return datos
+            newUser.password = await bcrypt.hash(newUser.password, 10)
+        } catch (error) {
+            throw new Error(`Ocurrio un error al hashear la contraseña`)
+        }
+        try {
+            const user = await db.collection('users').insertOne(newUser)
+            newUser._id = user.insertedId 
+            return newUser
         } catch (error) {
             throw new Error(`El usuario no pudo ser creado: ${error}`)
         }

@@ -34,7 +34,7 @@ const PlanningSchema = z.object({
 })
 
 export function validatePlanning(object) {
-    return PlanningSchema.safeParse(object)
+    return PlanningSchema.required().safeParse(object)
 }
 
 export function validatePartialPlanning(object) {
