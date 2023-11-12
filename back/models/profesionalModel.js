@@ -22,15 +22,7 @@ export class profesionalModel
 
     static async create({profesional})
     {
-        const newProfesional = {
-            "description": profesional.description,
-            "synopsis": profesional.synopsis,
-            "banner": profesional.banner ?? "https://picsum.photos/400/225",
-            "alt": profesional.alt ?? "Banner de entrenador",
-            "subscribers": profesional.subscribers ?? 0,
-            "user": "653ab688b767888b31dfea42", // esto tendra que ser una conexion de 1 a 1 por lo que no lo tocare hasta tener los usuarios
-            "especialiti": profesional.especialiti // esto tambien tiene una relacion con la coleccion specialities
-        } 
+        const newProfesional = profesional
         try {
             const profesional = await db.collection('professionals').insertOne(newProfesional)
             newProfesional._id = profesional.insertedId 
@@ -52,17 +44,9 @@ export class profesionalModel
 
     static async update({id, datos})
     {
-        const updateProfesional = {
-            "description": datos.description,
-            "synopsis": datos.synopsis,
-            "banner": datos.banner ?? "https://picsum.photos/400/225",
-            "alt": datos.alt ?? "Banner de entrenador",
-            "subscribers": datos.subscribers ?? 0,
-            "especialiti": datos.especialiti // esto tambien tiene una relacion con la coleccion specialities
-        } 
         try {
-            await db.collection('professionals').updateOne({ _id: new ObjectId(id) }, { $set: updateProfesional });
-            return updateProfesional;
+            await db.collection('professionals').updateOne({ _id: new ObjectId(id) }, { $set: datos });
+            return datos;
         } catch (error) {
             throw new Error(`ocurrio un error al editar al profesional: ${error}`)
         }

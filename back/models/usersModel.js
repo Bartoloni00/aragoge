@@ -21,19 +21,10 @@ export class UserModel
 
     static async create ({datos})
     {
-        const newUser = {
-            "name": datos.name,
-            "lastname":datos.lastname,
-            "email": datos.email,
-            "password":datos.password,
-            "image":datos.image ?? "https://picsum.photos/400/225",
-            "alt":datos.alt ?? "descripcion de la imagen",
-            "rol": datos.rol ?? "atleta"
-        }
         try {
-            const user = await db.collection('users').insertOne(newUser)
-            newUser._id = user.insertedId 
-            return newUser
+            const user = await db.collection('users').insertOne(datos)
+            datos._id = user.insertedId 
+            return datos
         } catch (error) {
             throw new Error(`El usuario no pudo ser creado: ${error}`)
         }
@@ -41,19 +32,9 @@ export class UserModel
 
     static async update ({id, datos})
     {
-        const editUser = {
-            "name": datos.name,
-            "lastname":datos.lastname,
-            "email": datos.email,
-            "password":datos.password,
-            "image":datos.image ?? "https://picsum.photos/400/225",
-            "alt":datos.alt ?? "descripcion de la imagen",
-            "rol": datos.rol ?? "atleta"
-        }
-
         try {
-            await db.collection('users').updateOne({_id: new ObjectId(id)}, {$set: editUser})
-            return editUser
+            await db.collection('users').updateOne({_id: new ObjectId(id)}, {$set: datos})
+            return datos
         } catch (error) {
             throw new Error(`ocurrio un error al editar los datos del usuarios: ${error}`)
         }

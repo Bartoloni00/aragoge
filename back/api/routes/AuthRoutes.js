@@ -4,6 +4,6 @@ import {AuthController} from '../../controllers/AuthController.js'
 const AuthRouter = Router()
 
 // El registro de usuarios se encuentra en usersRouters.js
-Router.post('/auth',[],AuthController.login)
+AuthRouter.post('/auth', [] ,AuthController.login)
 
-export default ApiuserRoutes
+export default AuthRouter

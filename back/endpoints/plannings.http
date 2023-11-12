@@ -20,7 +20,7 @@ GET http://localhost:3333/planning?especialiti=entrenador
 http://localhost:3333/planning?title=Programa&pricemin=10000&pricemax=15000&category=powerlifting&subscribersmin=1&subscribersmax=5&especialiti=entrenador
 
 ### Recuperar por el id de la planificacion
-GET http://localhost:3333/planning/6546ab55f4ff6526b5244304
+GET http://localhost:3333/planning/6551216cc3f7faba629804e2
 
 ### Crear una publicacion
 POST http://localhost:3333/planning/create
@@ -46,7 +46,7 @@ Content-Type: application/json
 POST  http://localhost:3333/planning/delete/654fe9d1219c7e15c965145f
 
 ### Actualizar datos de una publicacion
-POST http://localhost:3333/planning/update/654fe9d1219c7e15c965145f
+POST http://localhost:3333/planning/update/6551216cc3f7faba629804e2
 Content-Type: application/json
 
 {

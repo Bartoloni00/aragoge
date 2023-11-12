@@ -4,7 +4,7 @@ GET http://localhost:3333/api/profesional/
 // TODO: FILTRAR POR especialidad
 
 ### Recuperar por el id del profesional
-GET http://localhost:3333/api/profesional/653d38c5ac3041a74fec03cf
+GET http://localhost:3333/api/profesional/65511aaf1b7752ff5ff398f5
 
 ### Crear un profesional
 POST http://localhost:3333/api/profesional/
@@ -24,7 +24,7 @@ Content-Type: application/json
 DELETE http://localhost:3333/api/profesional/6542e9dd4cf6d6fbe2bfc2cb
 
 ### Actualizar datos de un profesional
-PATCH http://localhost:3333/api/profesional/6542ea0d75eb5a4df432f78d
+PATCH http://localhost:3333/api/profesional/65511aaf1b7752ff5ff398f5
 Content-Type: application/json
 
 {

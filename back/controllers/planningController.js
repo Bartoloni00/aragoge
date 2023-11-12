@@ -1,5 +1,4 @@
 import {PlanningModel} from '../models/planningModel.js'
-import { validatePlanning, validatePartialPlanning } from "../schemas/planning.js"
 
 export class PlanningController
 {
@@ -29,11 +28,8 @@ export class PlanningController
 
     static async create(req, res)
     {
-        const newPlanning = validatePlanning(req.body)
-        if (newPlanning.error) {
-            return res.status(422).json({error: JSON.parse(result.error).message})
-        }
-        PlanningModel.create({datos: newPlanning.data})
+
+        PlanningModel.create({datos: req.body})
             .then(createdPlanning => {
                 res.status(201).send(createdPlanning)
             })
@@ -44,11 +40,7 @@ export class PlanningController
 
     static async update(req, res)
     {
-        const editPlanning = validatePartialPlanning(req.body)
-        if (!editPlanning.success) {
-            return res.status(400).json({error: JSON.parse(editPlanning.error.message)})
-        }
-        PlanningModel.update({id: req.params.id, datos: editPlanning.data})
+        PlanningModel.update({id: req.params.id, datos: req.body})
         .then(data => {
             res.json(data)
         })

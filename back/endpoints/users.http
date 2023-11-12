@@ -2,16 +2,16 @@
 GET http://localhost:3333/users/
 
 ### Recuperar por el id del usuario
-GET http://localhost:3333/users/653d7747a72c3c247e1956b1
+GET http://localhost:3333/users/65511d7bc14405d4efecedbe
 
 ### Crear un usuario
 POST http://localhost:3333/users/create
 Content-Type: application/json
 
 {
-    "name":"Lionel",
-    "lastname":"Messi",
-    "email": "messi@gmail.com",
+    "name":"Abraham",
+    "lastname":"Bartoloni",
+    "email": "barto@gmail.com",
     "password":"1234",
     "image":"https://picsum.photos/400/225",
     "alt":"descripcion de la imagen",
@@ -22,13 +22,12 @@ Content-Type: application/json
 POST http://localhost:3333/users/delete/654fe950219c7e15c965145d
 
 ### Actualizar datos de un usuario
-POST http://localhost:3333/users/update/654fe950219c7e15c965145d
+POST http://localhost:3333/users/update/65511d7bc14405d4efecedbe
 Content-Type: application/json
 
 {
     "name":"edit",
     "lastname":"ado",
-    "email": "editado@gmail.com",
     "password":"1234",
     "image":"https://picsum.photos/400/225",
     "alt":"descripcion de la imagen",

@@ -4,7 +4,7 @@ GET http://localhost:3333/profesional/
 // TODO: FILTRAR POR especialidad
 
 ### Recuperar por el id del profesional
-GET http://localhost:3333/profesional/653d38c5ac3041a74fec03cf
+GET http://localhost:3333/profesional/655120a7e48ede702d40987c
 
 ### Crear un profesional
 POST http://localhost:3333/profesional/create
@@ -24,14 +24,14 @@ Content-Type: application/json
 POST http://localhost:3333/profesional/delete/654fe9a9219c7e15c965145e
 
 ### Actualizar datos de un profesional
-POST http://localhost:3333/profesional/update/654fe9a9219c7e15c965145e
+POST http://localhost:3333/profesional/update/655120a7e48ede702d40987c
 Content-Type: application/json
 
 {
     "description": "editado",
     "synopsis": "editado",
     "banner": "https://picsum.photos/400/225",
-    "alt": "Imagen de nutricionista",
+    "alt": "Imagen de deportista comiendo",
     "subscribers": 4,
     "especialiti": "nutricionista"
 }

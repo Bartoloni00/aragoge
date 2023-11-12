@@ -61,21 +61,7 @@ export class PlanningModel
 
     static async create({datos})
     {
-        const newPlanning = {
-            "title": datos.title,
-            "description": datos.description,
-            "subscribers": datos.subscribers,
-            "price": datos.price,
-            "image":datos.image ?? "https://picsum.photos/400/225",
-            "alt": datos.alt ?? "descripcion de la imagen",
-            "category": datos.category, 
-            "profesional": {
-                "id": new ObjectId(datos.profesional.id),
-                "name": datos.profesional.name,
-                "lastname": datos.profesional.lastname,
-                "especialiti": datos.profesional.especialiti
-            }
-        }
+        const newPlanning = datos
     
         try {
             const planning = await db.collection('plannings').insertOne(newPlanning)
@@ -88,24 +74,9 @@ export class PlanningModel
 
     static async update({id, datos})
     {
-        const editPlanning = {
-            "title": datos.title,
-            "description": datos.description,
-            "subscribers": datos.subscribers,
-            "price": datos.price,
-            "image":datos.image ?? "https://picsum.photos/400/225",
-            "alt": datos.alt ?? "descripcion de la imagen",
-            "category": datos.category, 
-            "profesional": {
-                "id": new ObjectId(datos.profesional.id),
-                "name": datos.profesional.name,
-                "lastname": datos.profesional.lastname,
-                "especialiti": datos.profesional.especialiti
-            }
-        }
         try {
-            await db.collection('plannings').updateOne({_id: new ObjectId(id)}, {$set: editPlanning})
-            return editPlanning
+            await db.collection('plannings').updateOne({_id: new ObjectId(id)}, {$set: datos})
+            return datos
         } catch (error) {
             throw new Error(`ocurrio un error al editar los datos de la planificacion: ${error}`)
         }
