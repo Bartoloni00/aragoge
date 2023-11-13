@@ -22,8 +22,11 @@ http://localhost:3333/api/planning?title=Programa&pricemin=10000&pricemax=15000&
 ### Recuperar por el id de la planificacion
 GET http://localhost:3333/api/planning/6546ab55f4ff6526b5244304
 
+// Verificar porque se rompe cuando el token no es valido
 ### Crear una publicacion
 POST http://localhost:3333/api/planning/
+Auth-Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTUxNTUyNWNmNjhhMjVkNmY0OTdjOGQiLCJlbWFpbCI6ImJhcnRvbG9uaWFicmFoYW1AZ21haWwuY29tIiwiaWF0IjoxNjk5ODQwNDQwfQ.vvXjFGzY-h4_dB6f3sV5G2e-SgC-MXT5g2qWOx11c8g
+# Auth-Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTUxNTUyNWNmNjhhMjVkNmY0OTdjOGQiLCJlbWFpbCI6ImJhcnRvbG9uaWFicmFoYW1AZ21haWwuY29tIiwiaWF0IjoxNjk5ODQw
 Content-Type: application/json
 
 {

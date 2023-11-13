@@ -19,7 +19,7 @@ export class AuthModel
         if (!isMatch) {
             throw new Error(`No se pudo loguear`)
         }
-
-        return {...cuentaExistente, password: undefined}
+        // puede que tenga que validar el rol del usuario aca
+        return {_id: cuentaExistente._id, email: cuentaExistente.email , password: undefined}
     }
 }

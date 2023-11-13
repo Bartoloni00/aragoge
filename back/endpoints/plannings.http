@@ -24,6 +24,7 @@ GET http://localhost:3333/planning/6551216cc3f7faba629804e2
 
 ### Crear una publicacion
 POST http://localhost:3333/planning/create
+
 Content-Type: application/json
 
 {
@@ -47,6 +48,7 @@ POST  http://localhost:3333/planning/delete/654fe9d1219c7e15c965145f
 
 ### Actualizar datos de una publicacion
 POST http://localhost:3333/planning/update/6551216cc3f7faba629804e2
+Auth-Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTUxNTUyNWNmNjhhMjVkNmY0OTdjOGQiLCJlbWFpbCI6ImJhcnRvbG9uaWFicmFoYW1AZ21haWwuY29tIiwiaWF0IjoxNjk5ODQwNDQwfQ.vvXjFGzY-h4_dB6f3sV5G2e-SgC-MXT5g2qWOx11c8g
 Content-Type: application/json
 
 {
