@@ -1,9 +1,11 @@
+import { Content } from "./Content"
+import { Filters } from "./Filters"
+
 export const Marketplace = () => {
   return (
-    <section className="bg-white dark:bg-gray-900">
-        <div className="container px-5 py-10 mx-auto border my-8 text-3xl text-center">
-            <h2>Marketplace</h2>
-        </div>
-    </section>
+    <>
+      <Filters />
+      <Content />
+    </>
   )
 }

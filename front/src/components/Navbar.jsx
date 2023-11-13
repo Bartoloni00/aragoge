@@ -22,6 +22,11 @@ const Navbar = () => {
               >
                 Home
               </Link>
+              <Link to="/marketplace"
+                className="text-neutral-600 dark:text-neutral-200 px-3 py-2 rounded-md"
+              >
+                Marketplace
+              </Link>
               <Link to="/contact"
                 className="text-neutral-600 dark:text-neutral-200 px-3 py-2 rounded-md"
               >
@@ -73,6 +78,11 @@ const Navbar = () => {
                 className="text-neutral-600 dark:text-neutral-200 px-3 py-2 rounded-md"
               >
                 Home
+              </Link>
+              <Link to="/marketplace"
+                className="text-neutral-600 dark:text-neutral-200 px-3 py-2 rounded-md"
+              >
+                Marketplace
               </Link>
               <Link to="/contact"
                 className="text-neutral-600 dark:text-neutral-200 px-3 py-2 rounded-md"
