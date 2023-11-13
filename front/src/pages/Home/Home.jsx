@@ -1,4 +1,3 @@
-import './Home.css';
 import { Nosotros } from './Nosotros';
 import { Partner } from './Partner';
 import { Contamos } from './Contamos';

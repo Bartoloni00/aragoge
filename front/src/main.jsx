@@ -4,11 +4,11 @@ import App from './App.jsx'
 import './index.css'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import { Home } from "./pages/Home/Home.jsx";
-import { Error404 } from './pages/Error404/Error404.jsx';
-import { Contact } from './pages/Contact/Contact.jsx';
-import { Login } from './components/Login.jsx';
-import { Register } from './components/Register.jsx';
 import { Marketplace } from './pages/Marketplace/marketplace.jsx';
+import { Contact } from './pages/Contact/Contact.jsx';
+import { Login } from './pages/Login/Login.jsx';
+import { Register } from './pages/Register/Register.jsx';
+import { Error404 } from './pages/Error404/Error404.jsx';
 const routes = createBrowserRouter([
   {
     path: "/",

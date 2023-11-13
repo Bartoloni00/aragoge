@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import Logo from "../assets/favicon/apple-icon-120x120.png";
+import Logo from "../../assets/favicon/apple-icon-120x120.png";
 
 export const Login = () => {
   return (
