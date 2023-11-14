@@ -5,6 +5,7 @@ import './index.css'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import { Home } from "./pages/Home/Home.jsx";
 import { Marketplace } from './pages/Marketplace/marketplace.jsx';
+import { Perfil } from './pages/Perfil/Perfil.jsx';
 import { Contact } from './pages/Contact/Contact.jsx';
 import { Login } from './pages/Login/Login.jsx';
 import { Register } from './pages/Register/Register.jsx';
@@ -34,6 +35,10 @@ const routes = createBrowserRouter([
         path: "/contact",
         element: <Contact />
       },
+      {
+        path: "/perfil",
+        element: <Perfil />
+      }
     ]
   },{
     path: "*",

@@ -28,6 +28,7 @@ Content-Type: application/json
 {
     "name":"edit",
     "lastname":"ado",
+    "email": "editado@gmail.com",
     "password":"1234",
     "image":"https://picsum.photos/400/225",
     "alt":"descripcion de la imagen",

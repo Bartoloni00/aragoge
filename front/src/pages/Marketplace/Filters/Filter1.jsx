@@ -1,11 +1,11 @@
 export const Filter1 = () => {
   return (
     <div className="w-full px-3 mb-6 md:mb-0">
-        <label className="block uppercase tracking-wide text-gray-500 text-xs font-bold mb-2" htmlFor="grid-state">
+        <label className="block uppercase tracking-wide text-gray-500 text-xs font-bold mb-2" htmlFor="price">
             Precio
         </label>
         <div className="relative">
-            <select className="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-state">
+            <select className="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="price">
                 <option>Max Price</option>
                 <option>Min Price</option>
             </select>

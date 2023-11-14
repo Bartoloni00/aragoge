@@ -1,7 +1,7 @@
 import Navbar from "./Navbar.jsx"
 const Header = () => {
   return (
-    <header className="flex place-content-between items-center w-full">
+    <header className="bg-gray-800">
         <Navbar />
     </header>
   )
