@@ -6,3 +6,8 @@ Content-Type: application/json
     "email": "messi@gmail.com",
     "password":"1234"
 }
+
+### Desloguear usuario
+DELETE http://localhost:3333/api/auth
+Auth-Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTUxM2VkNjIyMTMzMzkxMzNkNWI3MDkiLCJlbWFpbCI6Im1lc3NpQGdtYWlsLmNvbSIsImlhdCI6MTY5OTk5MDc5MX0.j5LcgsycT8Hv3X0OEpoNDX_UdCd9MF5eYqDD4iuAHt4
+Content-Type: application/json

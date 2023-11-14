@@ -1,6 +1,5 @@
 import {AuthModel} from '../models/AuthModel.js'
 import TokenModel from '../models/TokenModel.js'
-import bcrypt from "bcrypt"
 
 export class AuthController
 {
@@ -18,8 +17,16 @@ export class AuthController
             })
     }
 
-    static async logout(req,res)
+    static async logout( req , res)
     {
-        
+        const token = req.header('Auth-Token')
+        console.log(token);
+        return TokenModel.deleteToken({token: token})
+                .then(()=>{
+                    res.status(200).json({Message: `Session cerrada exitosamente`})
+                })
+                .catch((err)=>{
+                    res.status(400).json({Error: err.message})
+                })
     }
 }

@@ -30,4 +30,14 @@ export default class TokenModel
             throw new Error(`Error al validar el token: ${error.message}`);
         }
     }
+
+    static async deleteToken({token})
+    {
+        console.log(token);
+        try {
+            await tokenColleccion.deleteOne({token : token})
+        } catch (error) {
+            throw new Error(`Error las cerrar session: ${error.message}`)
+        }
+    }
 }

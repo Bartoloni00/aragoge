@@ -6,5 +6,6 @@ const AuthRouter = Router()
 
 // El registro de usuarios se encuentra en usersRouters.js
 AuthRouter.post('/auth/login', [UserMiddleware.partialValidate] ,AuthController.login)
+AuthRouter.delete('/auth',AuthController.logout)
 
 export default AuthRouter
