@@ -1,7 +1,7 @@
-import { Content } from "./Content"
-import { Filters } from "./Filters"
+import Content from "./Content"
+import Filters from "./Filters"
 
-export const Marketplace = () => {
+export default function Marketplace(){
   return (
     <>
       <Filters />

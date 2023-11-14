@@ -1,4 +1,4 @@
-export const Contamos = () => {
+export default function Contamos(){
   return (
     <section className="bg-white dark:bg-gray-900">
        <div className="container px-5 py-10 mx-auto border my-8">

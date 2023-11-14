@@ -1,4 +1,4 @@
-export const Filter1 = () => {
+export default function Filter1(){
   return (
     <div className="w-full px-3 mb-6 md:mb-0">
         <label className="block uppercase tracking-wide text-gray-500 text-xs font-bold mb-2" htmlFor="price">

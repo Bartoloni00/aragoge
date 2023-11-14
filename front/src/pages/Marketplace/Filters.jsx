@@ -1,9 +1,9 @@
-import { Filter1 } from "./Filters/Filter1.jsx";
-import { Filter2 } from "./Filters/Filter2.jsx";
-import { Filter3 } from "./Filters/Filter3.jsx";
-import { Filter4 } from "./Filters/Filter4.jsx";
+import Filter1 from "./Filters/Filter1.jsx";
+import Filter2 from "./Filters/Filter2.jsx";
+import Filter3 from "./Filters/Filter3.jsx";
+import Filter4 from "./Filters/Filter4.jsx";
 
-export const Filters = () => {
+export default function Filters(){
   return (
     <section className="w-[100%] p-2 my-8">
         <div className="max-w-[1536px] p-2 container px-5 py-10 mx-auto border dark:border-gray-500 my-8">

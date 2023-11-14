@@ -1,8 +1,4 @@
-/*
-    Example de card para el sitio
-    TODO: Cambiar el formato de la card al que se utilizará y traer los datos que requiere la misma
-*/
-export const Card = () => {
+export default function Card(){
     return (
          <div className="bg-white shadow-md border border-gray-200 rounded-lg max-w-sm dark:bg-gray-800 dark:border-gray-700">
          <a href="#">

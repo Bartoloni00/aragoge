@@ -1,6 +1,6 @@
-import { Card } from "./Card"
+import Card from "./Card"
 
-export const Content = () => {
+export default function Content(){
   return (
     <section className="w-[100%] p-2 my-8">
         <div className="max-w-[1536px] mx-auto border dark:border-gray-700 p-2">

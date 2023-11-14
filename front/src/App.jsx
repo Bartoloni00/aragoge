@@ -1,11 +1,14 @@
 import Layout from "./components/Layout.jsx";
 import { Outlet } from "react-router-dom";
-function App() {
+import { Suspense } from 'react';
+import Loader from "./components/Loader.jsx";
+
+export default function App(){
   return (
-    <Layout>
-      <Outlet />
-    </Layout>
+    <Suspense fallback={<Loader />}>
+      <Layout>
+        <Outlet />
+      </Layout>
+    </Suspense>
   )
 }
-
-export default App

@@ -12,7 +12,7 @@ const NavigationLink = ({ item, closeMenu }) => (
   </Link>
 );
 
-const Navbar = () => {
+export default function Navbar(){
   const navigation = [
     { name: 'Home', ruta: '/' },
     { name: 'Marketplace', ruta: '/marketplace' },
@@ -92,7 +92,7 @@ const Navbar = () => {
                 </Link>
                 <Link
                   to={"/"}
-                  className="px-4 py-2 w-full block text-sm bg-white hover-bg-slate-200"
+                  className="px-4 py-2 w-full block text-sm bg-white hover:bg-slate-200"
                   onClick={closeMenuAndDropdown}
                 >
                   Opción 2
@@ -122,5 +122,3 @@ const Navbar = () => {
     </nav>
   );
 };
-
-export default Navbar;

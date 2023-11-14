@@ -1,4 +1,4 @@
-export const Destacados = () => {
+export default function Destacados(){
   return (
     <section className="bg-white dark:bg-gray-900">
         <div className="container px-5 py-10 mx-auto border my-8">
