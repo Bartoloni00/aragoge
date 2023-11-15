@@ -1,15 +1,17 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App.jsx'
-import './index.css'
+import React from 'react';
+import ReactDOM from 'react-dom/client';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
-import { Home } from "./pages/Home/Home.jsx";
-import { Marketplace } from './pages/Marketplace/marketplace.jsx';
-import { Perfil } from './pages/Perfil/Perfil.jsx';
-import { Contact } from './pages/Contact/Contact.jsx';
-import { Login } from './pages/Login/Login.jsx';
-import { Register } from './pages/Register/Register.jsx';
-import { Error404 } from './pages/Error404/Error404.jsx';
+import App from './App.jsx';
+import './index.css';
+
+const Home = React.lazy(() => import("./pages/Home/Home.jsx"));
+const Marketplace = React.lazy(() => import('./pages/Marketplace/Marketplace.jsx'));
+const Perfil = React.lazy(() => import('./pages/Perfil/Perfil.jsx'));
+const Contact = React.lazy(() => import('./pages/Contact/Contact.jsx'));
+const Login = React.lazy(() => import('./pages/Login/Login.jsx'));
+const Register = React.lazy(() => import('./pages/Register/Register.jsx'));
+const Error404 = React.lazy(() => import('./pages/Error404/Error404.jsx'));
+
 const routes = createBrowserRouter([
   {
     path: "/",
@@ -40,14 +42,19 @@ const routes = createBrowserRouter([
         element: <Perfil />
       }
     ]
-  },{
+  },
+  {
     path: "*",
-    element:<Error404 />
+    element: <Error404 />
   }
-])
+]);
 
-ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <RouterProvider router={routes}/>
-  </React.StrictMode>,
-)
+const root = ReactDOM.createRoot(document.getElementById('root'));
+
+root.render(
+  <RouterProvider router={routes}>
+    <React.StrictMode>
+        <App />
+    </React.StrictMode>
+  </RouterProvider>
+);

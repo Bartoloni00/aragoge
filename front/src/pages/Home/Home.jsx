@@ -1,10 +1,10 @@
-import { Nosotros } from './Nosotros';
-import { Partner } from './Partner';
-import { Contamos } from './Contamos';
-import { Destacados } from './Destacados';
-import { Camino } from './Camino';
+import Nosotros from './Nosotros';
+import Partner from './Partner';
+import Contamos from './Contamos';
+import Destacados from './Destacados';
+import Camino from './Camino';
 
-export const Home = () => {
+export default function Home(){
   return (
     <>
     <Nosotros />

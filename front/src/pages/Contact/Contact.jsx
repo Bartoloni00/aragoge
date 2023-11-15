@@ -1,4 +1,4 @@
-export const Contact = () => {
+export default function Contact(){
   return (
     <section className="text-gray-600 body-font relative">
       <div className="container px-5 py-24 mx-auto">

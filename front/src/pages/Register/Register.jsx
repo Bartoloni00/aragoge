@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom"
 import Logo from "../../assets/favicon/apple-icon-120x120.png";
 
-export const Register = () => {
+export default function Register(){
   return (
     <>
         <section className="bg-white dark:bg-gray-900">

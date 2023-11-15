@@ -1,4 +1,4 @@
-export const Perfil = () => {
+export default function Perfil(){
     return (
     <>
         <section className="border mx-auto my-8">
@@ -7,25 +7,25 @@ export const Perfil = () => {
             <div className="border max-w-[1600px] mx-auto">
                 <div className="my-4 p-3">
                     <label htmlFor="name">Nombre: </label>
-                    <input type="text" name="name" className="py-3 text-gray-700 bg-white border rounded-lg px-11 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" placeholder="name" />
+                    <input type="text" id="name" name="name" className="py-3 text-gray-700 bg-white border rounded-lg px-11 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" placeholder="name" />
                     <button type="submit">Modificar</button>
                 </div>
 
                 <div className="my-4 p-3">
                     <label htmlFor="lastname">Apellido: </label>
-                    <input type="text" name="lastname" className="py-3 text-gray-700 bg-white border rounded-lg px-11 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" placeholder="lastname" />
+                    <input type="text" id="lastname" name="lastname" className="py-3 text-gray-700 bg-white border rounded-lg px-11 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" placeholder="lastname" />
                     <button type="submit">Modificar</button>
                 </div>
 
                 <div className="my-4 p-3">
                     <label htmlFor="email">Email: </label>
-                    <input type="email" name="email" className="py-3 text-gray-700 bg-white border rounded-lg px-11 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" placeholder="flowfugaz@gmail.com" />
+                    <input type="email" id="email" name="email" className="py-3 text-gray-700 bg-white border rounded-lg px-11 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" placeholder="flowfugaz@gmail.com" />
                     <button type="submit">Modificar</button>
                 </div>
 
                 <div className="my-4 p-3">
                     <label htmlFor="password">Password: </label>
-                    <input type="password" name="password" className="py-3 text-gray-700 bg-white border rounded-lg px-11 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" placeholder="*********" />
+                    <input type="password" id="password" name="password" className="py-3 text-gray-700 bg-white border rounded-lg px-11 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" placeholder="*********" />
                     <button type="submit">Modificar</button>
                 </div>
 
