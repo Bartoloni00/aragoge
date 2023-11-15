@@ -33,7 +33,6 @@ export default class TokenModel
 
     static async deleteToken({token})
     {
-        console.log(token);
         try {
             await tokenColleccion.deleteOne({token : token})
         } catch (error) {

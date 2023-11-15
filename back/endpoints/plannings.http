@@ -20,11 +20,13 @@ GET http://localhost:3333/planning?especialiti=entrenador
 http://localhost:3333/planning?title=Programa&pricemin=10000&pricemax=15000&category=powerlifting&subscribersmin=1&subscribersmax=5&especialiti=entrenador
 
 ### Recuperar por el id de la planificacion
-GET http://localhost:3333/planning/6551216cc3f7faba629804e2
+GET http://localhost:3333/planning/6546ab55f4ff6526b5244304
 
+// Verificar porque se rompe cuando el token no es valido
 ### Crear una publicacion
-POST http://localhost:3333/planning/create
-
+POST http://localhost:3333/planning/
+Auth-Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTUxNTUyNWNmNjhhMjVkNmY0OTdjOGQiLCJlbWFpbCI6ImJhcnRvbG9uaWFicmFoYW1AZ21haWwuY29tIiwiaWF0IjoxNjk5ODQwNDQwfQ.vvXjFGzY-h4_dB6f3sV5G2e-SgC-MXT5g2qWOx11c8g
+# Auth-Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTUxNTUyNWNmNjhhMjVkNmY0OTdjOGQiLCJlbWFpbCI6ImJhcnRvbG9uaWFicmFoYW1AZ21haWwuY29tIiwiaWF0IjoxNjk5ODQw
 Content-Type: application/json
 
 {
@@ -44,11 +46,13 @@ Content-Type: application/json
 }
 
 ### Eliminar una publicacion
-POST  http://localhost:3333/planning/delete/654fe9d1219c7e15c965145f
+POST http://localhost:3333/planning/6542e691e3077efb6c537672
+Auth-Token:
+Content-Type: application/json
 
 ### Actualizar datos de una publicacion
-POST http://localhost:3333/planning/update/6551216cc3f7faba629804e2
-Auth-Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTUxNTUyNWNmNjhhMjVkNmY0OTdjOGQiLCJlbWFpbCI6ImJhcnRvbG9uaWFicmFoYW1AZ21haWwuY29tIiwiaWF0IjoxNjk5ODQwNDQwfQ.vvXjFGzY-h4_dB6f3sV5G2e-SgC-MXT5g2qWOx11c8g
+POST http://localhost:3333/planning/6546ab55f4ff6526b5244304
+Auth-Token:
 Content-Type: application/json
 
 {
@@ -60,7 +64,7 @@ Content-Type: application/json
     "alt":"descripcion de la imagen",
     "category": "powerlifting", 
     "profesional": {
-        "id": "653ab688b767888b31dfea42",
+        "id": "65515599cf68a25d6f497c8f",
         "name": "Hany",
         "lastname": "Rambod",
         "especialiti": "entrenador"

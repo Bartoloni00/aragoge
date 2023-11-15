@@ -25,8 +25,7 @@ GET http://localhost:3333/api/planning/6546ab55f4ff6526b5244304
 // Verificar porque se rompe cuando el token no es valido
 ### Crear una publicacion
 POST http://localhost:3333/api/planning/
-Auth-Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTUxNTUyNWNmNjhhMjVkNmY0OTdjOGQiLCJlbWFpbCI6ImJhcnRvbG9uaWFicmFoYW1AZ21haWwuY29tIiwiaWF0IjoxNjk5ODQwNDQwfQ.vvXjFGzY-h4_dB6f3sV5G2e-SgC-MXT5g2qWOx11c8g
-# Auth-Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTUxNTUyNWNmNjhhMjVkNmY0OTdjOGQiLCJlbWFpbCI6ImJhcnRvbG9uaWFicmFoYW1AZ21haWwuY29tIiwiaWF0IjoxNjk5ODQw
+Auth-Token: 
 Content-Type: application/json
 
 {
@@ -46,10 +45,13 @@ Content-Type: application/json
 }
 
 ### Eliminar una publicacion
-DELETE http://localhost:3333/api/planning/6542e691e3077efb6c537672
+DELETE http://localhost:3333/api/planning/6554ccab2948b1a9a9ed91d8
+Auth-Token:
+Content-Type: application/json
 
 ### Actualizar datos de una publicacion
-PATCH http://localhost:3333/api/planning/6546ab55f4ff6526b5244304
+PATCH http://localhost:3333/api/planning/6554ccab2948b1a9a9ed91d8
+Auth-Token: 
 Content-Type: application/json
 
 {

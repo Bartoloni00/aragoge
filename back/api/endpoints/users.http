@@ -9,9 +9,9 @@ POST http://localhost:3333/api/users/
 Content-Type: application/json
 
 {
-    "name":"Hany",
-    "lastname":"Rambod",
-    "email": "rambodhany@gmail.com",
+    "name":"sara",
+    "lastname":"sa",
+    "email": "sarasa@gmail.com",
     "password":"1234",
     "image":"https://picsum.photos/400/225",
     "alt":"descripcion de la imagen",
@@ -19,10 +19,13 @@ Content-Type: application/json
 }
 
 ### Eliminar un usuario
-DELETE http://localhost:3333/api/users/655139385b8239fbdbb5c43d
+DELETE http://localhost:3333/api/users/6554f58d52ababff652c75a9
+Auth-Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTUxM2VkNjIyMTMzMzkxMzNkNWI3MDkiLCJlbWFpbCI6Im1lc3NpQGdtYWlsLmNvbSIsImlhdCI6MTcwMDA1NzI0Mn0.u7bsyCIrsZp2GbS4Zb64JCdl1ehowT07wUaKm7eWNG4
+Content-Type: application/json
 
 ### Actualizar datos de un usuario
-PATCH http://localhost:3333/api/users/6542ec6a36aadc36e1b94d1c
+PATCH http://localhost:3333/api/users/6554cd4e2948b1a9a9ed91d9
+Auth-Token: 
 Content-Type: application/json
 
 {

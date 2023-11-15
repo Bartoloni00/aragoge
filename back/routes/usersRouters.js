@@ -5,6 +5,7 @@ import PlanningRoutes from './planningsRouters.js'
 import TipesRoutes from './TipesRouters.js'
 import UserMiddleware from '../middlewares/UserMiddleware.js'
 import AuthRouter from './AuthRoutes.js'
+import TokenMiddleware from '../middlewares/TokenMiddleware.js'
 
 const userRoutes = express.Router()
 
@@ -14,9 +15,9 @@ userRoutes.get('/users/:id', UserController.getByID)
 
 userRoutes.post('/users/create',[UserMiddleware.validate], UserController.create)
 
-userRoutes.post('/users/delete/:id', UserController.delete)
+userRoutes.post('/users/delete/:id',TokenMiddleware.validateToken, UserController.delete)
 
-userRoutes.post('/users/update/:id',[UserMiddleware.partialValidate], UserController.update)
+userRoutes.post('/users/update/:id',[UserMiddleware.partialValidate, TokenMiddleware.validateToken], UserController.update)
 
 userRoutes.use(ProfesionalRoutes)
 userRoutes.use(PlanningRoutes)

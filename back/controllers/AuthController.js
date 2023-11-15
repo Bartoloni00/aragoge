@@ -20,7 +20,6 @@ export class AuthController
     static async logout( req , res)
     {
         const token = req.header('Auth-Token')
-        console.log(token);
         return TokenModel.deleteToken({token: token})
                 .then(()=>{
                     res.status(200).json({Message: `Session cerrada exitosamente`})

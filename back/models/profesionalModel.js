@@ -37,9 +37,8 @@ export class profesionalModel
         if (existe) {
             throw new Error(`El usuario: ${userExist.name} ${userExist.lastname} ya tiene creado su perfil de profesional.`)
         }
-
         try {
-            const profesional = await db.collection('professionals').insertOne(newProfesional)
+            const profesional = await db.collection('professionals').insertOne({...newProfesional, user: new ObjectId(newProfesional.user)})
             newProfesional._id = profesional.insertedId 
             return {userExist,newProfesional}
         } catch (error) {

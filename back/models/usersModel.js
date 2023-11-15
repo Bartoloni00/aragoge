@@ -1,4 +1,5 @@
 import { MongoClient, ObjectId } from "mongodb"
+import {profesionalModel} from './profesionalModel.js'
 import bcrypt, { hash } from "bcrypt"
 
 const client = new MongoClient('mongodb+srv://bartoloni:bartoloni@cluster0.hrfhf4t.mongodb.net/')
@@ -55,7 +56,16 @@ export class UserModel
 
     static async delete ({id})
     {
+        const usuarioAeliminar = await this.getByID({id: id})
+        const profesional = await db.collection('professionals').findOne({user: usuarioAeliminar._id})
+
         try {
+            if (profesional) {
+                await db.collection('professionals').deleteOne({user: usuarioAeliminar._id})
+                .catch(err => {
+                    throw new Error(err.message)
+                })
+            }
             await db.collection('users').deleteOne({_id: new ObjectId(id)})
             return {'message':  `El usuario con el id: ${id} fue eliminado exitosamente`}
         } catch (error) {

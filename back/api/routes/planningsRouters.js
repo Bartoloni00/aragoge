@@ -14,8 +14,8 @@ PlanningRoutes.post('/planning/',[
     TokenMiddleware.validateToken
 ], PlanningController.create)
 
-PlanningRoutes.delete('/planning/:id', PlanningController.delete)
+PlanningRoutes.delete('/planning/:id',[TokenMiddleware.validateToken], PlanningController.delete)
 
-PlanningRoutes.patch('/planning/:id',[PlanningMiddleware.partialValidate], PlanningController.update)
+PlanningRoutes.patch('/planning/:id',[PlanningMiddleware.partialValidate, TokenMiddleware.validateToken], PlanningController.update)
 
 export default PlanningRoutes

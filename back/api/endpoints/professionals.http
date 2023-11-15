@@ -8,23 +8,27 @@ GET http://localhost:3333/api/profesional/65511aaf1b7752ff5ff398f5
 
 ### Crear un profesional
 POST http://localhost:3333/api/profesional/
+Auth-Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTUxM2VkNjIyMTMzMzkxMzNkNWI3MDkiLCJlbWFpbCI6Im1lc3NpQGdtYWlsLmNvbSIsImlhdCI6MTcwMDA1NzI0Mn0.u7bsyCIrsZp2GbS4Zb64JCdl1ehowT07wUaKm7eWNG4
 Content-Type: application/json
 
 {
-    "description": "Es messi",
-    "synopsis": "Nutricionista apasionado dedicado a mejorar la salud a través de la alimentación. Mi misión es guiar a las personas hacia una vida más saludable, brindando orientación nutricional experta y apoyo constante. Trabajaremos juntos para mejorar tus hábitos alimenticios, superar desafíos y alcanzar tus objetivos de salud y nutrición. ¡Únete a mí y comencemos este viaje hacia un estilo de vida más saludable!",
+    "description": "Es SARAZA",
+    "synopsis": "entrenador apasionado dedicado a mejorar la salud a través de la alimentación. Mi misión es guiar a las personas hacia una vida más saludable, brindando orientación nutricional experta y apoyo constante. Trabajaremos juntos para mejorar tus hábitos alimenticios, superar desafíos y alcanzar tus objetivos de salud y nutrición. ¡Únete a mí y comencemos este viaje hacia un estilo de vida más saludable!",
     "banner": "https://picsum.photos/400/225",
-    "alt": "Imagen de nutricionista",
+    "alt": "Imagen de entrenador",
     "subscribers": 4,
-    "user": "65513ed62213339133d5b709",
-    "especialiti": "nutricionista"
+    "user": "6554f58d52ababff652c75a9",
+    "especialiti": "terapeuta"
 }
 
 ### Eliminar un profesional
-DELETE http://localhost:3333/api/profesional/6542e9dd4cf6d6fbe2bfc2cb
+DELETE http://localhost:3333/api/profesional/6554f58d52ababff652c75a9
+Auth-Token: 
+Content-Type: application/json
 
 ### Actualizar datos de un profesional
-PATCH http://localhost:3333/api/profesional/65511aaf1b7752ff5ff398f5
+PATCH http://localhost:3333/api/profesional/6554ce572948b1a9a9ed91db
+Auth-Token: 
 Content-Type: application/json
 
 {
