@@ -1,7 +1,9 @@
 import { MongoClient, ObjectId } from "mongodb"
+import 'dotenv/config'
 
-const client = new MongoClient('mongodb+srv://bartoloni:bartoloni@cluster0.hrfhf4t.mongodb.net/')
-const db = client.db('aragoge')
+const client = new MongoClient(process.env.CONECCION_DB)
+const db = client.db(process.env.NAME_DB)
+const planningDB = db.collection(process.env.PLANNINGS_COLLECTION_DB)
 
 export class PlanningModel
 {
@@ -47,13 +49,13 @@ export class PlanningModel
         }
         // filtrosArmados.profesional.especitiy devolvia esto: { profesional: { especialiti: 'entrenador' } }
         // por eso tuve que armar un array para generar esto: { "profesional.especialiti": 'entrenador' }
-        return db.collection('plannings').find(filtrosArmados).toArray()
+        return planningDB.find(filtrosArmados).toArray()
     }
 
     static async getByID({id})
     {
         try {
-            return db.collection('plannings').findOne({_id: new ObjectId(id)})
+            return planningDB.findOne({_id: new ObjectId(id)})
         } catch (error) {
             throw new Error(`La planificacion con el id: ${id} no pudo ser encontrada`)
         }
@@ -64,7 +66,7 @@ export class PlanningModel
         const newPlanning = datos
     
         try {
-            const planning = await db.collection('plannings').insertOne(newPlanning)
+            const planning = await planningDB.insertOne(newPlanning)
             newPlanning._id = planning.insertedId
             return newPlanning
         } catch (error) {
@@ -75,7 +77,7 @@ export class PlanningModel
     static async update({id, datos})
     {
         try {
-            await db.collection('plannings').updateOne({_id: new ObjectId(id)}, {$set: datos})
+            await planningDB.updateOne({_id: new ObjectId(id)}, {$set: datos})
             return datos
         } catch (error) {
             throw new Error(`ocurrio un error al editar los datos de la planificacion: ${error}`)
@@ -85,7 +87,7 @@ export class PlanningModel
     static async delete({id})
     {
         try {
-            await db.collection('plannings').deleteOne({ _id: new ObjectId(id) })
+            await planningDB.deleteOne({ _id: new ObjectId(id) })
             return {'message': `La planificacion con el id: ${id} fue eliminada exitosamente`}
         } catch (error) {
             throw new Error(`La planificacion con el id: ${id} no pudo ser eliminada`)

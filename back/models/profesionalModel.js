@@ -1,20 +1,22 @@
 import { MongoClient, ObjectId } from "mongodb"
+import 'dotenv/config'
 
-const client = new MongoClient('mongodb+srv://bartoloni:bartoloni@cluster0.hrfhf4t.mongodb.net/')
-const db = client.db('aragoge')
+const client = new MongoClient(process.env.CONECCION_DB)
+const db = client.db(process.env.NAME_DB)
+const profesionalDB = db.collection(process.env.PROFESSIONALS_COLLECTION_DB)
 
 export class profesionalModel 
 {
     static async getAll()//({filtros})
     {
         // TODO: filtrar por speciality
-        return db.collection('professionals').find().toArray()
+        return profesionalDB.find().toArray()
     }
 
     static async getByID({id})
     {
         try {
-            return db.collection('professionals').findOne({_id: new ObjectId(id)})
+            return profesionalDB.findOne({_id: new ObjectId(id)})
         } catch (error) {
             throw new Error(`El profesional con el id: ${id} no pudo ser encontrado`)
         }
@@ -32,13 +34,13 @@ export class profesionalModel
             throw new Error(`El usuario: ${userExist.name} ${userExist.lastname} no posee el rol de profesional`)
         }
 
-        const existe = await db.collection('professionals').findOne({user: newProfesional.user})
+        const existe = await profesionalDB.findOne({user: newProfesional.user})
         
         if (existe) {
             throw new Error(`El usuario: ${userExist.name} ${userExist.lastname} ya tiene creado su perfil de profesional.`)
         }
         try {
-            const profesional = await db.collection('professionals').insertOne({...newProfesional, user: new ObjectId(newProfesional.user)})
+            const profesional = await profesionalDB.insertOne({...newProfesional, user: new ObjectId(newProfesional.user)})
             newProfesional._id = profesional.insertedId 
             return {userExist,newProfesional}
         } catch (error) {
@@ -49,7 +51,7 @@ export class profesionalModel
     static async delete ({id})
     {
         try {
-            await db.collection('professionals').deleteOne({ _id: new ObjectId(id) })
+            await profesionalDB.deleteOne({ _id: new ObjectId(id) })
             return {'message': `El profesional con el id: ${id} fue eliminado exitosamente`}
         } catch (error) {
             throw new Error(`El profesional con el id: ${id} no pudo ser eliminado`)
@@ -59,7 +61,7 @@ export class profesionalModel
     static async update({id, datos})
     {
         try {
-            await db.collection('professionals').updateOne({ _id: new ObjectId(id) }, { $set: datos });
+            await profesionalDB.updateOne({ _id: new ObjectId(id) }, { $set: datos });
             return datos;
         } catch (error) {
             throw new Error(`ocurrio un error al editar al profesional: ${error}`)

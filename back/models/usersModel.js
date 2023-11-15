@@ -1,21 +1,23 @@
 import { MongoClient, ObjectId } from "mongodb"
-import {profesionalModel} from './profesionalModel.js'
-import bcrypt, { hash } from "bcrypt"
+import bcrypt from "bcrypt"
+import 'dotenv/config'
 
-const client = new MongoClient('mongodb+srv://bartoloni:bartoloni@cluster0.hrfhf4t.mongodb.net/')
-const db = client.db('aragoge')
+const client = new MongoClient(process.env.CONECCION_DB)
+const db = client.db(process.env.NAME_DB)
+const userDB = db.collection(process.env.USERS_COLLECTION_DB)
+const profesionalDB = db.collection(process.env.PROFESSIONALS_COLLECTION_DB)
 
 export class UserModel 
 {
     static async getAll()
     {
-        return db.collection('users').find().toArray()
+        return userDB.find().toArray()
     }
 
     static async getByID({id})
     {
        try {
-            return db.collection('users').findOne({_id: new ObjectId(id)})
+            return userDB.findOne({_id: new ObjectId(id)})
        } catch (error) {
             throw new Error(`El usuario con el id: ${id} no pudo ser encontrado`)
        }
@@ -24,7 +26,7 @@ export class UserModel
     static async create ({datos})
     {
         const newUser = {...datos}
-        const existe = await db.collection('users').findOne({email : newUser.email})
+        const existe = await userDB.findOne({email : newUser.email})
 
         if (existe) {
             throw new Error(`El email: ${newUser.email} ya esta asignado a un usuario.`)
@@ -36,7 +38,7 @@ export class UserModel
             throw new Error(`Ocurrio un error al hashear la contraseña`)
         }
         try {
-            const user = await db.collection('users').insertOne(newUser)
+            const user = await userDB.insertOne(newUser)
             newUser._id = user.insertedId 
             return newUser
         } catch (error) {
@@ -47,7 +49,7 @@ export class UserModel
     static async update ({id, datos})
     {
         try {
-            await db.collection('users').updateOne({_id: new ObjectId(id)}, {$set: datos})
+            await userDB.updateOne({_id: new ObjectId(id)}, {$set: datos})
             return datos
         } catch (error) {
             throw new Error(`ocurrio un error al editar los datos del usuarios: ${error}`)
@@ -57,16 +59,16 @@ export class UserModel
     static async delete ({id})
     {
         const usuarioAeliminar = await this.getByID({id: id})
-        const profesional = await db.collection('professionals').findOne({user: usuarioAeliminar._id})
+        const profesional = await profesionalDB.findOne({user: usuarioAeliminar._id})
 
         try {
             if (profesional) {
-                await db.collection('professionals').deleteOne({user: usuarioAeliminar._id})
+                await profesionalDB.deleteOne({user: usuarioAeliminar._id})
                 .catch(err => {
                     throw new Error(err.message)
                 })
             }
-            await db.collection('users').deleteOne({_id: new ObjectId(id)})
+            await userDB.deleteOne({_id: new ObjectId(id)})
             return {'message':  `El usuario con el id: ${id} fue eliminado exitosamente`}
         } catch (error) {
             throw new Error(`El usuario con el id: ${id} no pudo ser eliminado`)

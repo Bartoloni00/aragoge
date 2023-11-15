@@ -1,10 +1,10 @@
 import jwt from 'jsonwebtoken'
 import {MongoClient, ObjectId} from "mongodb"
+import 'dotenv/config'
 
-const client = new MongoClient('mongodb+srv://bartoloni:bartoloni@cluster0.hrfhf4t.mongodb.net/')
-const db = client.db('aragoge')
-
-const tokenColleccion = db.collection('tokens')
+const client = new MongoClient(process.env.CONECCION_DB)
+const db = client.db(process.env.NAME_DB)
+const tokenColleccion = db.collection(process.env.TOKEN_COLLECTION_DB)
 
 export default class TokenModel
 {

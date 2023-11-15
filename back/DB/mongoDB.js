@@ -1,5 +1,8 @@
-const client = new MongoClient('mongodb+srv://bartoloni:bartoloni@cluster0.hrfhf4t.mongodb.net/')
-const db = client.db('aragoge')
+import { MongoClient} from "mongodb"
+import 'dotenv/config'
+
+const client = new MongoClient(process.env.CONECCION_DB)
+const db = client.db(process.env.NAME_DB)
 
 client.connect()
         .then(async () => {
