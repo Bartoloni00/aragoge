@@ -25,11 +25,11 @@ GET http://localhost:3333/api/planning/6546ab55f4ff6526b5244304
 // Verificar porque se rompe cuando el token no es valido
 ### Crear una publicacion
 POST http://localhost:3333/api/planning/
-Auth-Token: 
+Auth-Token:
 Content-Type: application/json
 
 {
-    "title": "creado",
+    "title": "2023-16-11",
     "description": "creado",
     "subscribers": 9,
     "price": 40309,

@@ -17,6 +17,7 @@ export default  class TokenMiddleware
             }
     
             req.cuenta = cuenta
+            console.log(cuenta, 'token middleware');
             next()
         } catch (error) {
             return res.status(401).json({ error: { message: `El token no es válido` } })
