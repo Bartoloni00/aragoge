@@ -6,6 +6,7 @@ import './index.css';
 
 const Home = React.lazy(() => import("./pages/Home/Home.jsx"));
 const Marketplace = React.lazy(() => import('./pages/Marketplace/Marketplace.jsx'));
+const CardDetail = React.lazy(() => import('./pages/Marketplace/CardDetail.jsx'));
 const Perfil = React.lazy(() => import('./pages/Perfil/Perfil.jsx'));
 const Contact = React.lazy(() => import('./pages/Contact/Contact.jsx'));
 const Login = React.lazy(() => import('./pages/Login/Login.jsx'));
@@ -22,8 +23,12 @@ const routes = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "/marketplace",
-        element: <Marketplace />
+        path: "marketplace",
+        element: <Marketplace />,
+      },
+      {
+        path: "marketplace/:id",
+        element: <CardDetail />,
       },
       {
         path: "/login",
