@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom"
-import Logo from "../../assets/favicon/apple-icon-120x120.png";
 
 export default function Register(){
   return (
@@ -8,17 +7,17 @@ export default function Register(){
             <div className="container flex items-center justify-center min-h-screen px-6 mx-auto">
                 <form action="http://localhost:3333/users/" method="post" className="w-full max-w-md">
                     <div className="flex justify-center mx-auto">
-                    <img className="w-auto" src={Logo} alt="Logo de Aragoge" loading='lazy' />
+                    {/* <img className="w-auto" src={Logo} alt="Logo de Aragoge" loading='lazy' /> */}
                     </div>
                     
                     <div className="flex items-center justify-center mt-6">
-                        <Link to="/login" className="w-1/3 pb-4 font-medium text-center text-gray-500 capitalize border-b dark:border-gray-400 dark:text-gray-300">
+                        <Link to={"/login"} className="w-1/3 pb-4 font-medium text-center text-gray-500 capitalize border-b dark:border-gray-400 dark:text-gray-300">
                             sign in
                         </Link>
 
-                        <a href="#" className="w-1/3 pb-4 font-medium text-center text-gray-800 capitalize border-b-2 border-blue-500 dark:border-blue-400 dark:text-white">
+                        <Link to={"/register"} className="w-1/3 pb-4 font-medium text-center text-gray-800 capitalize border-b-2 border-blue-500 dark:border-blue-400 dark:text-white">
                             sign up
-                        </a>
+                        </Link>
                     </div>
 
                     <div className="relative flex items-center mt-8">
@@ -29,7 +28,7 @@ export default function Register(){
                                 </svg>
                             </span>
 
-                            <input type="text" name="name" className="block w-full py-3 text-gray-700 bg-white border rounded-lg px-11 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" placeholder="Username" />
+                            <input type="text" name="name" className="block w-full py-3 text-gray-700 bg-white border rounded-lg px-11 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" placeholder=' ' required/>
                         </div>
                         <div className="relative flex items-center mt-8">
                             <span className="absolute">
@@ -38,7 +37,7 @@ export default function Register(){
                                 </svg>
                             </span>
     
-                            <input type="text" name="lastname" className="block w-full py-3 text-gray-700 bg-white border rounded-lg px-11 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" placeholder="Lastname" />
+                            <input type="text" name="lastname" className="block w-full py-3 text-gray-700 bg-white border rounded-lg px-11 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" placeholder=' ' required/>
                         </div>
                     </div>
 
@@ -49,7 +48,7 @@ export default function Register(){
                             </svg>
                         </span>
 
-                        <input type="email" name="email" className="block w-full py-3 text-gray-700 bg-white border rounded-lg px-11 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" placeholder="Email address" />
+                        <input type="email" name="email" className="block w-full py-3 text-gray-700 bg-white border rounded-lg px-11 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" placeholder=' ' required />
                     </div>
 
                     <div className="relative flex items-center mt-8">
@@ -60,7 +59,7 @@ export default function Register(){
 
                             <h2 className="mx-3 text-gray-400">Profile Photo</h2>
 
-                            <input id="dropzone-file" type="file" name="image" className="hidden" />
+                            <input id="dropzone-file" type="file" name="image" className="hidden" required />
                             {/* <input type="hidden" name="alt" />
                             <input type="hidden" name="rol" /> */}
                         </label>
@@ -73,7 +72,7 @@ export default function Register(){
                             </svg>
                         </span>
 
-                        <input type="password" name="password" className="block w-full px-10 py-3 text-gray-700 bg-white border rounded-lg dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" placeholder="Password" />
+                        <input type="password" name="password" className="block w-full px-10 py-3 text-gray-700 bg-white border rounded-lg dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" placeholder=' ' required />
                     </div>
 
                     <div className="mt-6">

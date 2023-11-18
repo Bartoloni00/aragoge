@@ -1,17 +1,17 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom"
-
-export default function CardDetail() {
+import { getPlanificacionesByID } from "../../services/planificaciones.service.js";
+import Loader from "../../components/Loader.jsx";
+const PlanificacionesDetalle = () => {
     const [ planning, setPlanning ] = useState([]);
     const { id } = useParams();
 
     useEffect(() => {
-        fetch(`http://localhost:3333/planning/${id}`)
-        .then((res) => res.json())
-        .then((data) => setPlanning(data))
+      getPlanificacionesByID(id)
+      .then((data) => setPlanning(data))
     }, [])
     
-  return (
+  return planning.title !== undefined ? (
     <>
         <div>Detalle de la planificación</div>
         <p>ID: {planning._id}</p>
@@ -21,5 +21,11 @@ export default function CardDetail() {
         <p>Subscribidos: {planning.subscribers}</p>
         <p>Precio: ${planning.price}</p>
     </>
+  ) : (
+    <>
+        <Loader />
+    </>
   )
 }
+
+export default PlanificacionesDetalle;

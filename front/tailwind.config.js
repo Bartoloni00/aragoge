@@ -6,10 +6,6 @@ export default {
   ],
   theme: {
     extend: {
-      colors: {
-        primary: '',
-        secondary: '',
-      },
       fontFamily: {
         Roboto: ["Roboto", "sans-serif"],
         Cardo: ["Cardo", "serif"],
