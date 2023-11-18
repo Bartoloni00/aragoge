@@ -1,65 +1,77 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import { RouterProvider, createBrowserRouter } from 'react-router-dom';
-import App from './App.jsx';
-import './index.css';
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+import App from './App.jsx'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import './index.css'
 
-const Home = React.lazy(() => import("./pages/Home/Home.jsx"));
-const Marketplace = React.lazy(() => import('./pages/Marketplace/Marketplace.jsx'));
-const CardDetail = React.lazy(() => import('./pages/Marketplace/CardDetail.jsx'));
-const Perfil = React.lazy(() => import('./pages/Perfil/Perfil.jsx'));
-const Contact = React.lazy(() => import('./pages/Contact/Contact.jsx'));
-const Login = React.lazy(() => import('./pages/Login/Login.jsx'));
-const Register = React.lazy(() => import('./pages/Register/Register.jsx'));
-const Error404 = React.lazy(() => import('./pages/Error404/Error404.jsx'));
+import PrivateRoute from './components/PrivateRoute.jsx'
+
+import Home from './pages/Home/Home.jsx'
+import Contact from './pages/Contact/Contact.jsx';
+import Marketplace from './pages/Marketplace/Marketplace.jsx'
+import PlanificacionesDetalle from './pages/Marketplace/PlanificacionesDetalle.jsx'
+import Login from './pages/Login/Login.jsx';
+import Register from './pages/Register/Register.jsx';
+import Error404 from './pages/Error404/Error404.jsx';
+
+import AppProfesionales from './pages/Profesionales/AppProfesionales.jsx';
+import Dashboard from './pages/Profesionales/dashboard.jsx'
+import Perfil from './pages/Perfil/Perfil.jsx'
 
 const routes = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+    errorElement: <Error404 />,
     children: [
       {
-        path: "/",
-        element: <Home />,
+        path: "",
+        element: <Home />
       },
       {
         path: "marketplace",
-        element: <Marketplace />,
+        element: <Marketplace />
       },
       {
         path: "marketplace/:id",
-        element: <CardDetail />,
+        element: <PlanificacionesDetalle />
       },
       {
-        path: "/login",
-        element: <Login />
-      },
-      {
-        path: "/register",
-        element: <Register />
-      },
-      {
-        path: "/contact",
+        path: "contact",
         element: <Contact />
       },
       {
-        path: "/perfil",
+        path: "perfil",
         element: <Perfil />
       }
     ]
   },
   {
-    path: "*",
-    element: <Error404 />
+    path: "/profesionales",
+    element: <PrivateRoute><App /></PrivateRoute>,
+    children: [
+      {
+        path: "",
+        element: <AppProfesionales />
+      },
+      {
+        path: "dashboard",
+        element: <Dashboard />
+      }
+    ]
+  },
+  {
+    path: "/login",
+    element: <Login />
+  },
+  {
+    path: "/register",
+    element: <Register />
   }
-]);
+])
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-
-root.render(
-  <RouterProvider router={routes}>
-    <React.StrictMode>
-        <App />
-    </React.StrictMode>
-  </RouterProvider>
-);
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <React.StrictMode>
+    <RouterProvider router={routes} />
+  </React.StrictMode>,
+)

@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
-import Logo from "../assets/favicon/apple-icon-60x60.png";
 
-export default function Footer(){
+const Footer = () =>{
   return (
     <footer className="text-gray-100 bg-gray-900 body-font">
       <div className="container px-5 py-24 mx-auto">
@@ -55,10 +54,6 @@ export default function Footer(){
       </div>
       <div className="bg-gray-900">
         <div className="container px-5 py-6 mx-auto flex items-center sm:flex-row flex-col">
-          <Link className="flex title-font font-medium items-center md:justify-start justify-center text-white" to={"/"}>
-            <img src={Logo} alt="Logo de Aragoge" loading="lazy" />
-            <span className="ml-3 text-xl">Aragoge</span>
-          </Link>
           <p className="text-sm text-gray-300 sm:ml-6 sm:mt-0 mt-4">© 2023 Aragoge —
             <a href="http://localhost:5173/home" className="text-gray-400 ml-1" aria-label="Creadores del Sitio Web">Bartoloni | Arevalo</a>
           </p>
@@ -91,3 +86,5 @@ export default function Footer(){
     </footer>
   );
 };
+
+export default Footer;

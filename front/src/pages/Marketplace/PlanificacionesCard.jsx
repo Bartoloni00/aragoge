@@ -1,13 +1,17 @@
-import { Link } from 'react-router-dom';
-export default function Card({planning}){
-    // Destructuración del objeto que se recibe
-    const {_id, category, title, profesional, image, alt, subscribers, price} = planning;
-    const {id, name, lastname, especialiti} = profesional;
-    return (
-        <>
+import { Link } from "react-router-dom";
+import {PropTypes} from "prop-types";
+//Planificaciones === ProductList
+//PlanificacionesDetalle === ProductListItem
+
+const PlanificacionesCard = ({planificaciones}) => {
+  // Desestructura el objeto que se paso por las props
+  const {_id, category, title, profesional, image, alt, subscribers, price} = planificaciones;
+  const {id, name, lastname, especialiti} = profesional;
+  return (
+      <>
         <Link to={`${_id}`} id={_id}>
             <div className='flex flex-col bg-white border rounded-lg overflow-hidden shadow-md min-h-[450px]'>
-                <div className='max-w-[400px] min-h-[225px] h-auto bg-red-50 '>
+                <div className='w-full min-h-[225px] h-auto bg-red-50 '>
                     <img src={image} alt={alt} />
                 </div>
                 <div className='p-3'>
@@ -34,7 +38,8 @@ export default function Card({planning}){
                 </div>
             </div>
         </Link>
-        </>
-    )
-  }
-  
+      </>
+  )
+}
+
+export default PlanificacionesCard;

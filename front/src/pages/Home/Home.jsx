@@ -4,7 +4,7 @@ import Contamos from './Contamos';
 import Destacados from './Destacados';
 import Camino from './Camino';
 
-export default function Home(){
+const Home = () => {
   return (
     <>
     <Nosotros />
@@ -15,3 +15,5 @@ export default function Home(){
     </>
   )
 }
+
+export default Home

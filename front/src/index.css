@@ -11,8 +11,7 @@
     src: 
         url('/src/assets/fonts/roboto/Roboto-Regular.ttf') format('TrueType'),
         url('/src/assets/fonts/roboto/Roboto-Italic.ttf') format('TrueType'),
-        url('/src/assets/fonts/roboto/Roboto-Bold.ttf') format('TrueType'),
-        url('/src/assets/fonts/roboto/Roboto-BoldItalic.ttf') format('TrueType');
+        url('/src/assets/fonts/roboto/Roboto-Bold.ttf') format('TrueType');
 }
 
 @tailwind base;

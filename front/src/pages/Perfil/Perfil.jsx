@@ -1,8 +1,8 @@
-export default function Perfil(){
+const Perfil = () => {
     return (
     <>
         <section className="border mx-auto my-8">
-            <h2 className="text-center text-lg py-5">Mi Perfil</h2>
+            <h2 className="text-center text-lg py-5">Nombre de usuario</h2>
 
             <div className="border max-w-[1600px] mx-auto">
                 <div className="my-4 p-3">
@@ -67,3 +67,5 @@ export default function Perfil(){
     </>
   )
 }
+
+export default Perfil;

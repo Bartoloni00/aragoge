@@ -1,8 +1,10 @@
 import Navbar from "./Navbar.jsx"
-export default function Header(){
+const Header = () => {
   return (
-    <header className="bg-gray-800">
+    <header>
         <Navbar />
     </header>
   )
 }
+
+export default Header

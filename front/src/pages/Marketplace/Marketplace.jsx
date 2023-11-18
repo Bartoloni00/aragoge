@@ -1,23 +1,31 @@
 import { useEffect, useState } from "react";
-import Content from "./Content"
-import Filters from "./Filters"
+import Planificaciones from "./Planificaciones.jsx";
+import { getPlanificaciones } from "../../services/planificaciones.service.js";
+import Loader from "../../components/Loader.jsx";
+//Planificaciones === ProductList
+//PlanificacionesCardItem === ProductListItem
+//marketplace === productlistpage
 
-export default function Marketplace(){
-  const [planning, setPlanning] = useState([]);
-  useEffect(() => {
-    fetch('http://localhost:3333/planning/')
-    .then( async (data) => {
-      const datos = await data.json();
-      setPlanning(datos);
-    });
-  }, []);
+const Marketplace = () => {
+    const [planificaciones, setPlanificaciones] = useState([])
 
-  useEffect(() => {}, [planning])
+    useEffect(() => {
+       getPlanificaciones()
+      .then((datos) => setPlanificaciones(datos))
+    }, []);
+  
+    useEffect(() => {}, [planificaciones])
+  
+    return planificaciones.length !== 0 ? (
+      <>
+        <Planificaciones planificaciones={planificaciones} />
+      </>
+    ) : (
+      <>
+        {console.log(`4`, planificaciones)}
+        <Loader />
+      </>
+    )
+  }
 
-  return (
-    <>
-      <Filters />
-      <Content planificaciones={planning}/>
-    </>
-  )
-}
+export default Marketplace

@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { logout } from '../services/auth.service';
 
 const NavigationLink = ({ item, closeMenu }) => (
   <Link
@@ -12,13 +13,13 @@ const NavigationLink = ({ item, closeMenu }) => (
   </Link>
 );
 
-export default function Navbar(){
+const Navbar = () =>{
+  const navigate = useNavigate()
+
   const navigation = [
     { name: 'Home', ruta: '/' },
     { name: 'Marketplace', ruta: '/marketplace' },
     { name: 'Contact', ruta: '/contact' },
-    { name: 'Register', ruta: '/register' },
-    { name: 'Login', ruta: '/login' },
   ];
 
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -41,6 +42,12 @@ export default function Navbar(){
     setIsMenuOpen(false);
     setIsDropdownOpen(false);
   };
+
+  const onLogout = () => {
+    logout().then((usuario) => console.log(usuario));
+    localStorage.removeItem("token");
+    navigate("/", {replace: true})
+  }
 
   return (
     <nav className="bg-neutral-100 text-center text-neutral-600 dark:bg-neutral-600 dark:text-neutral-200 w-[100%]">
@@ -91,18 +98,25 @@ export default function Navbar(){
                   Perfil
                 </Link>
                 <Link
-                  to={"/"}
+                  to={"/login"}
                   className="px-4 py-2 w-full block text-sm bg-white hover:bg-slate-200"
                   onClick={closeMenuAndDropdown}
                 >
-                  Opción 2
+                  Login
                 </Link>
                 <Link
-                  to={"/marketplace"}
+                  to={"/register"}
                   className="px-4 py-2 w-full block text-sm bg-white hover:bg-slate-200"
                   onClick={closeMenuAndDropdown}
                 >
-                  Opción 3
+                  Register
+                </Link>
+                <Link
+                  to={"/"}
+                  className="px-4 py-2 w-full block text-sm bg-white hover:bg-slate-200"
+                  onClick={onLogout}
+                >
+                  Cerrar Sesión
                 </Link>
               </div>
             )}
@@ -122,3 +136,5 @@ export default function Navbar(){
     </nav>
   );
 };
+
+export default Navbar;
