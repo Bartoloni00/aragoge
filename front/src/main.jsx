@@ -42,7 +42,7 @@ const routes = createBrowserRouter([
       },
       {
         path: "perfil",
-        element: <Perfil />
+        element: <PrivateRoute><Perfil /></PrivateRoute>
       }
     ]
   },

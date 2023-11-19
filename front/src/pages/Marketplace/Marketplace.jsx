@@ -22,7 +22,6 @@ const Marketplace = () => {
       </>
     ) : (
       <>
-        {console.log(`4`, planificaciones)}
         <Loader />
       </>
     )

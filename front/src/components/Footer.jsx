@@ -55,7 +55,7 @@ const Footer = () =>{
       <div className="bg-gray-900">
         <div className="container px-5 py-6 mx-auto flex items-center sm:flex-row flex-col">
           <p className="text-sm text-gray-300 sm:ml-6 sm:mt-0 mt-4">© 2023 Aragoge —
-            <a href="http://localhost:5173/home" className="text-gray-400 ml-1" aria-label="Creadores del Sitio Web">Bartoloni | Arevalo</a>
+            <a href="http://localhost:5173/home" className="text-gray-400 ml-1" aria-label="Bartoloni Arevalo son los Creadores del Sitio Web">Bartoloni Arevalo</a>
           </p>
           <span className="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
             <a href="https://www.facebook.com/" className="text-gray-300" aria-label="Enlace hacia un sitio web externo (red)">

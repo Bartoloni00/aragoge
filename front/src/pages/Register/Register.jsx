@@ -1,92 +1,177 @@
-import { Link } from "react-router-dom"
-
+import { useState } from 'react';
+import { useNavigate } from "react-router-dom";
+import { createNewUser } from "../../services/auth.service"
+import Logo from "../../assets/favicon/apple-icon-120x120.png";
 export default function Register(){
+    const navigate = useNavigate()
+  
+    const [name, setName] = useState("");
+    const [lastname, setLastname] = useState("");
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [rol, setRol] = useState("");
+    const [image, setImage] = useState({ src: 'https://picsum.photos/150/150' });
+    const [error, setError] = useState("");
+
+    const onChangeName = (e) =>{
+        setName(e.target.value)
+    }
+
+    const onChangeLastname = (e) =>{
+        setLastname(e.target.value)
+    }
+
+    const onChangeEmail = (e) =>{
+        setEmail(e.target.value)
+    }
+
+    const onChangePassword = (e) =>{
+        setPassword(e.target.value)
+    }
+
+    const onChangeRol = (e) =>{
+        setRol(e.target.value)
+    }
+
+    const onChangeImage = (e) => {
+        setImage({ src: 'https://picsum.photos/150/150' });
+      };
+
+    const onSubmit = (e) =>{
+        e.preventDefault()
+
+        createNewUser({
+            name: name,
+            lastname: lastname,
+            email: email,
+            password: password,
+            image: image.src,
+            alt: `Imagen de perfil de: ${name} ${lastname}`,
+            rol: rol
+        })
+        .then((res) => {
+            console.log(res)
+            navigate("/login",{ replace: true })
+        })
+        .catch( err => setError(err.error))
+    } 
+  
   return (
     <>
         <section className="bg-white dark:bg-gray-900">
             <div className="container flex items-center justify-center min-h-screen px-6 mx-auto">
-                <form action="http://localhost:3333/users/" method="post" className="w-full max-w-md">
+                <div className="w-full max-w-md">
                     <div className="flex justify-center mx-auto">
-                    {/* <img className="w-auto" src={Logo} alt="Logo de Aragoge" loading='lazy' /> */}
+                        <img className="w-auto" src={Logo} alt="Logo de Aragoge" />
                     </div>
-                    
                     <div className="flex items-center justify-center mt-6">
-                        <Link to={"/login"} className="w-1/3 pb-4 font-medium text-center text-gray-500 capitalize border-b dark:border-gray-400 dark:text-gray-300">
-                            sign in
-                        </Link>
+                        <a
+                            href="/login"
+                            className="w-1/3 pb-4 font-medium text-center text-gray-500 capitalize border-b dark:border-gray-400 dark:text-gray-300"
+                            >
+                            Perfil
+                        </a>
 
-                        <Link to={"/register"} className="w-1/3 pb-4 font-medium text-center text-gray-800 capitalize border-b-2 border-blue-500 dark:border-blue-400 dark:text-white">
-                            sign up
-                        </Link>
+                        <a href="/Register" className="w-1/3 pb-4 font-medium text-center text-gray-800 capitalize border-b-2 border-blue-500 dark:border-blue-400 dark:text-white">
+                            Registrarse
+                        </a>
                     </div>
 
-                    <div className="relative flex items-center mt-8">
-                        <div className="relative flex items-center mt-8">
-                            <span className="absolute">
-                                <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 mx-3 text-gray-300 dark:text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                                </svg>
-                            </span>
-
-                            <input type="text" name="name" className="block w-full py-3 text-gray-700 bg-white border rounded-lg px-11 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" placeholder=' ' required/>
+                    <form className='my-6 mx-auto' onSubmit={onSubmit} encType="multipart/form-data">
+                        {/* Nombre del Usuario */}
+                        <div className="flex flex-col my-5">
+                            <label htmlFor="name" className="text-sm">Nombre:</label>
+                            <div className="flex flex-row items-center">
+                                <span className="bg-white p-2 rounded-s-lg shadow-md">
+                                    <i className="fa-solid fa-user fa-lg"></i>
+                                </span>
+                                <input type="text" name="name" id="name" onChange={onChangeName} value={name} className="bg-white p-2 mx-[2px] shadow-md w-full" required/>
+                            </div>
                         </div>
-                        <div className="relative flex items-center mt-8">
-                            <span className="absolute">
-                                <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 mx-3 text-gray-300 dark:text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                                </svg>
-                            </span>
-    
-                            <input type="text" name="lastname" className="block w-full py-3 text-gray-700 bg-white border rounded-lg px-11 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" placeholder=' ' required/>
-                        </div>
-                    </div>
 
-                    <div className="relative flex items-center mt-8">
-                        <span className="absolute">
-                            <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 mx-3 text-gray-300 dark:text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                            </svg>
+                        {/* Apellido del Usuario */}
+                        <div className="flex flex-col my-5">
+                            <label htmlFor="lastname" className="text-sm">Apellido:</label>
+                            <div className="flex flex-row items-center">
+                                <span className="bg-white p-2 rounded-s-lg shadow-md">
+                                    <i className="fa-solid fa-user fa-lg"></i>
+                                </span>
+                                <input type="text" name="lastname" id="lastname" onChange={onChangeLastname} value={lastname} className="bg-white p-2 mx-[2px] shadow-md w-full" required/>
+                            </div>
+                        </div>
+
+                        {/* Email del Usuario */}
+                        <div className="flex flex-col my-5">
+                            <label htmlFor="email" className="text-sm">Email:</label>
+                            <div className="flex flex-row items-center">
+                                <span className="bg-white p-2 rounded-s-lg shadow-md">
+                                    <i className="fa-solid fa-envelope fa-lg"></i>
+                                </span>
+                                <input type="email" name="email" id="email" onChange={onChangeEmail} value={email} className="bg-white p-2 mx-[2px] shadow-md w-full" required/>
+                            </div>
+                        </div>
+
+                        {/* Contraseña del Usuario */}
+                        <div className="flex flex-col my-5">
+                            <label htmlFor="password" className="text-sm">Password:</label>
+                            <div className="flex flex-row items-center">
+                                <span className="bg-white p-2 rounded-s-lg shadow-md">
+                                    <i className="fa-solid fa-lock fa-lg"></i>
+                                </span>
+                                <input type="password" name="password" id="password" onChange={onChangePassword} value={password} className="bg-white p-2 mx-[2px] shadow-md w-full" required/>
+                            </div>
+                        </div>
+
+                        {/* Rol del usuario */}
+                        <div className="flex flex-col my-5">
+                            <label htmlFor="rol">Rol:</label>
+                            <div className="flex flex-row items-center">
+                                <span className="bg-white p-2 rounded-s-lg shadow-md">
+                                    <i className="fa-solid fa-id-card fa-lg"></i>
+                                </span>
+                                <select name="rol" id="rol" onChange={onChangeRol} value={rol} className="bg-white p-2 mx-[2px] shadow-md w-full">
+                                    <option value="Atleta" defaultValue>Atleta</option>
+                                    <option value="Entrenador">Entrenador</option>
+                                    <option value="Terapeuta">Terapeuta</option>
+                                    <option value="Nutricionista">Nutricionista</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        {/* Imagen del usuario */}
+                        <div className="flex flex-col my-5">
+                            <label htmlFor="image">Imagen:</label>
+                            <div className="flex flex-row items-center mt-2">
+                            <img
+                                src={image.src ? image.src : '../../public/img/default.webp'}
+                                alt={`Foto de Perfil del Usuario: ${name} ${lastname}`}
+                                className="h-16 w-16 object-cover rounded-full"
+                                />
+                                <input type="file" name="image" id="image" onChange={onChangeImage} className="bg-white p-[7px] mx-[2px] shadow-md w-full file:bg-white file:border-none file text-transparent cursor-pointer"/>
+                            </div>
+                        </div>
+
+
+                        {/* Mensaje de error*/}
+                        <span className='my-2 text-red-600 text-center block'>
+                            {error} 
                         </span>
 
-                        <input type="email" name="email" className="block w-full py-3 text-gray-700 bg-white border rounded-lg px-11 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" placeholder=' ' required />
-                    </div>
-
-                    <div className="relative flex items-center mt-8">
-                        <label htmlFor="dropzone-file" className="w-full flex items-center px-3 py-3 mx-auto text-center bg-white border-2 border-dashed rounded-lg cursor-pointer dark:border-gray-600 dark:bg-gray-900">
-                            <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 text-gray-300 dark:text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
-                            </svg>
-
-                            <h2 className="mx-3 text-gray-400">Profile Photo</h2>
-
-                            <input id="dropzone-file" type="file" name="image" className="hidden" required />
-                            {/* <input type="hidden" name="alt" />
-                            <input type="hidden" name="rol" /> */}
-                        </label>
-                    </div>
-
-                    <div className="relative flex items-center mt-8">
-                        <span className="absolute">
-                            <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 mx-3 text-gray-300 dark:text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-                            </svg>
-                        </span>
-
-                        <input type="password" name="password" className="block w-full px-10 py-3 text-gray-700 bg-white border rounded-lg dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" placeholder=' ' required />
-                    </div>
+                        {/* Boton de acción*/}
+                        <button type='submit' className="w-full mt-6 px-6 py-3 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-500 rounded-lg hover:bg-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50">
+                            Registrarse
+                        </button>
+                    </form>
 
                     <div className="mt-6">
-                        <button className="w-full px-6 py-3 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-500 rounded-lg hover:bg-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50">
-                            Sign Up
-                        </button>
 
                         <div className="mt-6 text-center ">
-                            <Link to="/login" className="text-sm text-blue-500 hover:underline dark:text-blue-400">
-                                Already have an account?
-                            </Link>
+                            <a href="/register" className="text-sm text-blue-500 hover:underline dark:text-blue-400">
+                                No tienes cuenta?
+                            </a>
                         </div>
                     </div>
-                </form>
+                </div>
             </div>
         </section>
     </>

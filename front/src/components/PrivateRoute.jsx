@@ -1,17 +1,13 @@
 import { Navigate } from "react-router-dom"
+import { usePerfil } from "../context/SessionContext"
 
 export default function PrivateRoute({children}){
+
+    const perfil = usePerfil();
 
     if( !localStorage.getItem("token") ){
         return <Navigate to="/login"/>
     }
-    // TODO: hacer que se valide el token y rol de usuario por cada tipo de vista
-
-//   const userRole = localStorage.getItem("rol");
-
-//   if (!userRole || (userRole !== "entrenador" && userRole !== "admin")) {
-//     return <Navigate to="/login" />;
-//   }
 
     return children
 }
