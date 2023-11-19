@@ -3,11 +3,11 @@ POST http://localhost:3333/api/auth/login
 Content-Type: application/json
 
 {
-    "email": "sarasa@gmail.com",
+    "email": "messi@gmail.com",
     "password":"1234"
 }
 
 ### Desloguear usuario
 DELETE http://localhost:3333/api/auth
-Auth-Token: 
+Auth-Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTUxNTU5OWNmNjhhMjVkNmY0OTdjOGYiLCJlbWFpbCI6InJhbWJvZGhhbnlAZ21haWwuY29tIiwiaWF0IjoxNzAwMzQ4NTIxfQ.c1U3vR_d6so7l2gqDyK6e54_3QJVvpM7qBxkOKlKhns
 Content-Type: application/json

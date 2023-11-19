@@ -11,7 +11,6 @@ export default class AuthMiddleware
                             })
 
         if(usuario.rol == 'profesional' || usuario.rol == 'admin'){
-            console.log(usuario.name, usuario.rol);
             next()
         }else{
         return res.status(401).json({ error: { message: `El Usuario no posee los permisos necesarios para realizar esta accion` } })

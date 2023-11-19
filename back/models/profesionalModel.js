@@ -21,6 +21,15 @@ export class profesionalModel
             throw new Error(`El profesional con el id: ${id} no pudo ser encontrado`)
         }
     }
+    
+    static async getByUserID({userID})
+    {
+        try {
+            return profesionalDB.findOne({user: new ObjectId(userID)})
+        } catch (error) {
+            throw new Error(`El profesional con el id: ${id} no pudo ser encontrado`)
+        }
+    }
 
     static async create({profesional})
     {

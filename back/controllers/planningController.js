@@ -28,8 +28,7 @@ export class PlanningController
 
     static async create(req, res)
     {
-        // console.log(req.cuenta);
-        PlanningModel.create({datos: req.body})
+        PlanningModel.create({datos: req.body, token: req.header})
             .then(createdPlanning => {
                 res.status(201).send(createdPlanning)
             })

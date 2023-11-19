@@ -1,5 +1,7 @@
 import { MongoClient, ObjectId } from "mongodb"
 import 'dotenv/config'
+import { AuthModel } from "./AuthModel.js"
+import { profesionalModel } from "./profesionalModel.js"
 
 const client = new MongoClient(process.env.CONECCION_DB)
 const db = client.db(process.env.NAME_DB)
@@ -49,6 +51,10 @@ export class PlanningModel
         }
         // filtrosArmados.profesional.especitiy devolvia esto: { profesional: { especialiti: 'entrenador' } }
         // por eso tuve que armar un array para generar esto: { "profesional.especialiti": 'entrenador' }
+
+        if (filtros && filtros.profesional) {
+            filtrosArmados["profesional.id"] = new ObjectId(filtros.profesional);
+        }
         return planningDB.find(filtrosArmados).toArray()
     }
 
@@ -61,10 +67,21 @@ export class PlanningModel
         }
     }
 
-    static async create({datos})
+    static async create({datos, token})
     {
+        const user = await AuthModel.getUserAuth({token : token})
+        if(!user) throw new Error('No pudo encontrase al usuario')
+
+        const profesional = await profesionalModel.getByUserID({userID : user._id})
+        if(!profesional) throw new Error('No pudo encontrase al profesional')
+
         const newPlanning = datos
-    
+        newPlanning.profesional = {        
+            "id":new ObjectId(user._id),
+            "name": user.name,
+            "lastname": user.lastname,
+            "especialiti": profesional.especialiti
+        }
         try {
             const planning = await planningDB.insertOne(newPlanning)
             newPlanning._id = planning.insertedId

@@ -17,20 +17,20 @@ const PlanningSchema = z.object({
         required_error: 'Alt for image is required'
     }).default('descripcion de la imagen'),
     category: z.string(),
-    profesional: z.object({
-      id: z.string(),
-      name: z.string({
-        invalid_type_error:'User name must be a string',
-        required_error: 'User name is required'
-    }),
-      lastname: z.string({
-        invalid_type_error:'User lastname must be a string',
-        required_error: 'User lastname is required'
-    }),
-      especialiti: z.string({
-        required_error: 'Especialiti is required'
-    }).default('entrenador')
-    })
+    // profesional: z.object({
+    //   id: z.string(),
+    //   name: z.string({
+    //     invalid_type_error:'User name must be a string',
+    //     required_error: 'User name is required'
+    // }),
+    //   lastname: z.string({
+    //     invalid_type_error:'User lastname must be a string',
+    //     required_error: 'User lastname is required'
+    // }),
+    //   especialiti: z.string({
+    //     required_error: 'Especialiti is required'
+    // }).default('entrenador')
+    // })
 })
 
 export function validatePlanning(object) {

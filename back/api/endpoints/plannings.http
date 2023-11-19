@@ -19,29 +19,25 @@ GET http://localhost:3333/api/planning?especialiti=entrenador
 ### Todos los filtros
 http://localhost:3333/api/planning?title=Programa&pricemin=10000&pricemax=15000&category=powerlifting&subscribersmin=1&subscribersmax=5&especialiti=entrenador
 
+### Filtrar por el profesional
+GET http://localhost:3333/api/planning?profesional=65515599cf68a25d6f497c8f
+
 ### Recuperar por el id de la planificacion
 GET http://localhost:3333/api/planning/6546ab55f4ff6526b5244304
 
-// Verificar porque se rompe cuando el token no es valido
 ### Crear una publicacion
 POST http://localhost:3333/api/planning/
-Auth-Token:
+Auth-Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTUxM2VkNjIyMTMzMzkxMzNkNWI3MDkiLCJlbWFpbCI6Im1lc3NpQGdtYWlsLmNvbSIsImlhdCI6MTcwMDM1MTE2Nn0.VF0SnFpsRDngvV7TALaYNZ9XLT7cJKLh2EdI9GChcro
 Content-Type: application/json
 
 {
-    "title": "2023-16-11",
-    "description": "creado",
-    "subscribers": 9,
-    "price": 40309,
+    "title": "prueba10",
+    "description": "messi",
+    "subscribers": 10,
+    "price": 10,
     "image":"https://picsum.photos/400/225",
     "alt":"descripcion de la imagen",
-    "category": "running", 
-    "profesional": {
-        "id": "653ab688b767888b31dfea42",
-        "name": "Hany",
-        "lastname": "Rambod",
-        "especialiti": "entrenador"
-    }
+    "category": "running"
 }
 
 ### Eliminar una publicacion
@@ -50,8 +46,8 @@ Auth-Token:
 Content-Type: application/json
 
 ### Actualizar datos de una publicacion
-PATCH http://localhost:3333/api/planning/6554ccab2948b1a9a9ed91d8
-Auth-Token: 
+PATCH http://localhost:3333/api/planning/65594a508b9fcd2092f05434
+Auth-Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTUxNTU5OWNmNjhhMjVkNmY0OTdjOGYiLCJlbWFpbCI6InJhbWJvZGhhbnlAZ21haWwuY29tIiwiaWF0IjoxNzAwMzQ4NTIxfQ.c1U3vR_d6so7l2gqDyK6e54_3QJVvpM7qBxkOKlKhns
 Content-Type: application/json
 
 {
@@ -61,11 +57,5 @@ Content-Type: application/json
     "price": 9999,
     "image":"https://picsum.photos/400/225",
     "alt":"descripcion de la imagen",
-    "category": "powerlifting", 
-    "profesional": {
-        "id": "65515599cf68a25d6f497c8f",
-        "name": "Hany",
-        "lastname": "Rambod",
-        "especialiti": "entrenador"
-    }
+    "category": "powerlifting"
 }
