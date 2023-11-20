@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { createNewUser } from "../../services/auth.service"
 import Logo from "../../assets/favicon/apple-icon-120x120.png";
 export default function Register(){
@@ -33,9 +33,18 @@ export default function Register(){
         setRol(e.target.value)
     }
 
-    const onChangeImage = (e) => {
-        setImage({ src: 'https://picsum.photos/150/150' });
-      };
+    const onChangeImage = (event) => {
+        const file = event.target.files[0];
+        const reader = new FileReader();
+    
+        reader.onloadend = () => {
+          setImage({ src: reader.result });
+        }
+    
+        if (file) {
+          reader.readAsDataURL(file);
+        }
+    }
 
     const onSubmit = (e) =>{
         e.preventDefault()
@@ -65,16 +74,16 @@ export default function Register(){
                         <img className="w-auto" src={Logo} alt="Logo de Aragoge" />
                     </div>
                     <div className="flex items-center justify-center mt-6">
-                        <a
-                            href="/login"
+                        <Link
+                            to={"/login"}
                             className="w-1/3 pb-4 font-medium text-center text-gray-500 capitalize border-b dark:border-gray-400 dark:text-gray-300"
                             >
                             Perfil
-                        </a>
+                        </Link>
 
-                        <a href="/Register" className="w-1/3 pb-4 font-medium text-center text-gray-800 capitalize border-b-2 border-blue-500 dark:border-blue-400 dark:text-white">
+                        <Link to={"/Register"} className="w-1/3 pb-4 font-medium text-center text-gray-800 capitalize border-b-2 border-blue-500 dark:border-blue-400 dark:text-white">
                             Registrarse
-                        </a>
+                        </Link>
                     </div>
 
                     <form className='my-6 mx-auto' onSubmit={onSubmit} encType="multipart/form-data">
@@ -166,9 +175,9 @@ export default function Register(){
                     <div className="mt-6">
 
                         <div className="mt-6 text-center ">
-                            <a href="/register" className="text-sm text-blue-500 hover:underline dark:text-blue-400">
-                                No tienes cuenta?
-                            </a>
+                            <Link to={"/login"} className="text-sm text-blue-500 hover:underline dark:text-blue-400">
+                                Tienes cuenta?
+                            </Link>
                         </div>
                     </div>
                 </div>

@@ -5,7 +5,7 @@ export function login({email, password}) {
 }
 
 export function logout() {
-    return call({uri: "auth/", method: "DELETE"})
+    return call({uri: "auth", method: "POST"})
 }
 
 export function getPerfil() {

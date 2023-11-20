@@ -1,7 +1,7 @@
 export async function call({uri, method = "GET", body = undefined}) {
     return fetch(`http://localhost:3333/${uri}`, {
         headers: {
-            "auth-token": localStorage.getItem("token"),
+            "Auth-Token": localStorage.getItem("token"),
             "Content-Type": "application/json"
         },
         method,
@@ -14,7 +14,6 @@ export async function call({uri, method = "GET", body = undefined}) {
             throw await response.json()
         }
         const data = await response.json();
-        console.log(data); // Agregar console.log aquí
         return data;
     });
 }

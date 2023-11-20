@@ -16,7 +16,7 @@ export default function Nosotros(){
                 </div>
 
                 <div className="flex items-center justify-center w-full mt-6 lg:mt-0 lg:w-1/2">
-                    <img className="w-full h-full lg:max-w-3xl" src="https://placehold.co/800x800" alt="El pana miguel :v" />
+                    <img className="w-full h-full lg:max-w-3xl" src="https://placehold.co/800x800" alt="imagen" />
                 </div>
             </div>
         </div>

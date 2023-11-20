@@ -1,4 +1,4 @@
-import { createContext, useContext } from "react";
+import { createContext, useCallback, useContext, useMemo } from "react";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { logout, getPerfilByID } from "../services/auth.service";
@@ -29,12 +29,11 @@ function usePerfil() {
 
 function SessionProvider({children}) {
     const navigate = useNavigate();
-    const onLogout = () =>{
+    const onLogout = useCallback(() =>{
       logout();
       localStorage.removeItem("token");
       localStorage.removeItem("id");
-      navigate("/", {replace: true});
-    }
+    }, [navigate])
   
     const [perfil, setPerfil] = useState({});
     useEffect(() => {
@@ -46,8 +45,12 @@ function SessionProvider({children}) {
       }
     }, []);
 
+    const value = useMemo(() =>{
+      return {perfil, onLogout}
+    }, [perfil, onLogout])
+
     return (
-        <SessionContext.Provider value={{perfil, onLogout}}>
+        <SessionContext.Provider value={value}>
             {children}
         </SessionContext.Provider>
     )

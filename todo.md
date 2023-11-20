@@ -15,9 +15,11 @@
 
 //TODO: Marketplace: Sistema de Filtros
 //TODO: Perfil normal: Editar datos
-//TODO: Registro
+//TODO: Registro [Subir imagen del usuario]
 //TODO: Restringir acceso a vistas dependiendo el token y rol
 //TODO: Rehacer el navbar teniendo en cuenta modificación de datos
 //TODO: Lazy Load y Optimización del sitio
 //TODO: Traer colores
 //TODO: Definir tamaños tipograficos, fuentes, bordes, box-shadow, colores
+
+//TODO: Arreglar bugs de cerrar sesión doble click, perfil actualizar el sitio para mostrar los datos

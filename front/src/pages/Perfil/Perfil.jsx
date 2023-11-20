@@ -1,6 +1,8 @@
-import {usePerfil} from "../../context/SessionContext"
+import { usePerfil } from "../../context/SessionContext"
 const Perfil = () => {
+    
     const perfil = usePerfil();
+    
     return (
     <>
         <section className="mx-auto my-8">

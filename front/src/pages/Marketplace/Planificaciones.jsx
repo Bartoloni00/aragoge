@@ -1,21 +1,15 @@
-import {useEffect, useState} from "react";
+import { useState } from "react";
 import PlanificacionesCard from "./PlanificacionesCard.jsx";
-import Filtros from "./Filtros.jsx";
+import { PropTypes } from "prop-types";
 //Planificaciones === ProductList
 //PlanificacionesCardItem === ProductListItem
 
 const Planificaciones = ({planificaciones}) => {
   const [Planificaciones, setPlanificaciones] = useState(planificaciones);
 
-  useEffect( () => {
-    setPlanificaciones(planificaciones)
-  },[planificaciones])
-  
   return (
     //Las etiquetas vacias se llaman react fragment
     <>
-      <Filtros />
-
       {/* Pasar desde componente padre a un componente hijo datos */}
       <section className="w-[100%] p-2 my-8">
           <div className="max-w-[1536px] mx-auto dark:border-gray-700 p-2">
@@ -29,5 +23,9 @@ const Planificaciones = ({planificaciones}) => {
     </>
   )
 }
+
+Planificaciones.propTypes = {
+  planificaciones: PropTypes.array.isRequired,
+};
 
 export default Planificaciones;

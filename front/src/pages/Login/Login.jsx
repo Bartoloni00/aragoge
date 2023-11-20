@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { useState } from 'react';
+import { useState, useCallback } from 'react';
 import { useNavigate } from "react-router-dom";
 import { login } from '../../services/auth.service';
 import Logo from "../../assets/favicon/apple-icon-120x120.png";
@@ -11,15 +11,15 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
-    const onChangeEmail = (e) =>{
+    const onChangeEmail = useCallback((e) => {
         setEmail(e.target.value)
-    }
+    }, [setEmail])
 
-    const onChangePassword = (e) =>{
+    const onChangePassword = useCallback((e) =>{
         setPassword(e.target.value)
-    }
+    }, [setPassword])
 
-    const onSubmit = (e) =>{
+    const onSubmit = useCallback((e) =>{
         e.preventDefault()
 
         console.log(`Email: ${email} | Password: ${password}`)
@@ -33,7 +33,7 @@ const Login = () => {
             navigate("/",{ replace: true })
         })
         .catch( err => setError(err.error))
-    } 
+    }, [email, password, navigate, setError])
 
   return (
     <>
@@ -45,7 +45,7 @@ const Login = () => {
                     </div>
                     
                     <div className="flex items-center justify-center mt-6">
-                        <Link to="" className="w-1/3 pb-4 font-medium text-center text-gray-800 capitalize border-b-2 border-blue-500 dark:border-blue-400 dark:text-white" >
+                        <Link to="/login" className="w-1/3 pb-4 font-medium text-center text-gray-800 capitalize border-b-2 border-blue-500 dark:border-blue-400 dark:text-white" >
                             Iniciar Sesión
                         </Link>
 
