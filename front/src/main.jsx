@@ -1,28 +1,38 @@
-import React from 'react'
+import React, { Suspense, lazy} from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import './index.css'
 
-import PrivateRoute from './components/PrivateRoute.jsx'
-
+/* Vista de usuarios */
 import Home from './pages/Home/Home.jsx'
 import Contact from './pages/Contact/Contact.jsx';
-import Marketplace from './pages/Marketplace/Marketplace.jsx'
-import PlanificacionesDetalle from './pages/Marketplace/PlanificacionesDetalle.jsx'
+const Marketplace = lazy(() => import('./pages/Marketplace/Marketplace.jsx'))
+const PlanificacionesDetalle = lazy(() => import('./pages/Marketplace/PlanificacionesDetalle.jsx'));
 import Login from './pages/Login/Login.jsx';
 import Register from './pages/Register/Register.jsx';
-import Error404 from './pages/Error404/Error404.jsx';
 
-import AppProfesionales from './pages/Profesionales/AppProfesionales.jsx';
-import Dashboard from './pages/Profesionales/dashboard.jsx'
+/* Vista de Usuarios Logueados */
 import Perfil from './pages/Perfil/Perfil.jsx'
 
+/* Vistas de profesionales */
+import HomePro from './pages/Profesionales/HomePro.jsx';
+import Create from './pages/Profesionales/Create.jsx';
+import Delete from './pages/Profesionales/Delete.jsx';
+import Edit from './pages/Profesionales/Edit.jsx';
+
+/* Vistas de Admin */
+import HomeAdmin from './pages/Admin/HomeAdmin.jsx';
+
+/* Vista de Error */
+import Error404 from './pages/Error404/Error404.jsx';
+import Loader from './components/Loader.jsx';
+import PrivateRoute from './components/PrivateRoute.jsx';
 const routes = createBrowserRouter([
+  //Rutas de usuarios normales
   {
     path: "/",
     element: <App />,
-    errorElement: <Error404 />,
     children: [
       {
         path: "",
@@ -30,11 +40,11 @@ const routes = createBrowserRouter([
       },
       {
         path: "marketplace",
-        element: <Marketplace />
+        element: <Suspense fallback={<Loader />}><Marketplace /></Suspense>
       },
       {
         path: "marketplace/:id",
-        element: <PlanificacionesDetalle />
+        element: <Suspense fallback={<Loader />}><PlanificacionesDetalle /></Suspense>
       },
       {
         path: "contact",
@@ -42,31 +52,59 @@ const routes = createBrowserRouter([
       },
       {
         path: "perfil",
-        element: <Perfil />
+        element: <PrivateRoute allowedRoles={["atleta", "profesional", "entrenador", "nutricionista", "terapeuta", "admin"]}><Perfil /></PrivateRoute>
+      },
+      {
+        path: "/login",
+        element: <Login />
+      },
+      {
+        path: "/register",
+        element: <Register />
       }
     ]
   },
   {
     path: "/profesionales",
-    element: <PrivateRoute><App /></PrivateRoute>,
+    element: <App />,
     children: [
       {
         path: "",
-        element: <AppProfesionales />
+        element: <PrivateRoute allowedRoles={["entrenador", "profesional", "nutricionista", "terapeuta", "admin"]}><HomePro/></PrivateRoute>,
       },
       {
-        path: "dashboard",
-        element: <Dashboard />
+        path: "create",
+        element: <PrivateRoute allowedRoles={["entrenador", "profesional", "nutricionista", "terapeuta", "admin"]}><Create/></PrivateRoute>
+      },
+      {
+        path: "edit",
+        element: <PrivateRoute allowedRoles={["entrenador", "profesional", "nutricionista", "terapeuta", "admin"]}><Edit/></PrivateRoute>
+      },
+      {
+        path: "delete",
+        element: <PrivateRoute allowedRoles={["entrenador", "profesional", "nutricionista", "terapeuta", "admin"]}><Delete/></PrivateRoute>
+      },
+    ]
+  },
+  {
+    path: "/admin",
+    element: <App />,
+    children: [
+      {
+        path: "",
+        element: <PrivateRoute allowedRoles={["admin"]}><HomeAdmin /></PrivateRoute>
       }
     ]
   },
   {
-    path: "/login",
-    element: <Login />
-  },
-  {
-    path: "/register",
-    element: <Register />
+    path: "*",
+    element: <App />,
+    children: [
+     {
+      path: "*",
+      element: <Error404 />
+     } 
+    ]
   }
 ])
 

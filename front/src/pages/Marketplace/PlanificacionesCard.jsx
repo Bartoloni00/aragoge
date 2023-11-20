@@ -12,7 +12,7 @@ const PlanificacionesCard = ({planificaciones}) => {
         <Link to={`${_id}`} id={_id}>
             <div className='flex flex-col bg-white border rounded-lg overflow-hidden shadow-md min-h-[450px]'>
                 <div className='w-full min-h-[225px] h-auto bg-red-50 '>
-                    <img src={image} alt={alt} />
+                    <img src={image} alt={alt} width={400} height={225} />
                 </div>
                 <div className='p-3'>
                     <div>

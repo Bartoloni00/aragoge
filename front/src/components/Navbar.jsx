@@ -1,21 +1,21 @@
 import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { logout } from '../services/auth.service';
+import { usePerfil } from '../context/SessionContext';
 
-const NavigationLink = ({ item, closeMenu }) => (
-  <Link
-    to={item.ruta}
-    className=" hover:bg-gray-800 hover:text-white block rounded-md px-3 py-2 text-base font-medium "
-    aria-current={item.current ? 'page' : undefined}
-    onClick={closeMenu}
-  >
-    {item.name}
-  </Link>
-);
-
-const Navbar = () =>{
-  const navigate = useNavigate()
-
+const Navbar = () => {
+  const perfil = usePerfil();
+  const NavigationLink = ({ item, closeMenu }) => (
+    <Link
+      to={item.ruta}
+      className=" hover:bg-gray-800 hover:text-white block rounded-md px-3 py-2 text-base font-medium "
+      aria-current={item.current ? 'page' : undefined}
+      onClick={closeMenu}
+    >
+      {item.name}
+    </Link>
+  );
+  
   const navigation = [
     { name: 'Home', ruta: '/' },
     { name: 'Marketplace', ruta: '/marketplace' },
@@ -42,12 +42,6 @@ const Navbar = () =>{
     setIsMenuOpen(false);
     setIsDropdownOpen(false);
   };
-
-  const onLogout = () => {
-    logout().then((usuario) => console.log(usuario));
-    localStorage.removeItem("token");
-    navigate("/", {replace: true})
-  }
 
   return (
     <nav className="bg-neutral-100 text-center text-neutral-600 dark:bg-neutral-600 dark:text-neutral-200 w-[100%]">
@@ -84,8 +78,8 @@ const Navbar = () =>{
             >
               <img
                 className="h-8 w-8 rounded-full"
-                src="https://wallpapers.com/images/hd/cool-profile-picture-87h46gcobjl5e4xu.jpg"
-                alt="Avatar"
+                src={perfil.image ? perfil.image : '../../public/img/default.webp'}
+                alt={perfil.alt ? perfil.alt : 'Usuario no Logueado'}
               />
             </button>
             {isDropdownOpen && (
@@ -111,11 +105,11 @@ const Navbar = () =>{
                 >
                   Register
                 </Link>
-                <Link
+                <Link 
                   to={"/"}
                   className="px-4 py-2 w-full block text-sm bg-white hover:bg-slate-200"
-                  onClick={onLogout}
-                >
+                  onClick={logout}
+                  >
                   Cerrar Sesión
                 </Link>
               </div>

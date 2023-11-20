@@ -1,17 +1,19 @@
-import { Navigate } from "react-router-dom"
+import { Navigate } from "react-router-dom";
+import { usePerfil } from "../context/SessionContext";
 
-export default function PrivateRoute({children}){
+export default function PrivateRoute({ children, allowedRoles }) {
+  const perfil = usePerfil()
+  const userRol = perfil.rol;
+  console.log(`Perfil: `, perfil.rol)
+  console.log(`UserRol: `, userRol)
 
-    if( !localStorage.getItem("token") ){
-        return <Navigate to="/login"/>
+  if (localStorage.getItem("token")) {
+    if (allowedRoles.includes(userRol)) {
+      return children; // Renderizar el componente si el rol del usuario está permitido
+    } else {
+      return <Navigate to={"/"} />; // Redirigir a "/" si el rol del usuario no está permitido
     }
-    // TODO: hacer que se valide el token y rol de usuario por cada tipo de vista
-
-//   const userRole = localStorage.getItem("rol");
-
-//   if (!userRole || (userRole !== "entrenador" && userRole !== "admin")) {
-//     return <Navigate to="/login" />;
-//   }
-
-    return children
+  } else {
+    return <Navigate to={"/login"} />; // Redirigir al inicio de sesión si no hay token en el almacenamiento local
+  }
 }

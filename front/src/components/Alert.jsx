@@ -1,20 +1,37 @@
-export const Denied = () => {
+import React, { useState, useEffect } from "react";
+
+const Alert = ({ message, type }) => {
+  const [visible, setVisible] = useState(true);
+
+  let alertClass = "";
+  
+  if (type === "success") {
+    alertClass = "text-green-800 bg-green-300";
+  } else if (type === "info") {
+    alertClass = "text-yellow-800 bg-yellow-300";
+  } else if (type === "danger") {
+    alertClass = "text-red-800 bg-red-300";
+  }
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setVisible(false);
+    }, 5000);
+
+    return () => {
+      clearTimeout(timeout);
+    };
+  }, []);
+
   return (
-    <div class="absolute bottom-5 right-5 px-4 py-4 w-[300px] text-red-800 bg-red-300 rounded shadow-lg shadow-red-500/50" role="alert">
-        <p>Haz salido correctamente!</p>
-    </div>
-  )
-}
-
-export const Success = () => {
-    return (
-        <div class="absolute bottom-5 right-5 px-4 py-4 w-[300px] text-green-800 bg-green-300 rounded shadow-lg shadow-green-500/50" role="alert">
-            <p>Haz ingresado correctamente!</p>
+    <>
+      {visible && (
+        <div className={`absolute bottom-5 right-5 px-4 py-4 w-[300px] rounded shadow-lg ${alertClass}`} role="alert">
+            <p>{message}</p>
         </div>
-    )
-}
+      )}
+    </>
+  );
+};
 
-export default {
-    Denied,
-    Success
-}
+export default Alert;

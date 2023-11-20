@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import Planificaciones from "./Planificaciones.jsx";
 import { getPlanificaciones } from "../../services/planificaciones.service.js";
+import Planificaciones from "./Planificaciones.jsx";
 import Loader from "../../components/Loader.jsx";
 //Planificaciones === ProductList
 //PlanificacionesCardItem === ProductListItem
@@ -22,7 +22,6 @@ const Marketplace = () => {
       </>
     ) : (
       <>
-        {console.log(`4`, planificaciones)}
         <Loader />
       </>
     )
