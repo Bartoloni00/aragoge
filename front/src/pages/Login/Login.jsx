@@ -27,7 +27,7 @@ const Login = () => {
         .then((usuario) => {
             // TODO: Fixear el bug de a@algo (se rompe el codigo)
             // TODO: recibir el rol del usuario para la validación
-            // console.log(`Rol del usuario: `, usuario.user.rol)
+            console.log(`Usuario: `, usuario.user)
             localStorage.setItem("id", usuario.user._id)
             localStorage.setItem("token", usuario.token)
             navigate("/",{ replace: true })

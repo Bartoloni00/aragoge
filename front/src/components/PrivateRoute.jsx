@@ -4,8 +4,6 @@ import { usePerfil } from "../context/SessionContext";
 export default function PrivateRoute({ children, allowedRoles }) {
   const perfil = usePerfil()
   const userRol = perfil.rol;
-  console.log(`Perfil: `, perfil.rol)
-  console.log(`UserRol: `, userRol)
 
   if (localStorage.getItem("token")) {
     if (allowedRoles.includes(userRol)) {

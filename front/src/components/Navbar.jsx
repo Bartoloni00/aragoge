@@ -20,6 +20,9 @@ const Navbar = () => {
     { name: 'Home', ruta: '/' },
     { name: 'Marketplace', ruta: '/marketplace' },
     { name: 'Contact', ruta: '/contact' },
+    { name: 'Mis Planificaciones', ruta: '/profesionales' },
+    { name: 'Crear', ruta: '/profesionales/create' },
+    { name: 'Admin', ruta: '/admin' },
   ];
 
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
