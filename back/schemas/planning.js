@@ -9,7 +9,8 @@ const PlanningSchema = z.object({
         invalid_type_error:'Description must be a string',
         required_error: 'Description is required'
     }),
-    subscribers: z.number().int().positive(),
+    subscribers: z.number().int(),
+    //Se romovio la función positive() ya que generaba un fallo al crear una nueva planificación con 0 subscribers
     price: z.number().positive(),
     image: z.string().url().default('https://picsum.photos/400/225'),
     alt: z.string({

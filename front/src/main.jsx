@@ -77,11 +77,11 @@ const routes = createBrowserRouter([
         element: <PrivateRoute allowedRoles={["entrenador", "profesional", "nutricionista", "terapeuta", "admin"]}><Create/></PrivateRoute>
       },
       {
-        path: "edit",
+        path: "edit/:id",
         element: <PrivateRoute allowedRoles={["entrenador", "profesional", "nutricionista", "terapeuta", "admin"]}><Edit/></PrivateRoute>
       },
       {
-        path: "delete",
+        path: "delete/:id",
         element: <PrivateRoute allowedRoles={["entrenador", "profesional", "nutricionista", "terapeuta", "admin"]}><Delete/></PrivateRoute>
       },
     ]

@@ -1,4 +1,5 @@
 export async function call({uri, method = "GET", body = undefined}) {
+    console.log(uri)
     return fetch(`http://localhost:3333/${uri}`, {
         headers: {
             "Auth-Token": localStorage.getItem("token"),

@@ -5,7 +5,28 @@ export function login({email, password}) {
 }
 
 export function logout() {
-    return call({uri: "auth", method: "POST"})
+    return fetch(`http://localhost:3333/api/auth`, {
+           headers: {
+               "Auth-Token": localStorage.getItem("token"),
+               "Content-Type": "application/json"
+           },
+           method: 'DELETE'
+           })
+           .then((response) => {
+             console.log('Respuesta de la solicitud de logout:', response);
+             if (!response.ok || response.status === 422) {
+               return response.json().then(error => Promise.reject(error));
+             }
+             return response.json();
+           })
+           .then(data => {
+             console.log('Datos de la respuesta de logout:', data);
+             localStorage.removeItem("token");
+             localStorage.removeItem("id");
+           })
+           .catch(error => {
+             console.error('Error en la solicitud de logout:', error);
+           });
 }
 
 export function getPerfil() {
