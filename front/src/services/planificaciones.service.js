@@ -26,7 +26,6 @@ export function editPlanificacion({_id , title, description, subscribers, price,
 }
 
 export function deletePlanificacion(_id) {
-    // console.log(_id);
     return call({uri: `api/planning/${_id}`, method: "DELETE"});
 }
 

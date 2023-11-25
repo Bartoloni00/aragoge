@@ -5,11 +5,11 @@ import { logout, getPerfilByID } from "../services/auth.service";
 const SessionContext = createContext();
 
 function useSession() {
-    const context = useContext(SessionContext);
-    if (!context) {
-        throw new Error('[useSession] Debe estar dentro del proveedor SessionContext!')
-    }
-    return context;
+  const context = useContext(SessionContext);
+  if (!context) {
+    throw new Error('[useSession] Debe estar dentro del proveedor SessionContext!')
+  }
+  return context;
 }
 
 /**
@@ -23,37 +23,38 @@ function useSession() {
     *   - alt: texto alternativo para la imagen de perfil
 */
 function usePerfil() {
-    const {perfil} = useSession();
-    return perfil;
+  const { perfil } = useSession();
+  return perfil;
 }
 
-function SessionProvider({children}) {
-    const navigate = useNavigate();
-    const onLogout = useCallback(() =>{
-      logout();
-      localStorage.removeItem("token");
-      localStorage.removeItem("id");
-    }, [navigate])
-  
-    const [perfil, setPerfil] = useState({});
-    useEffect(() => {
-      const id = localStorage.getItem("id");
-      if (id) {
-        getPerfilByID(id).then(perfil => setPerfil(perfil));
-      } else {
-        console.log("El usuario no tiene cuenta o no está logueado");
-      }
-    }, []);
+function SessionProvider({ children }) {
+  const navigate = useNavigate();
+  const onLogout = useCallback(() => {
+    logout();
+    localStorage.removeItem("token");
+    localStorage.removeItem("id");
+  }, [navigate])
 
-    const value = useMemo(() =>{
-      return {perfil, onLogout}
-    }, [perfil, onLogout])
+  const [perfil, setPerfil] = useState({});
+  console.log(perfil)
+  useEffect(() => {
+    const id = localStorage.getItem("id");
+    if (id) {
+      getPerfilByID(id).then(perfil => setPerfil(perfil));
+    } else {
+      console.log("El usuario no tiene cuenta o no está logueado");
+    }
+  }, []);
 
-    return (
-        <SessionContext.Provider value={value}>
-            {children}
-        </SessionContext.Provider>
-    )
+  const value = useMemo(() => {
+    return { perfil, onLogout }
+  }, [perfil, onLogout])
+
+  return (
+    <SessionContext.Provider value={value}>
+      {children}
+    </SessionContext.Provider>
+  )
 }
 
-export {SessionContext, useSession, usePerfil, SessionProvider};
+export { SessionContext, useSession, usePerfil, SessionProvider };

@@ -1,4 +1,4 @@
-import React, { Suspense, lazy} from 'react'
+import React, { Suspense, lazy } from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
@@ -54,15 +54,15 @@ const routes = createBrowserRouter([
         path: "perfil",
         element: <PrivateRoute allowedRoles={["atleta", "profesional", "entrenador", "nutricionista", "terapeuta", "admin"]}><Perfil /></PrivateRoute>
       },
-      {
-        path: "/login",
-        element: <Login />
-      },
-      {
-        path: "/register",
-        element: <Register />
-      }
     ]
+  },
+  {
+    path: "/login",
+    element: <Login />
+  },
+  {
+    path: "/register",
+    element: <Register />
   },
   {
     path: "/profesionales",
@@ -70,19 +70,19 @@ const routes = createBrowserRouter([
     children: [
       {
         path: "",
-        element: <PrivateRoute allowedRoles={["entrenador", "profesional", "nutricionista", "terapeuta", "admin"]}><HomePro/></PrivateRoute>,
+        element: <PrivateRoute allowedRoles={["entrenador", "profesional", "nutricionista", "terapeuta", "admin"]}><HomePro /></PrivateRoute>,
       },
       {
         path: "create",
-        element: <PrivateRoute allowedRoles={["entrenador", "profesional", "nutricionista", "terapeuta", "admin"]}><Create/></PrivateRoute>
+        element: <PrivateRoute allowedRoles={["entrenador", "profesional", "nutricionista", "terapeuta", "admin"]}><Create /></PrivateRoute>
       },
       {
         path: "edit/:id",
-        element: <PrivateRoute allowedRoles={["entrenador", "profesional", "nutricionista", "terapeuta", "admin"]}><Edit/></PrivateRoute>
+        element: <PrivateRoute allowedRoles={["entrenador", "profesional", "nutricionista", "terapeuta", "admin"]}><Edit /></PrivateRoute>
       },
       {
         path: "delete/:id",
-        element: <PrivateRoute allowedRoles={["entrenador", "profesional", "nutricionista", "terapeuta", "admin"]}><Delete/></PrivateRoute>
+        element: <PrivateRoute allowedRoles={["entrenador", "profesional", "nutricionista", "terapeuta", "admin"]}><Delete /></PrivateRoute>
       },
     ]
   },
@@ -100,10 +100,10 @@ const routes = createBrowserRouter([
     path: "*",
     element: <App />,
     children: [
-     {
-      path: "*",
-      element: <Error404 />
-     } 
+      {
+        path: "*",
+        element: <Error404 />
+      }
     ]
   }
 ])
