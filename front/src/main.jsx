@@ -21,9 +21,6 @@ import Create from './pages/Profesionales/Create.jsx';
 import Delete from './pages/Profesionales/Delete.jsx';
 import Edit from './pages/Profesionales/Edit.jsx';
 
-/* Vistas de Admin */
-import HomeAdmin from './pages/Admin/HomeAdmin.jsx';
-
 /* Vista de Error */
 import Error404 from './pages/Error404/Error404.jsx';
 import Loader from './components/Loader.jsx';
@@ -84,16 +81,6 @@ const routes = createBrowserRouter([
         path: "delete/:id",
         element: <PrivateRoute allowedRoles={["entrenador", "profesional", "nutricionista", "terapeuta", "admin"]}><Delete /></PrivateRoute>
       },
-    ]
-  },
-  {
-    path: "/admin",
-    element: <App />,
-    children: [
-      {
-        path: "",
-        element: <PrivateRoute allowedRoles={["admin"]}><HomeAdmin /></PrivateRoute>
-      }
     ]
   },
   {

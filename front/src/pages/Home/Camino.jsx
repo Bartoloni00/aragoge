@@ -1,23 +1,44 @@
-export default function Camino(){
+const Camino = () => {
   return (
-    <section className="text-gray-600 body-font">
-        <div className="container px-5 py-10 mx-auto border my-8">
-            <h3 className="text-center mb-14 font-mono text-3xl font-black">Nuestro camino...</h3>
-            <div className="flex flex-wrap -m-4 text-center">
-                <div className="p-4 sm:w-1/3 w-1/2">
-                    <h2 className="title-font font-medium sm:text-4xl text-3xl text-gray-900">2.7K</h2>
-                    <p className="leading-relaxed">Users</p>
+    <section className="container mx-auto mt-4">
+        <h2 className="font-Cardo uppercase text-2xl text-center my-6">Nuestro Camino...</h2>
+        <div className="gap-[40px] mx-auto flex flex-col items-center md:flex-row px-4 md:px-2 text-center">
+            <div className="bg-[#f2f2f2] rounded-lg border shadow-md w-full">
+                <div className="min-h-[150px] flex flex-col justify-center items-center">
+                    <img src="../../../public/icon/personas.webp" alt="Icono de Usuarios" width={60} height={60}/>
                 </div>
-                <div className="p-4 sm:w-1/3 w-1/2">
-                    <h2 className="title-font font-medium sm:text-4xl text-3xl text-gray-900">1.8K</h2>
-                    <p className="leading-relaxed">Subscribes</p>
+                <div className="p-2">
+                    <p className="font-Roboto text-2xl">2.7K</p>
                 </div>
-                <div className="p-4 sm:w-1/3 w-1/2">
-                    <h2 className="title-font font-medium sm:text-4xl text-3xl text-gray-900">35</h2>
-                    <p className="leading-relaxed">Downloads</p>
+                <div className="text-center">
+                    <h3 className="font-Cardo uppercase text-lg py-4">Usuarios</h3>
+                </div>
+            </div>
+            <div className="bg-[#f2f2f2] rounded-lg border shadow-md w-full">
+                <div className="min-h-[150px] flex flex-col justify-center items-center">
+                    <img src="../../../public/icon/carrito.webp" alt="Icono de Usuarios" width={60} height={60}/>
+                </div>
+                <div className="p-2">
+                    <p className="font-Roboto text-2xl">1.8K</p>
+                </div>
+                <div className="text-center">
+                    <h3 className="font-Cardo uppercase text-lg py-4">Compras</h3>
+                </div>
+            </div>
+            <div className="bg-[#f2f2f2] rounded-lg border shadow-md w-full">
+                <div className="min-h-[150px] flex flex-col justify-center items-center">
+                    <img src="../../../public/icon/download.webp" alt="Icono de Usuarios" width={60} height={60}/>
+                </div>
+                <div className="p-2">
+                    <p className="font-Roboto text-2xl">35</p>
+                </div>
+                <div className="text-center">
+                    <h3 className="font-Cardo uppercase text-lg py-4">Descargas</h3>
                 </div>
             </div>
         </div>
     </section>
   )
 }
+
+export default Camino

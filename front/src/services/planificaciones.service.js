@@ -31,6 +31,10 @@ export function deletePlanificacion(_id) {
 
 export default{
     getPlanificaciones,
+    getPlanificacionesByProfesionalID,
     getPlanificacionesByID,
     getPlanificacionesByCategoria,
+    createNewPlanificacion,
+    editPlanificacion,
+    deletePlanificacion
 }
