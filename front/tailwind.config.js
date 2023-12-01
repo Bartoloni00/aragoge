@@ -18,11 +18,11 @@ export default {
         Cardo: ["Cardo", "serif"],
       },
       fontSize: {
-        'titulo': '0.8rem',
-        'subtitulo':'',
-        'ena': '3.052rem',
-        'parrafo': '3.052rem',
-        'parrafo': '3.052rem',
+        'title-h1': '1.875rem', //30px
+        'title-h2':'1.5rem', //24px
+        'title-h3':'1.25rem', //20px
+        'subtitulo':'1.125rem', //18px
+        'parrafo': '1rem', //16px
       },
       borderRadius: {
         'container': '15px',

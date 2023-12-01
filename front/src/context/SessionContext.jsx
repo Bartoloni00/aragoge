@@ -36,7 +36,7 @@ function SessionProvider({ children }) {
   }, [navigate])
 
   const [perfil, setPerfil] = useState({});
-  console.log(perfil)
+  // console.log(perfil)
   useEffect(() => {
     const id = localStorage.getItem("id");
     if (id) {

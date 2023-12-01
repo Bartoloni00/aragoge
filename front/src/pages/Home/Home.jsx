@@ -1,17 +1,19 @@
-import Nosotros from './Nosotros';
-import Partner from './Partner';
-import Contamos from './Contamos';
-import Destacados from './Destacados';
-import Camino from './Camino';
+import Aragoge from "./Aragoge.jsx";
+import Partners from "./Partners.jsx";
+import Contamos from "./Contamos.jsx";
+import Destacados from "./Destacados.jsx";
+import Categorias from "./Categorias.jsx";
+import Camino from "./Camino.jsx";
 
 const Home = () => {
   return (
     <>
-    <Nosotros />
-    <Partner />
-    <Contamos />
-    <Destacados />
-    <Camino />
+      <Aragoge />
+      <Partners />
+      <Contamos />
+      <Destacados />
+      <Categorias />
+      <Camino />
     </>
   )
 }

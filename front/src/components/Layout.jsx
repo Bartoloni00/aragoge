@@ -6,7 +6,7 @@ const Layout = ({ children, ...rest }) => {
   return (
     <SessionProvider>
       <Header />
-      <main className="w-full max-w-[1600px] h-full mx-auto min-h-screen">
+      <main className="w-full max-w-[1536px] h-full mx-auto min-h-screen m-10">
         {children}
       </main>
       <Footer />

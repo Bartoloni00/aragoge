@@ -89,28 +89,28 @@ const Navbar = () => {
               <div className="absolute right-0 mt-2 w-48 bg-white border border-gray-200 divide-y divide-gray-100 rounded-md shadow-lg">
                 <Link
                   to={"/perfil"}
-                  className="px-4 py-2 w-full block text-sm bg-white hover:bg-slate-200"
+                  className="px-4 py-2 w-full block text-sm text-black hover:bg-gray-800 hover:text-white"
                   onClick={closeMenuAndDropdown}
                 >
                   Perfil
                 </Link>
                 <Link
                   to={"/login"}
-                  className="px-4 py-2 w-full block text-sm bg-white hover:bg-slate-200"
+                  className="px-4 py-2 w-full block text-sm text-black hover:bg-gray-800 hover:text-white"
                   onClick={closeMenuAndDropdown}
                 >
                   Login
                 </Link>
                 <Link
                   to={"/register"}
-                  className="px-4 py-2 w-full block text-sm bg-white hover:bg-slate-200"
+                  className="px-4 py-2 w-full block text-sm text-black hover:bg-gray-800 hover:text-white"
                   onClick={closeMenuAndDropdown}
                 >
                   Register
                 </Link>
                 <Link
                   to={"/login"}
-                  className="px-4 py-2 w-full block text-sm bg-white hover:bg-slate-200"
+                  className="px-4 py-2 w-full block text-sm text-black hover:bg-gray-800 hover:text-white"
                   onClick={logout}
                 >
                   Cerrar Sesión
