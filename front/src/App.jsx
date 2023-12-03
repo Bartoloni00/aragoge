@@ -1,4 +1,4 @@
-import Layout from "./components/Layout";
+import Layout from "./components/Layout.jsx";
 import { Outlet } from "react-router-dom";
 
 const App = () => {
@@ -6,7 +6,7 @@ const App = () => {
     <Layout>
       <Outlet />
     </Layout>
-  )
-}
+  );
+};
 
 export default App;

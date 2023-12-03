@@ -1,31 +1,22 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import PlanificacionesCard from "./PlanificacionesCard.jsx";
-import { PropTypes } from "prop-types";
-//Planificaciones === ProductList
-//PlanificacionesCardItem === ProductListItem
+import { usePerfil } from "../../context/SessionContext.jsx";
 
-const Planificaciones = ({planificaciones}) => {
-  const [Planificaciones, setPlanificaciones] = useState(planificaciones);
+const Planificaciones = ({ planificaciones }) => {
+  const [planificacionesState, setPlanificacionesState] =
+    useState(planificaciones);
+  const perfil = usePerfil();
 
   return (
-    //Las etiquetas vacias se llaman react fragment
     <>
-      {/* Pasar desde componente padre a un componente hijo datos */}
-      <section className="w-[100%] p-2 my-8 h-full">
-          <div className="max-w-[1536px] mx-auto dark:border-gray-700 p-2">
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-4 gap-4">
-                {
-                  Planificaciones.map(planificaciones => <PlanificacionesCard key={planificaciones._id} planificaciones={planificaciones} />)
-                }
-              </div>
-          </div>
-      </section>
+      {planificacionesState.map((planificacion) => (
+        <PlanificacionesCard
+          key={planificacion._id}
+          planificaciones={planificacion}
+        />
+      ))}
     </>
-  )
-}
-
-Planificaciones.propTypes = {
-  planificaciones: PropTypes.array.isRequired,
+  );
 };
 
 export default Planificaciones;

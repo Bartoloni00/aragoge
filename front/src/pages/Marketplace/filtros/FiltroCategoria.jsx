@@ -13,7 +13,10 @@ const FiltroCategoria = ({ Planificaciones, setPlanificaciones }) => {
 
   return (
     <form className="max-w-[320px] px-3 mb-6 md:mb-0">
-      <label className="block uppercase tracking-wide text-gray-500 text-xs font-bold mb-2" htmlFor="categorias">
+      <label
+        className="block uppercase tracking-wide text-gray-500 text-xs font-bold mb-2"
+        htmlFor="categorias"
+      >
         Categorías
       </label>
       <div className="relative">
