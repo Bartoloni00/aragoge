@@ -15,7 +15,7 @@ const Home = () => {
       <Categorias />
       <Camino />
     </>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

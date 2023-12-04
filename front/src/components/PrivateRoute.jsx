@@ -1,8 +1,8 @@
 import { Navigate } from "react-router-dom";
-import { usePerfil } from "../context/SessionContext";
+import { usePerfil } from "../context/SessionContext.jsx";
 
 export default function PrivateRoute({ children, allowedRoles }) {
-  const perfil = usePerfil()
+  const perfil = usePerfil();
   const userRol = perfil.rol;
 
   if (localStorage.getItem("token")) {

@@ -1,18 +1,29 @@
-export default function Contact(){
+export default function Contact() {
   return (
     <section>
       <div className="px-5 py-24 bg-[#f2f2f2] mx-auto max-w-[800px]">
         <div className="flex flex-col text-center w-full mb-12">
-          <h1 className="font-Cardo text-3xl font-normal mb-4 text-gray-900">Contáctanos</h1>
-          <p className=" mx-auto text-2xl font-Roboto font-normal">Si tienes alguna pregunta o inquietud, no dudes en contactarnos.</p>
-          <p className=" mx-auto text-2xl font-Roboto font-normal">Estamos aquí para ayudarte.</p>
+          <h1 className="font-Cardo text-3xl font-normal mb-4 text-gray-900">
+            Contáctenos
+          </h1>
+          <p className=" mx-auto text-2xl font-Roboto font-normal">
+            Si tienes alguna pregunta o inquietud, no dudes en contactarnos.
+          </p>
+          <p className=" mx-auto text-2xl font-Roboto font-normal">
+            Estamos aquí para ayudarte.
+          </p>
         </div>
         <div className="">
           <form action="#" method="POST" encType="multipart/form-data">
             <div className="flex flex-wrap -m-2">
               <div className="p-2 w-1/2">
                 <div className="relative">
-                  <label htmlFor="name" className="leading-7 font-Roboto text-xl font-normal">Nombre</label>
+                  <label
+                    htmlFor="name"
+                    className="leading-7 font-Roboto text-xl font-normal"
+                  >
+                    Nombre
+                  </label>
                   <input
                     type="text"
                     id="name"
@@ -23,7 +34,12 @@ export default function Contact(){
               </div>
               <div className="p-2 w-1/2">
                 <div className="relative">
-                  <label htmlFor="email" className="leading-7 font-Roboto text-xl font-normal">Email</label>
+                  <label
+                    htmlFor="email"
+                    className="leading-7 font-Roboto text-xl font-normal"
+                  >
+                    Email
+                  </label>
                   <input
                     type="email"
                     id="email"
@@ -34,7 +50,12 @@ export default function Contact(){
               </div>
               <div className="p-2 w-full">
                 <div className="relative">
-                  <label htmlFor="message" className="leading-7 font-Roboto text-xl font-normal">Mensaje</label>
+                  <label
+                    htmlFor="message"
+                    className="leading-7 font-Roboto text-xl font-normal"
+                  >
+                    Mensaje
+                  </label>
                   <textarea
                     id="message"
                     name="message"
@@ -56,4 +77,4 @@ export default function Contact(){
       </div>
     </section>
   );
-};
+}

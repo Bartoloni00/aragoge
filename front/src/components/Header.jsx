@@ -1,10 +1,10 @@
-import Navbar from "./Navbar.jsx"
+import Navbar from "./Navbar.jsx";
 const Header = () => {
   return (
-    <header>
-        <Navbar />
+    <header className="bg-gray-800 w-full">
+      <Navbar />
     </header>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;

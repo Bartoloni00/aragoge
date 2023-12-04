@@ -1,7 +1,1 @@
-//TODO: Perfil de profesional (cambio de fondo, colores)
-//TODO: Marketplace: Sistema de Filtros
-//TODO: Perfil normal: Editar datos
-//TODO: Registro [Subir imagen del usuario]
-//TODO: Rehacer el navbar teniendo en cuenta modificación de datos
-//TODO: Definir tamaños tipograficos, fuentes, bordes, box-shadow, colores
-//TODO: perfil actualizar el sitio para mostrar los datos
+//TODO: Perfil de profesional (cambio de fondo, colores) //TODO: Marketplace: Sistema de Filtros //TODO: Perfil normal: Editar datos //TODO: Registro [Subir imagen del usuario] //TODO: Rehacer el navbar teniendo en cuenta modificación de datos //TODO: Definir tamaños tipograficos, fuentes, bordes, box-shadow, colores //TODO: perfil actualizar el sitio para mostrar los datos

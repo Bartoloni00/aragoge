@@ -1,26 +1,24 @@
 @font-face {
-    font-family: 'Cardo';
-    src: 
-        url('/src/assets/fonts/cardo/Cardo-Regular.ttf') format('TrueType'),
-        url('/src/assets/fonts/cardo/Cardo-Italic.ttf') format('TrueType'),
-        url('/src/assets/fonts/cardo/Cardo-Bold.ttf') format('TrueType');
+  font-family: "Cardo";
+  src: url("/src/assets/fonts/cardo/Cardo-Regular.ttf") format("TrueType"),
+    url("/src/assets/fonts/cardo/Cardo-Italic.ttf") format("TrueType"),
+    url("/src/assets/fonts/cardo/Cardo-Bold.ttf") format("TrueType");
 }
 
 @font-face {
-    font-family: 'Roboto';
-    src: 
-        url('/src/assets/fonts/roboto/Roboto-Regular.ttf') format('TrueType'),
-        url('/src/assets/fonts/roboto/Roboto-Italic.ttf') format('TrueType'),
-        url('/src/assets/fonts/roboto/Roboto-Bold.ttf') format('TrueType');
+  font-family: "Roboto";
+  src: url("/src/assets/fonts/roboto/Roboto-Regular.ttf") format("TrueType"),
+    url("/src/assets/fonts/roboto/Roboto-Italic.ttf") format("TrueType"),
+    url("/src/assets/fonts/roboto/Roboto-Bold.ttf") format("TrueType");
 }
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-body{
-    background-image: url('/public/background/bg-pattern.webp');
-    background-repeat: repeat;
-    background-size: 300px;
-    background-attachment: fixed;
+body {
+  background-image: url("/public/background/bg-pattern.webp");
+  background-repeat: repeat;
+  background-size: 300px;
+  background-attachment: fixed;
 }
