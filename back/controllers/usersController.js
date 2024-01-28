@@ -20,7 +20,11 @@ export class UserController {
     }
     static async create(req, res)
     {
-        UserModel.create({datos: req.body})
+        const datos = {
+            ...req.body,
+            image: req.file.path
+        }
+        UserModel.create({datos})
             .then(user => {
                 res.status(201).send(user)
             })

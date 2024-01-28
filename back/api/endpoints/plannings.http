@@ -2,22 +2,22 @@
 GET http://localhost:3333/api/planning/
 
 ### Filtrar por title
-GET http://localhost:3333/api/planning?title=Programa
+GET http://localhost:3333/api/planning?title=Rutina
 
 ### Filtrar por price:
-GET http://localhost:3333/api/planning?pricemin=7000&pricemax=13000
+GET http://localhost:3333/api/planning?pricemin=100&pricemax=13000
 
 ### Filtrar por Category
-GET http://localhost:3333/api/planning?category=running
+GET http://localhost:3333/api/planning?category=crossfit
 
 ### Filtrar por subscribers:
-GET http://localhost:3333/api/planning?subscribersmin=5&subscribersmax=9
+GET http://localhost:3333/api/planning?subscribersmin=1&subscribersmax=9
 
 ### Filtrar por especialidad del profesional
-GET http://localhost:3333/api/planning?especialiti=entrenador
+GET http://localhost:3333/api/planning?especialiti=terapeuta
 
 ### Todos los filtros
-http://localhost:3333/api/planning?title=Programa&pricemin=10000&pricemax=15000&category=powerlifting&subscribersmin=1&subscribersmax=5&especialiti=entrenador
+GET http://localhost:3333/api/planning?title=Programa&pricemin=10000&pricemax=15000&category=powerlifting&subscribersmin=1&subscribersmax=5&especialiti=entrenador
 
 ### Filtrar por el profesional
 GET http://localhost:3333/api/planning?profesional=65513ed62213339133d5b709

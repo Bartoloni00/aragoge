@@ -1,5 +1,5 @@
 # Inmediato:
-- Carga de imagenes.
+- Carga de imagenes. (falta manejar cuando el usuario edita o elimina las mismas)
 - Sistema de reseñas.
 - suscripcion de atletas a planificaciones.
 
@@ -8,5 +8,5 @@
 - contador de suscriptores de un profesional
 - sistema de chat.
 
-- TODO: arreglar que cuando ocurre un 422 el servidor se cae.
+- TODO: arreglar que cuando ocurre un 422 el servidor se cae. parece ser algo del .number de la dependencia de validaciones
 - TODO: filtrar profesionales por su especialidad.

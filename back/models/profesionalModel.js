@@ -34,7 +34,7 @@ export class profesionalModel
     static async create({profesional})
     {
         const newProfesional = profesional
-        const userExist = await db.collection('users').findOne({_id: new ObjectId(newProfesional.user)})
+        const userExist = await db.collection(process.env.USERS_COLLECTION_DB).findOne({_id: new ObjectId(newProfesional.user)})
         if (!userExist) {
             throw new Error(`El usuario que quiere ser asignado a este profesional no existe`)
         }

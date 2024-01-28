@@ -16,7 +16,6 @@ const userSchema = z.object({
         invalid_type_error:'This is not an email'
     }),
     password: z.string(),
-    image: z.string().url().default('https://picsum.photos/400/225'),
     alt: z.string({
         invalid_type_error:'Alt for image must be a string',
         required_error: 'Alt for image is required'

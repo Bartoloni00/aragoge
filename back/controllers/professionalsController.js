@@ -3,7 +3,7 @@ import { profesionalModel } from "../models/profesionalModel.js"
 export class profesionalController 
 {
     /**
-     * Obtiene todas las cervezas o las cervezas de un tipo específico.
+     * Obtiene todos los profesionales.
      * @param {object} req - Objeto de solicitud HTTP.
      * @param {object} res - Objeto de respuesta HTTP.
      * @returns {Promise<void>} - No devuelve un valor directamente, pero envía una respuesta JSON al cliente.
@@ -16,7 +16,7 @@ export class profesionalController
     }
 
     /**
-     * Obtiene todas las cervezas o las cervezas de un tipo específico.
+     * obtiene a un profesional por el id del profesional
      * @param {object} req - Objeto de solicitud HTTP.
      * @param {object} res - Objeto de respuesta HTTP.
      * @returns {Promise<void>} - No devuelve un valor directamente, pero envía una respuesta JSON al cliente.
@@ -34,14 +34,18 @@ export class profesionalController
     }
 
     /**
-     * Obtiene todas las cervezas o las cervezas de un tipo específico.
+     * Crea a un nuevo profesional
      * @param {object} req - Objeto de solicitud HTTP.
      * @param {object} res - Objeto de respuesta HTTP.
      * @returns {Promise<void>} - No devuelve un valor directamente, pero envía una respuesta JSON al cliente.
      */
     static async create(req, res)
     {
-        profesionalModel.create({profesional: req.body})
+        const datos = {
+            ...req.body,
+            banner: req.file.path
+        }
+        profesionalModel.create({profesional: datos})
         .then(createdProfessional => {
             res.status(201).send(createdProfessional)
         })
@@ -51,7 +55,7 @@ export class profesionalController
     }
 
     /**
-     * Obtiene todas las cervezas o las cervezas de un tipo específico.
+     * Elimina a un profesional en especifico.
      * @param {object} req - Objeto de solicitud HTTP.
      * @param {object} res - Objeto de respuesta HTTP.
      * @returns {Promise<void>} - No devuelve un valor directamente, pero envía una respuesta JSON al cliente.
@@ -69,7 +73,7 @@ export class profesionalController
     }
 
     /**
-     * Obtiene todas las cervezas o las cervezas de un tipo específico.
+     * Actualiza los datos de un profesional.
      * @param {object} req - Objeto de solicitud HTTP.
      * @param {object} res - Objeto de respuesta HTTP.
      * @returns {Promise<void>} - No devuelve un valor directamente, pero envía una respuesta JSON al cliente.

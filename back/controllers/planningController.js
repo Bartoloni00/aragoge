@@ -28,7 +28,11 @@ export class PlanningController
 
     static async create(req, res)
     {
-        PlanningModel.create({datos: req.body, token: req.header})
+        const newPlaning = {
+            ...req.body,
+            image: req.file.path
+        }
+        PlanningModel.create({datos: newPlaning, token: req.header})
             .then(createdPlanning => {
                 res.status(201).send(createdPlanning)
             })
