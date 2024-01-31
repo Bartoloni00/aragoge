@@ -24,7 +24,7 @@ export class profesionalController
     static async getByID(req, res)
     {
         const id = req.params.id
-        profesionalModel.getByID({id: id})
+        profesionalModel.getByUserID({id: id})
             .then(data => {
                 res.send(data)
             })
@@ -41,9 +41,17 @@ export class profesionalController
      */
     static async create(req, res)
     {
-        const datos = {
-            ...req.body,
-            banner: req.file.path
+        let datos
+        if (req.file) {
+            datos = {
+                ...req.body,
+                banner: req.file.path
+            }
+        } else {
+            datos = {
+                ...req.body,
+                banner: 'https://picsum.photos/900/300'
+            }
         }
         profesionalModel.create({profesional: datos})
         .then(createdProfessional => {

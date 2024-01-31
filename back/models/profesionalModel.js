@@ -1,4 +1,5 @@
 import { MongoClient, ObjectId } from "mongodb"
+import { deleteFile } from "../services/fs.js"
 import 'dotenv/config'
 
 const client = new MongoClient(process.env.CONECCION_DB)
@@ -43,7 +44,7 @@ export class profesionalModel
             throw new Error(`El usuario: ${userExist.name} ${userExist.lastname} no posee el rol de profesional`)
         }
 
-        const existe = await profesionalDB.findOne({user: newProfesional.user})
+        const existe = await profesionalDB.findOne({user: newProfesional._id})
         
         if (existe) {
             throw new Error(`El usuario: ${userExist.name} ${userExist.lastname} ya tiene creado su perfil de profesional.`)
@@ -59,6 +60,10 @@ export class profesionalModel
 
     static async delete ({id})
     {
+        const professional = await this.getByID({id})
+        if (professional.banner.startsWith('uploads\\banners\\')) {
+            deleteFile(professional.banner)
+        }
         try {
             await profesionalDB.deleteOne({ _id: new ObjectId(id) })
             return {'message': `El profesional con el id: ${id} fue eliminado exitosamente`}

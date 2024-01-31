@@ -20,9 +20,17 @@ export class UserController {
     }
     static async create(req, res)
     {
-        const datos = {
-            ...req.body,
-            image: req.file.path
+        let datos
+        if (req.file) {
+            datos = {
+                ...req.body,
+                image: req.file.path
+            }
+        } else {
+            datos = {
+                ...req.body,
+                image: 'https://picsum.photos/150/150'
+            }
         }
         UserModel.create({datos})
             .then(user => {

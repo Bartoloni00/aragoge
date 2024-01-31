@@ -1,4 +1,5 @@
 import { MongoClient, ObjectId } from "mongodb"
+import { deleteFile } from "../services/fs.js"
 import bcrypt from "bcrypt"
 import 'dotenv/config'
 
@@ -61,12 +62,20 @@ export class UserModel
         const usuarioAeliminar = await this.getByID({id: id})
         const profesional = await profesionalDB.findOne({user: usuarioAeliminar._id})
 
+        if (usuarioAeliminar.image.startsWith('uploads\\users\\')) {
+            deleteFile(usuarioAeliminar.image)
+        }
+
         try {
             if (profesional) {
                 await profesionalDB.deleteOne({user: usuarioAeliminar._id})
                 .catch(err => {
                     throw new Error(err.message)
                 })
+
+                if (profesional.banner.startsWith('uploads\\banners\\')) {
+                    deleteFile(profesional.banner)
+                }
             }
             await userDB.deleteOne({_id: new ObjectId(id)})
             return {'message':  `El usuario con el id: ${id} fue eliminado exitosamente`}

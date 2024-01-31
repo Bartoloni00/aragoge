@@ -28,9 +28,17 @@ export class PlanningController
 
     static async create(req, res)
     {
-        const newPlaning = {
-            ...req.body,
-            image: req.file.path
+        let newPlaning
+        if (req.file) {
+            newPlaning = {
+                ...req.body,
+                image: req.file.path
+            }
+        } else {
+            newPlaning = {
+                ...req.body,
+                image: 'https://picsum.photos/300/150'
+            }
         }
         PlanningModel.create({datos: newPlaning, token: req.header})
             .then(createdPlanning => {

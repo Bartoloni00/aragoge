@@ -1,4 +1,5 @@
 import { MongoClient, ObjectId } from "mongodb"
+import { deleteFile } from "../services/fs.js"
 import 'dotenv/config'
 import { AuthModel } from "./AuthModel.js"
 import { profesionalModel } from "./profesionalModel.js"
@@ -103,6 +104,11 @@ export class PlanningModel
 
     static async delete({id})
     {
+        const planning = await this.getByID({id})
+        console.log(planning.image);
+        if (planning.image.startsWith('uploads\\plannings\\')) {
+            deleteFile(planning.image)
+        }
         try {
             await planningDB.deleteOne({ _id: new ObjectId(id) })
             return {'message': `La planificacion con el id: ${id} fue eliminada exitosamente`}

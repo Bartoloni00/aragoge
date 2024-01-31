@@ -24,7 +24,7 @@ GET http://localhost:3333/api/planning?profesional=65513ed62213339133d5b709
 //tiene que ser el id del usuario el que se encuentra en user
 
 ### Recuperar por el id de la planificacion
-GET http://localhost:3333/api/planning/65513ed62213339133d5b709
+GET http://localhost:3333/api/planning/65bad6f50b9f44fffab210b2
 
 ### Crear una publicacion
 POST http://localhost:3333/api/planning/
@@ -42,8 +42,8 @@ Content-Type: application/json
 }
 
 ### Eliminar una publicacion
-DELETE http://localhost:3333/api/planning/6554ccab2948b1a9a9ed91d8
-Auth-Token:
+DELETE http://localhost:3333/api/planning/65bad6f50b9f44fffab210b2
+Auth-Token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTZmNWQ3ZmE4OTI0N2FjNzBkZTRiNDYiLCJlbWFpbCI6InRpYWFtZWxpYUBwcm90b24uY29tIiwiaWF0IjoxNzAxNzk3NzI1fQ.iV1Dz_Gqk_wOjX6ZIwmBMT05iH9ed_n2Fm1WDj56dgg
 Content-Type: application/json
 
 ### Actualizar datos de una publicacion

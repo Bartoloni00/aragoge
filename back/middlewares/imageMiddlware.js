@@ -1,5 +1,5 @@
 import sharp from 'sharp' // editar imagenes
-import fs from 'fs'
+import { deleteFile } from '../services/fs.js'
 
 export default class ImageMiddleware
 {
@@ -11,19 +11,9 @@ export default class ImageMiddleware
         .toFile(`uploads/${ruta}/` + filename + name)
     }
 
-    static async #deleteOriginalImage(url)
-    {
-        fs.unlink(url, err => {
-            if (err) {
-                console.error("Error al eliminar la imagen original:", err);
-            } else {
-                console.log("Imagen original eliminada exitosamente.");
-            }
-        });
-    }
-
     static async resizePlanningImage(req, res, next)
     {
+        if(!req.file) return next()
         try {
             const rutaOriginal = req.file.path
 
@@ -36,9 +26,9 @@ export default class ImageMiddleware
                 name: 'planning.webp'
             })
 
-            await ImageMiddleware.#deleteOriginalImage(rutaOriginal)
+            await deleteFile(rutaOriginal)
 
-            req.file.path = req.file.path + 'planning.web'
+            req.file.path = req.file.path + 'planning.webp'
             next()
         } catch (error) {
             res.status(500).json({ 'Error': error });
@@ -46,6 +36,7 @@ export default class ImageMiddleware
     }
 
     static async resizeBanner(req, res, next){
+        if(!req.file) return next()
         try {
             const rutaOriginal = req.file.path
 
@@ -58,7 +49,7 @@ export default class ImageMiddleware
                 name: 'banner.webp'
             })
             
-            await ImageMiddleware.#deleteOriginalImage(rutaOriginal)
+            await deleteFile(rutaOriginal)
     
             req.file.path = rutaOriginal + 'banner.webp'
             next()
@@ -69,6 +60,7 @@ export default class ImageMiddleware
     }
 
     static async resizeUserImage(req, res, next) {
+        if(!req.file) return next()
         try {
             const rutaOriginal = req.file.path;
     
@@ -81,13 +73,13 @@ export default class ImageMiddleware
                 name: 'user.webp'
             });
     
-            await ImageMiddleware.#deleteOriginalImage(rutaOriginal)
+            await deleteFile(rutaOriginal)
     
             req.file.path = rutaOriginal + 'user.webp'
     
             next();
         } catch (error) {
-            res.status(500).json({ 'Error': error })
+            res.status(500).json({ 'Error': error , message: 'no existe imagen'})
         }
     }
     
