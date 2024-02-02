@@ -74,6 +74,12 @@ export class profesionalModel
 
     static async update({id, datos})
     {
+        if (datos.banner) {
+            const profesional = await this.getByID({id})
+            if (profesional.banner.startsWith('uploads\\banners\\')) {
+                deleteFile(profesional.banner)
+            }
+        }
         try {
             await profesionalDB.updateOne({ _id: new ObjectId(id) }, { $set: datos });
             return datos;

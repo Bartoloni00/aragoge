@@ -1,5 +1,4 @@
 # Inmediato:
-- Carga de imagenes. (falta manejar cuando el usuario edita o elimina las mismas)
 - Sistema de reseñas.
 - suscripcion de atletas a planificaciones.
 

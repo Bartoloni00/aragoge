@@ -49,6 +49,12 @@ export class UserModel
 
     static async update ({id, datos})
     {
+        if (datos.image) {
+            const user = await this.getByID({id})
+            if (user.image.startsWith('uploads\\users\\')) {
+                deleteFile(user.image)
+            }
+        }
         try {
             await userDB.updateOne({_id: new ObjectId(id)}, {$set: datos})
             return datos

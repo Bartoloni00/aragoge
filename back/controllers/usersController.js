@@ -43,7 +43,14 @@ export class UserController {
     
     static async update(req, res)
     {
-        UserModel.update({id: req.params.id, datos: req.body})
+        let datos = req.body
+        if (req.file) {
+            datos = {
+                ...req.body,
+                image: req.file.path
+            }
+        }
+        UserModel.update({id: req.params.id, datos: datos})
             .then(data => {
                 res.json(data)
             })

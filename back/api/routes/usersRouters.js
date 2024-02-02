@@ -36,7 +36,12 @@ ApiuserRoutes.post('/users/', [
 
 ApiuserRoutes.delete('/users/:id',[TokenMiddleware.validateToken], UserController.delete)
 
-ApiuserRoutes.patch('/users/:id', [UserMiddleware.partialValidate, TokenMiddleware.validateToken] , UserController.update)
+ApiuserRoutes.patch('/users/:id', [
+  TokenMiddleware.validateToken,
+  upload.single('image'), 
+  ImageMiddleware.resizeUserImage, 
+  UserMiddleware.partialValidate, 
+] , UserController.update)
 
 ApiuserRoutes.use(ProfesionalRoutes)
 ApiuserRoutes.use(PlanningRoutes)

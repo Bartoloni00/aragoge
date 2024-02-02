@@ -94,6 +94,12 @@ export class PlanningModel
 
     static async update({id, datos})
     {
+        if (datos.image) {
+            const planning = await this.getByID({id})
+            if (planning.image.startsWith('uploads\\plannings\\')) {
+                deleteFile(planning.image)
+            }
+        }
         try {
             await planningDB.updateOne({_id: new ObjectId(id)}, {$set: datos})
             return datos

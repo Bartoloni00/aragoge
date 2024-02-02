@@ -51,7 +51,14 @@ export class PlanningController
 
     static async update(req, res)
     {
-        PlanningModel.update({id: req.params.id, datos: req.body})
+        let datos = req.body
+        if (req.file) {
+            datos = {
+                ...req.body,
+                image: req.file.path
+            }
+        }
+        PlanningModel.update({id: req.params.id, datos: datos})
         .then(data => {
             res.json(data)
         })

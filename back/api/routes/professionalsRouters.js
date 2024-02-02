@@ -25,14 +25,19 @@ ProfesionalRoutes.get('/profesional/', profesionalController.listAll)
 ProfesionalRoutes.get('/profesional/:id', profesionalController.getByID)
 
 ProfesionalRoutes.post('/profesional/',[
+    TokenMiddleware.validateToken,
     upload.single('banner'), 
     ImageMiddleware.resizeBanner, 
     ProfesionalMiddleware.validate, 
-    TokenMiddleware.validateToken
 ], profesionalController.create)
 
 ProfesionalRoutes.delete('/profesional/:id',[TokenMiddleware.validateToken], profesionalController.delete)
 
-ProfesionalRoutes.patch('/profesional/:id',[ProfesionalMiddleware.partialValidate , TokenMiddleware.validateToken], profesionalController.update)
+ProfesionalRoutes.patch('/profesional/:id',[
+  ProfesionalMiddleware.partialValidate , 
+  TokenMiddleware.validateToken,
+  upload.single('banner'), 
+  ImageMiddleware.resizeBanner, 
+], profesionalController.update)
 
 export default ProfesionalRoutes

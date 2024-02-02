@@ -6,7 +6,11 @@ export default class ImageMiddleware
     static async #resizeGeneric({ruta,filePath, width,heigh, filename, name})
     {
         return sharp(filePath)
-        .resize(width,heigh)
+        .resize(width,heigh,{
+            kernel: sharp.kernel.nearest,
+            fit: 'contain',
+            background: { r: 255, g: 255, b: 255, alpha: 0.5 }
+        })
         .webp(80)
         .toFile(`uploads/${ruta}/` + filename + name)
     }

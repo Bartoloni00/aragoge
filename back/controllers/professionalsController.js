@@ -89,7 +89,14 @@ export class profesionalController
     static async update(req, res)
     {
         const id = req.params.id
-        profesionalModel.update({id: id, datos: req.body})
+        let datos = req.body
+        if (req.file) {
+            datos = {
+                ...req.body,
+                image: req.file.path
+            }
+        }
+        profesionalModel.update({id: id, datos: datos})
             .then(updateProfesional => {
                 res.status(200).json({"message": `Profesional editado exitosamente: ${id}`, updateProfesional})
             })

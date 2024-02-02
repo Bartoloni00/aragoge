@@ -26,11 +26,11 @@ PlanningRoutes.get('/planning/', PlanningController.listAll)
 PlanningRoutes.get('/planning/:id', PlanningController.getByID)
 
 PlanningRoutes.post('/planning/',[
+    TokenMiddleware.validateToken,
+    AuthMiddleware.UserAuthProfessional,
     upload.single('image'), 
     ImageMiddleware.resizePlanningImage, 
     PlanningMiddleware.validate, 
-    TokenMiddleware.validateToken,
-    AuthMiddleware.UserAuthProfessional
 ], PlanningController.create)
 
 PlanningRoutes.delete('/planning/:id',[
@@ -39,9 +39,11 @@ PlanningRoutes.delete('/planning/:id',[
 ], PlanningController.delete)
 
 PlanningRoutes.patch('/planning/:id',[
-    PlanningMiddleware.partialValidate,
     TokenMiddleware.validateToken,
-    AuthMiddleware.UserAuthProfessional
+    AuthMiddleware.UserAuthProfessional,
+    upload.single('image'), 
+    ImageMiddleware.resizePlanningImage, 
+    PlanningMiddleware.partialValidate,
 ], PlanningController.update)
 
 export default PlanningRoutes
