@@ -8,7 +8,7 @@ const Navbar = () => {
   const NavigationLink = ({ item, closeMenu }) => (
     <Link
       to={item.ruta}
-      className=" hover:bg-gray-800 hover:text-white block rounded-md px-3 py-2 font-Roboto font-normal text-base"
+      className=" hover:bg-negro hover:text-white block rounded-md px-3 py-2 font-Roboto font-normal text-base"
       aria-current={item.current ? "page" : undefined}
       onClick={closeMenu}
     >
@@ -45,7 +45,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="text-center text-neutral-400 bg-gray-800 max-w-[1536px] mx-auto">
+    <nav className="text-center text-neutral-400 bg-negro max-w-[1536px] mx-auto">
       <div className="mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="flex items-center justify-between h-16 w-full">
           <div className="md:hidden">
@@ -54,14 +54,20 @@ const Navbar = () => {
               className="text-neutral-600 px-3 py-2 rounded-md"
             >
               <svg
-                className="h-8 w-8"
+                className="h-8 w-8 mt-2 text-center"
                 viewBox="0 0 24 24"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 {isMenuOpen ? (
-                  <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z" />
+                  <path
+                    d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"
+                    fill="#F2F2F2"
+                  />
                 ) : (
-                  <path d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
+                  <path
+                    d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"
+                    fill="#F2F2F2"
+                  />
                 )}
               </svg>
             </button>
@@ -93,34 +99,41 @@ const Navbar = () => {
             </button>
             {isDropdownOpen && (
               <div className="absolute right-0 mt-2 w-48 bg-white border border-gray-200 divide-y divide-gray-100 rounded-md shadow-lg">
-                <Link
-                  to={"/perfil"}
-                  className="px-4 py-2 w-full block font-Roboto font-normal text-base bg-white text-black hover:text-white transition-colors hover:bg-gray-800"
-                  onClick={closeMenuAndDropdown}
-                >
-                  Mi Perfil
-                </Link>
-                <Link
-                  to={"/login"}
-                  className="px-4 py-2 w-full block font-Roboto font-normal text-base bg-white text-black hover:text-white transition-colors hover:bg-gray-800"
-                  onClick={closeMenuAndDropdown}
-                >
-                  Iniciar Sesión
-                </Link>
-                <Link
-                  to={"/register"}
-                  className="px-4 py-2 w-full block font-Roboto font-normal text-base bg-white text-black hover:text-white transition-colors hover:bg-gray-800"
-                  onClick={closeMenuAndDropdown}
-                >
-                  Registrarme
-                </Link>
-                <Link
-                  to={"/login"}
-                  className="px-4 py-2 w-full block font-Roboto font-normal text-base bg-white text-black hover:text-white transition-colors hover:bg-gray-800"
-                  onClick={logout}
-                >
-                  Cerrar Sesión
-                </Link>
+                {perfil.rol !== undefined ? (
+                  <div>
+                    <Link
+                      to={"/perfil"}
+                      className="px-4 py-2 w-full block font-Roboto font-normal text-base bg-white text-black hover:text-white transition-colors hover:bg-negro"
+                      onClick={closeMenuAndDropdown}
+                    >
+                      Mi Perfil
+                    </Link>
+                    <Link
+                      to={"/login"}
+                      className="px-4 py-2 w-full block font-Roboto font-normal text-base bg-white text-black hover:text-white transition-colors hover:bg-negro"
+                      onClick={logout}
+                    >
+                      Cerrar Sesión
+                    </Link>
+                  </div>
+                ) : (
+                  <div>
+                    <Link
+                      to={"/login"}
+                      className="px-4 py-2 w-full block font-Roboto font-normal text-base bg-white text-black hover:text-white transition-colors hover:bg-negro"
+                      onClick={closeMenuAndDropdown}
+                    >
+                      Iniciar Sesión
+                    </Link>
+                    <Link
+                      to={"/register"}
+                      className="px-4 py-2 w-full block font-Roboto font-normal text-base bg-white text-black hover:text-white transition-colors hover:bg-negro"
+                      onClick={closeMenuAndDropdown}
+                    >
+                      Registrarme
+                    </Link>
+                  </div>
+                )}
               </div>
             )}
           </div>

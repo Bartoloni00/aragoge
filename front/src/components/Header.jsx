@@ -1,7 +1,7 @@
 import Navbar from "./Navbar.jsx";
 const Header = () => {
   return (
-    <header className="bg-gray-800 w-full">
+    <header className="bg-negro w-full">
       <Navbar />
     </header>
   );

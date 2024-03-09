@@ -31,17 +31,17 @@ const Delete = () => {
         Borrar planificación
       </h1>
       <div className="mx-auto bg-white border border-[#DA1641] rounded-xl shadow-md shadow-[#DA1641] max-w-[920px] overflow-hidden">
-        <div className="flex flex-row items-center justify-around">
-          <div className="m-10 overflow-hidden w-1/2">
+        <div className="flex flex-col md:flex-row items-center justify-around">
+          <div className="m-10 overflow-hidden w-full md:w-1/2">
             <img
-              className="object-cover rounded-lg"
+              className="object-cover rounded-lg w-full"
               src={planning.image}
               alt={planning.alt}
               width={400}
               height={255}
             />
           </div>
-          <div className="px-4 py-4 flex flex-col w-1/2 text-center">
+          <div className="px-4 py-4 flex flex-col w-full md:w-1/2 text-center">
             <h2 className="font-Cardo font-bold text-3xl capitalize">
               {planning.title}
             </h2>

@@ -30,22 +30,22 @@ const HomePro = () => {
       <h1 className="font-Cardo uppercase text-3xl text-center my-6">
         Mis Planificaciones
       </h1>
-      <div className="flex flex-row justify-around items-center">
+      <div className="flex flex-col md:flex-row md:justify-around md:items-center">
         <Link
           to={`/profesionales/profile`}
-          className="ml-2 px-6 py-2 w-[250px] text-xl font-Roboto text-center tracking-wide text-white capitalize transition-colors duration-300 transform bg-[#DA1641] rounded-lg"
+          className="mb-2 md:mb-0 md:ml-2 px-6 py-2 w-full md:w-[250px] text-base md:text-xl font-Roboto text-center tracking-wide text-white capitalize transition-colors duration-300 transform bg-[#DA1641] rounded-lg"
         >
           Crear Perfil Publico
         </Link>
         <Link
           to={`/profesionales/profile/${perfil._id}`}
-          className="ml-2 px-6 py-2 w-[250px] text-xl font-Roboto text-center tracking-wide text-white capitalize transition-colors duration-300 transform bg-[#DA1641] rounded-lg"
+          className="mb-2 md:mb-0 md:ml-2 px-6 py-2 w-full md:w-[250px] text-base md:text-xl font-Roboto text-center tracking-wide text-white capitalize transition-colors duration-300 transform bg-[#DA1641] rounded-lg"
         >
           Ver Perfil Publico
         </Link>
         <Link
           to={"/profesionales/create"}
-          className="ml-2 px-6 py-2 w-[250px] text-xl font-Roboto text-center tracking-wide text-white capitalize transition-colors duration-300 transform bg-[#DA1641] rounded-lg"
+          className="mb-2 md:mb-0 md:ml-2 px-6 py-2 w-full md:w-[250px] text-base md:text-xl font-Roboto text-center tracking-wide text-white capitalize transition-colors duration-300 transform bg-[#DA1641] rounded-lg"
         >
           Crear Planificación
         </Link>

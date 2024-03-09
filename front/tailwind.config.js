@@ -25,6 +25,13 @@ export default {
         container: "15px",
         content: "12px",
       },
+      backgroundColor: {
+        rojo: "#DA1641",
+        blanco: "#F2F2F2",
+        gris: "#A6A6A6",
+        "gris-oscuro": "#595959",
+        negro: "#131211",
+      },
     },
   },
   plugins: [],

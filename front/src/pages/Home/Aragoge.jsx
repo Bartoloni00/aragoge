@@ -2,7 +2,7 @@ const Aragoge = () => {
   return (
     <>
       <section className="bg-[#f2f2f2] max-w-[1536px] mx-auto">
-        <div className="flex flex-col items-center md:flex-row w-full px-4 md:px-2">
+        <div className="flex flex-col items-center md:flex-row w-full">
           <div className="p-2 text-left w-full">
             <h1 className="font-Cardo text-3xl uppercase text-left mb-3">
               ARAGOGE
@@ -17,13 +17,14 @@ const Aragoge = () => {
               DESCUBRIR
             </button>
           </div>
-          <div className="md:w-full flex flex-col items-center justify-center">
+          <div className="md:w-full flex flex-col items-center justify-center aspect-w-16 aspect-h-9 sm:aspect-w-4 sm:aspect-h-3">
             <img
-              src="../../../public/img/atleta.webp"
+              src="../../../public/img/levantando-pesas.webp"
               alt="Hombre levantando pesas"
               width={800}
               height={450}
               loading="lazy"
+              className="w-full h-full object-contain"
             />
           </div>
         </div>
