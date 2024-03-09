@@ -40,7 +40,7 @@ const PlanificacionesCard = ({ planificaciones }) => {
               <div>
                 <p className="font-Roboto font-normal text-sm">
                   <i className="fa fa-users" aria-hidden="true"></i>{" "}
-                  <span>+{subscribers}</span> subscribers
+                  <span>+{subscribers}</span> Subscriptores
                 </p>
               </div>
               <div>

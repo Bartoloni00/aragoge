@@ -5,8 +5,9 @@ import { call } from "./http.service.js";
  *   - Objetivo: Obtener todas las planificaciones.
  *   - No recibe parámetros
  */
-export function getPlanifications() {
-  return call({ uri: `planning` });
+export function getPlanifications(filters) {
+  const queryParams = new URLSearchParams(filters).toString();
+  return call({ uri: `planning?${queryParams}` });
 }
 
 /**
@@ -60,13 +61,6 @@ export function createNewPlanification({
   alt,
   category,
 }) {
-  console.log(`Title: ${title}`);
-  console.log(`description: ${description}`);
-  console.log(`subscribers: ${subscribers}`);
-  console.log(`price: ${price}`);
-  console.log(`image: ${image}`);
-  console.log(`alt: ${alt}`);
-  console.log(`category: ${category}`);
   return call({
     uri: `planning/`,
     method: "POST",

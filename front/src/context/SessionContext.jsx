@@ -56,8 +56,6 @@ function SessionProvider({ children }) {
     const id = localStorage.getItem("id");
     if (id) {
       getProfileByID(id).then((perfil) => setPerfil(perfil));
-    } else {
-      console.log("El usuario no tiene cuenta o no está logueado");
     }
   }, []);
 

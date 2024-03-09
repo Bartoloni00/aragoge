@@ -31,7 +31,6 @@ export function logout() {
     method: "DELETE",
   })
     .then((response) => {
-      console.log("Respuesta de la solicitud de logout:", response);
       if (!response.ok || response.status === 422) {
         return response.json().then((error) => Promise.reject(error));
       }
@@ -73,6 +72,17 @@ export function editProfile({ id, name, lastname, email, image, alt, rol }) {
  */
 export function getProfileByID(id) {
   return call({ uri: `users/${id}`, method: "GET" });
+}
+
+/**
+ *   @returns {Promise} Promesa que representa el perfil del usuario.
+ *   @param {string} id - Identificador único del usuario.
+ *   @returns {Promise} Promesa que representa el perfil del usuario.
+ *   - Objetivo: Obtener perfil de usuario por ID.
+ *   - Recibe por parámetros el ID del usuario
+ */
+export function getProfessionalByID(id) {
+  return call({ uri: `profesional/${id}`, method: "GET" });
 }
 
 /**
@@ -149,4 +159,5 @@ export default {
   getProfileByID,
   createNewUser,
   createNewProfessional,
+  getProfessionalByID,
 };

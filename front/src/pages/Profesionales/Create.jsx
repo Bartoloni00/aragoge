@@ -8,7 +8,7 @@ const Create = () => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState(0);
-  const [image, setImage] = useState({ src: "https://picsum.photos/150/150" });
+  const [image, setImage] = useState({ src: "http://imgfz.com/i/tFCxrVo.png" });
   const [category, setCategory] = useState("crossfit");
   const [error, setError] = useState("");
 
@@ -49,7 +49,7 @@ const Create = () => {
   );
 
   const onChangeImage = (e) => {
-    setImage({ src: "https://picsum.photos/150/150" });
+    setImage({ src: "http://imgfz.com/i/tFCxrVo.png" });
   };
 
   const onChangeCategory = (e) => {
@@ -59,11 +59,11 @@ const Create = () => {
   const onSubmit = useCallback(
     (e) => {
       e.preventDefault();
-      console.log(`Title: ${title}`);
-      console.log(`description: ${description}`);
-      console.log(`price: ${price}`);
-      console.log(`image: ${image}`);
-      console.log(`category: ${category}`);
+      // console.log(`Title: ${title}`);
+      // console.log(`description: ${description}`);
+      // console.log(`price: ${price}`);
+      // console.log(`image: ${image}`);
+      // console.log(`category: ${category}`);
       createNewPlanification({
         title: title,
         description: description,

@@ -1,7 +1,7 @@
 import { useCallback, useState } from "react";
 import { usePerfil } from "../../context/SessionContext.jsx";
 import { useNavigate } from "react-router-dom";
-import { editProfile } from "../../services/auth.service.js";
+import { editProfile, logout } from "../../services/auth.service.js";
 useNavigate;
 const Perfil = () => {
   const perfil = usePerfil();
@@ -16,38 +16,23 @@ const Perfil = () => {
 
   const onChangeName = useCallback(
     (e) => {
-      if (e.target.value.trim() !== "") {
-        setError("");
-      } else {
-        setError("El nombre no puede estar vacío");
-      }
       setName(e.target.value);
     },
-    [setName, setError]
+    [setName]
   );
 
   const onChangeLastname = useCallback(
     (e) => {
-      if (e.target.value.trim() !== "") {
-        setError("");
-      } else {
-        setError("El apellido no puede estar vacío");
-      }
       setLastname(e.target.value);
     },
-    [setLastname, setError]
+    [setLastname]
   );
 
   const onChangeEmail = useCallback(
     (e) => {
-      if (e.target.value.trim() !== "") {
-        setError("");
-      } else {
-        setError("El email no puede estar vacío");
-      }
       setEmail(e.target.value);
     },
-    [setEmail, setError]
+    [setEmail]
   );
 
   const onChangeRol = (e) => {
@@ -74,6 +59,8 @@ const Perfil = () => {
     editProfile(updateProfile)
       .then((res) => {
         console.log(res);
+        logout();
+        navigate("/login", { replace: true });
       })
       .catch((err) => setError(err.error));
   };

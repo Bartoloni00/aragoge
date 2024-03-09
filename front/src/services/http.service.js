@@ -8,9 +8,9 @@
  *   - Recibe como parámetros la URI del endpoint, el método HTTP y el cuerpo de la solicitud.
  */
 export async function call({ uri, method = "GET", body = undefined }) {
-  console.log(`URI: ${uri}`);
-  console.log(`Method: ${method}`);
-  console.log(`Body: ${body}`);
+  // console.log(`URI: ${uri}`);
+  // console.log(`Method: ${method}`);
+  // console.log(`Body: ${body}`);
   return fetch(`http://localhost:3333/api/${uri}`, {
     headers: {
       "Auth-Token": localStorage.getItem("token"),

@@ -56,14 +56,14 @@ const Login = () => {
             <div className="flex items-center justify-center mt-6">
               <Link
                 to="/login"
-                className="w-1/3 pb-4 font-Roboto text-center text-base text-gray-800 capitalize border-b-2 border-[#DA1641]"
+                className="w-1/2 pb-4 font-Roboto text-center text-base text-gray-800 capitalize border-b-2 border-[#DA1641]"
               >
                 Iniciar Sesión
               </Link>
 
               <Link
                 to="/Register"
-                className="w-1/3 pb-4 font-Roboto text-center text-base text-gray-500 capitalize border-b dark:border-gray-400"
+                className="w-1/2 pb-4 font-Roboto text-center text-base text-gray-500 capitalize border-b dark:border-gray-400"
               >
                 Registrarse
               </Link>
@@ -131,7 +131,7 @@ const Login = () => {
                 to="/register"
                 className="text-lg font-Roboto text-[#DA1641] hover:underline"
               >
-                No tienes cuenta?
+                ¿No tienes cuenta?
               </Link>
             </div>
           </div>

@@ -66,16 +66,7 @@ export default function Register() {
   };
 
   const onChangeImage = (event) => {
-    const file = event.target.files[0];
-    const reader = new FileReader();
-
-    reader.onloadend = () => {
-      setImage({ src: reader.result });
-    };
-
-    if (file) {
-      reader.readAsDataURL(file);
-    }
+    setImage({ src: "https://picsum.photos/150/150" });
   };
 
   const onSubmit = (e) => {
@@ -111,14 +102,14 @@ export default function Register() {
             <div className="flex items-center justify-center mt-6">
               <Link
                 to={"/login"}
-                className="w-1/3 pb-4 font-Roboto text-center text-base text-gray-500 capitalize border-b dark:border-gray-400"
+                className="w-1/2 pb-4 font-Roboto text-center text-base text-gray-500 capitalize border-b dark:border-gray-400"
               >
                 Iniciar Sesión
               </Link>
 
               <Link
                 to={"/Register"}
-                className="w-1/3 pb-4 font-Roboto text-center text-base capitalize border-b-2 border-[#DA1641]"
+                className="w-1/2 pb-4 font-Roboto text-center text-base capitalize border-b-2 border-[#DA1641]"
               >
                 Registrarse
               </Link>
@@ -277,7 +268,7 @@ export default function Register() {
                 to={"/login"}
                 className="text-lg font-Roboto text-[#DA1641] hover:underline"
               >
-                Tienes cuenta?
+                ¿Tienes cuenta?
               </Link>
             </div>
           </div>
